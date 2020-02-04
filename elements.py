@@ -11,8 +11,8 @@ class Element:
 
 
 class Frame(Element):
-    def __init__(self, master, bg='grey24', height=800, width=1250):
-        self.element = tk.Frame(master=master, height=height, width=width, bg=bg)
+    def __init__(self, master, bg='grey24', height=800, width=1250, bd=0, relief=tk.FLAT):
+        self.element = tk.Frame(master=master, height=height, width=width, bg=bg, bd=bd, relief=relief)
         self.element.pack()
         super()
 
