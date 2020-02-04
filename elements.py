@@ -11,15 +11,15 @@ class Element:
 
 
 class Frame(Element):
-    def __init__(self, master, bg='grey24', height=800, width=1250, bd=0, relief=tk.FLAT):
+    def __init__(self, master, bg='#222831', height=800, width=1250, x=0, y=0, bd=0, relief=tk.FLAT, anchor=None):
         self.element = tk.Frame(master=master, height=height, width=width, bg=bg, bd=bd, relief=relief)
         self.element.pack()
-        super()
+        super().__init__(self.element, x=x, y=y, anchor=anchor)
 
 
 class Button(Element):
     def __init__(self, master, text, x, y, sequence='<Button-1>', width=10, height=2, func=None, font=None,
-                 bg='Gray90',
+                 bg='#00ADB5',
                  bd=4,
                  relief='raised',
                  anchor=None, animation=True):
