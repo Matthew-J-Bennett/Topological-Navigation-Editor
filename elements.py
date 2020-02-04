@@ -40,6 +40,6 @@ class Button(Element):
 
 
 class Label(Element):
-    def __init__(self, master, text, x, y, width=None, bg='white', font=None, anchor=None):
-        self.element = tk.Label(master=master, bg=bg, text=text, font=font, width=width)
+    def __init__(self, master, text, x, y, width=None,height=None, bg='white', font=None, anchor=None,image=None):
+        self.element = tk.Label(master=master, bg=bg, text=text, font=font, width=width,height=height,image=image)
         super().__init__(self.element, x=x, y=y, anchor=anchor)
