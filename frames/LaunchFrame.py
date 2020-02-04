@@ -1,3 +1,5 @@
+from tkinter import filedialog
+
 import elements
 import frames
 
@@ -14,6 +16,13 @@ class LaunchFrame:
                                                                                        new_frame=lambda: frames.MainFrame(
                                                                                            master=self.master)))
 
+        import_button = elements.Button(master=master.master, x=10, y=40, text="Import Files", width=20,
+                                        func=lambda: self.getimportfilename())
+
         if not self.master.launched:
             self.logging.info("Creating Launch Frame")
             self.window.mainloop()
+
+    def getimportfilename(self):
+        self.master.filename = filedialog.asksaveasfilename(initialdir="/", title="Select file",
+                                                            filetypes=(("jpeg files", "*.jpg"), ("all files", "*.*")))
