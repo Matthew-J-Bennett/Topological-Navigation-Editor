@@ -19,6 +19,8 @@ class LaunchFrame:
         import_button = elements.Button(master=master.master, x=10, y=40, text="Import Files", width=20,
                                         func=lambda: self.getimportfilename())
 
+        temp_save_button = elements.Button(master=master.master, x=10, y=90, text="Save Files", width=20)
+
         if not self.master.launched:
             self.logging.info("Creating Launch Frame")
             self.window.mainloop()
