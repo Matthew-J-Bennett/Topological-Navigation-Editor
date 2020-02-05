@@ -6,6 +6,8 @@ import yaml
 import PIL
 from PIL import Image
 import os
+import shutil
+from shutil import copy2
 
 
 class LaunchFrame:
@@ -55,10 +57,14 @@ class LaunchFrame:
             elif Path(x).suffix == ".tmap" and self.master.files[1] == "":
                 self.master.files[1] = x
                 print("TMAP file imported: ", x, "\n")
+                copy2(self.master.files[1], 'tempDir')
+                print("TMAP file saved to temporary directory. \n")
                 numfiles += 1
             elif Path(x).suffix == ".yaml" and self.master.files[2] == "":
                 self.master.files[2] = x
                 print("YAML file imported: ", x, "\n")
+                copy2(self.master.files[2], 'tempDir')
+                print("YAML file saved to temporary directory. \n")
                 numfiles += 1
             else:
                 print("Invalid file type selected: ", x, "\n")
@@ -72,7 +78,6 @@ class LaunchFrame:
         with open(self.master.files[2]) as file:
             self.master.yamldata = yaml.load(file, Loader=yaml.FullLoader)
             print(self.master.yamldata)
-            print(self.master.yamldata.get("resolution"))
 
     def readpgm(self):
         image = PIL.Image.open(self.master.files[0])
