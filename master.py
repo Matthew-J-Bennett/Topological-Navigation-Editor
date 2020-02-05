@@ -1,5 +1,6 @@
 import tkinter as tk
 import frames as frame
+from tkinter import Menu
 
 
 class Master:
@@ -13,6 +14,12 @@ class Master:
         self.master.geometry('{}x{}'.format(self.window_width, self.window_height))
         self.launched = False
         self.logger.info("Window Created")
+
+        menubar = Menu(self.master)
+        filemenu = Menu(menubar, tearoff=0)
+        menubar.add_cascade(label="File", menu=filemenu)
+        filemenu.add_command(label="Quit", command=lambda: self.master.quit())
+        self.master.config(menu=menubar)
 
     @staticmethod
     def frame_swap(old_frame, new_frame):

@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import PhotoImage
 
 
 class Element:
@@ -47,4 +48,14 @@ class Label(Element):
                                 height=height,
                                 image=image,
                                 fg=fg)
+        super().__init__(self.element, x=x, y=y, anchor=anchor)
+
+
+class Photo(Element):
+    def __init__(self, master, x, y, imgpath, width=None, height=None, bg="#222831", bd=0, relief=tk.FLAT,
+                 anchor=None):
+        self.image = PhotoImage(file=imgpath)
+        self.element = tk.Label(master=master, bg=bg, bd=bd, relief=relief, width=width,
+                                height=height,
+                                image=self.image)
         super().__init__(self.element, x=x, y=y, anchor=anchor)
