@@ -1,4 +1,4 @@
-from tkinter import filedialog, messagebox, PhotoImage
+from tkinter import filedialog, messagebox
 import tkinter as tk
 import elements
 import frames
