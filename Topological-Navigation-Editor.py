@@ -2,6 +2,12 @@ import master
 import logging
 import time
 import os
+import sys
+
+
+def execp_handler(type, value, tb):
+    logger.exception("Exception: {}".format(value))
+
 
 if __name__ == "__main__":
 
@@ -17,5 +23,7 @@ if __name__ == "__main__":
     logger.addHandler(handler2)
     logger.setLevel(logging.DEBUG)
     logger.info('{}'.format(time.asctime()))
+
+    sys.excepthook = execp_handler
 
     master.launch(logger)

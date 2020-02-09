@@ -52,9 +52,9 @@ class LaunchFrame:
 
         try:
             os.mkdir(dirName)
-            print("Directory ", dirName, " Created")
+            self.logging.info("Directory {} Created".format(dirName))
         except FileExistsError:
-            print("Directory ", dirName, " already exists")
+            self.logging.info("Directory {} already exists".format(dirName))
 
         self.master.filenames = filedialog.askopenfilenames(initialdir="/", title="Select file",
                                                             filetypes=(
@@ -65,41 +65,44 @@ class LaunchFrame:
             self.readyaml()
             self.readpgm()
 
-    def setfilenames(self):
-        self.master.files = ["", "", ""]
-        numfiles = 0
-        for x in self.master.filenames:
-            if Path(x).suffix == ".pgm" and self.master.files[0] == "":
-                self.master.files[0] = x
-                print("PGM file imported: ", x, "\n")
-                numfiles += 1
-            elif Path(x).suffix == ".tmap" and self.master.files[1] == "":
-                self.master.files[1] = x
-                print("TMAP file imported: ", x, "\n")
-                copy2(self.master.files[1], 'tempDir')
-                print("TMAP file saved to temporary directory. \n")
-                numfiles += 1
-            elif Path(x).suffix == ".yaml" and self.master.files[2] == "":
-                self.master.files[2] = x
-                print("YAML file imported: ", x, "\n")
-                copy2(self.master.files[2], 'tempDir')
-                print("YAML file saved to temporary directory. \n")
-                numfiles += 1
-            else:
-                print("Invalid file type selected: ", x, "\n")
-        if numfiles != 3:
-            print("Not all files selected. Please select again.")
-            return 0
+
+def setfilenames(self):
+    self.master.files = ["", "", ""]
+    numfiles = 0
+    for x in self.master.filenames:
+        if Path(x).suffix == ".pgm" and self.master.files[0] == "":
+            self.master.files[0] = x
+            self.logging.info("PGM file imported: ".format(x))
+            numfiles += 1
+        elif Path(x).suffix == ".tmap" and self.master.files[1] == "":
+            self.master.files[1] = x
+            self.logging.info("TMAP file imported: {}".format(x))
+            copy2(self.master.files[1], 'tempDir')
+            self.logging.info("TMAP file saved to temporary directory.")
+            numfiles += 1
+        elif Path(x).suffix == ".yaml" and self.master.files[2] == "":
+            self.master.files[2] = x
+            self.logging.info("YAML file imported: {}".format(x))
+            copy2(self.master.files[2], 'tempDir')
+            self.logging.info("YAML file saved to temporary directory.")
+            numfiles += 1
         else:
-            return 1
+            self.logging.info("Invalid file type selected: {}".format(x))
+    if numfiles != 3:
+        self.logging.info("Not all files selected. Please select again.")
+        return 0
+    else:
+        return 1
 
-    def readyaml(self):
-        with open(self.master.files[2]) as file:
-            self.master.yamldata = yaml.load(file, Loader=yaml.FullLoader)
-            print(self.master.yamldata)
 
-    def readpgm(self):
-        image = PIL.Image.open(self.master.files[0])
-        rgb_im = image.convert('RGB')
-        rgb_im.save('tempDir\map.jpg')
-        print(".pgm successful converted to .jpg.")
+def readyaml(self):
+    with open(self.master.files[2]) as file:
+        self.master.yamldata = yaml.load(file, Loader=yaml.FullLoader)
+        self.logging.info(self.master.yamldata)
+
+
+def readpgm(self):
+    image = PIL.Image.open(self.master.files[0])
+    rgb_im = image.convert('RGB')
+    rgb_im.save('tempDir\map.jpg')
+    self.logging.info(".pgm successful converted to .jpg.")
