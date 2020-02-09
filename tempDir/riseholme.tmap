@@ -1,0 +1,6692 @@
+- meta:
+    map: riseholme
+    node: WayPoint1
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint1_WayPoint2
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint2
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint1
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0237836781889
+        x: -1.67063330991e-06
+        y: 4.6610125537e-06
+        z: 0.999717235565
+      position:
+        x: 25.768
+        y: 36.4117777778
+        z: 1.65918641401e-05
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint10
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint10_WayPoint11
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint11
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint10_WayPoint9
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint9
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint10
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.000756916066166
+        x: -3.30434932039e-06
+        y: -4.35643187302e-06
+        z: 0.999999701977
+      position:
+        x: 43.889
+        y: 36.566
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint100
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint100_WayPoint101
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint101
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint100
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999723911285
+        x: 2.82834111687e-08
+        y: -5.26442578419e-09
+        z: -0.0235010199249
+      position:
+        x: 41.083
+        y: 46.11966666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint101
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint101_WayPoint84
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint84
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint101
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.707474768162
+        x: 2.88345560762e-08
+        y: -9.43189348845e-09
+        z: -0.706738710403
+      position:
+        x: 44.518
+        y: 45.873666666666665
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint102
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint102_WayPoint103
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint103
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint102
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999215245247
+        x: 1.53819657012e-09
+        y: -3.00829094968e-09
+        z: -0.039609555155
+      position:
+        x: 20.639
+        y: 48.873666666666665
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint103
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint103_WayPoint104
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint104
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint103
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999285459518
+        x: 1.57049773186e-09
+        y: -5.53424506222e-09
+        z: -0.0377963446081
+      position:
+        x: 23.639
+        y: 48.647666666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint104
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint104_WayPoint105
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint105
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint104
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.998592495918
+        x: 2.61335642016e-09
+        y: -3.25074012153e-09
+        z: -0.0530380681157
+      position:
+        x: 26.604
+        y: 48.42166666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint105
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint105_WayPoint106
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint106
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint105
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999154746532
+        x: 1.63014002297e-09
+        y: -4.14550793693e-09
+        z: -0.0411073826253
+      position:
+        x: 29.616
+        y: 48.21066666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint106
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint106_WayPoint107
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint107
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint106
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999250054359
+        x: 1.86570137117e-09
+        y: -5.04856512151e-09
+        z: -0.038721229881
+      position:
+        x: 32.612
+        y: 48.01566666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint107
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint107_WayPoint108
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint108
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint107
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.99954277277
+        x: 1.53338086673e-09
+        y: -4.08512423888e-09
+        z: -0.0302362088114
+      position:
+        x: 35.604
+        y: 47.82266666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint108
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint108_WayPoint109
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint109
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint108
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999299943447
+        x: 1.74380709872e-09
+        y: -4.4564041346e-09
+        z: -0.0374140329659
+      position:
+        x: 38.468
+        y: 47.63966666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint109
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint109_WayPoint110
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint110
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint109
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999457359314
+        x: 1.5770823536e-09
+        y: -3.20686144306e-09
+        z: -0.0329386368394
+      position:
+        x: 41.164
+        y: 47.459666666666664
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint11
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint11_WayPoint12
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint12
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint11
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0018698873464
+        x: -4.68142928867e-07
+        y: -1.11718225071e-06
+        z: -0.999998271465
+      position:
+        x: 40.444
+        y: 36.8007777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint110
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint110_WayPoint119
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint119
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint110
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.708875238895
+        x: -3.62899434947e-08
+        y: -9.87765758076e-10
+        z: 0.705333948135
+      position:
+        x: 44.596
+        y: 47.217666666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint111
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint111_WayPoint132
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint132
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint111
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00808424595743
+        x: 4.19372327087e-07
+        y: 2.67410996457e-07
+        z: -0.999967336655
+      position:
+        x: 20.734
+        y: 50.20066666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint112
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint112_WayPoint111
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint111
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint112
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0127752153203
+        x: -5.59580781712e-09
+        y: 2.61224613496e-07
+        z: 0.999918460846
+      position:
+        x: 23.73
+        y: 49.98166666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint113
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint113_WayPoint112
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint112
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint113
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0326162315905
+        x: 7.53178071022e-08
+        y: 1.3052272152e-07
+        z: -0.999467968941
+      position:
+        x: 26.705
+        y: 49.76466666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint114
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint114_WayPoint113
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint113
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint114
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00534229585901
+        x: 1.51165536977e-07
+        y: 6.22782522441e-07
+        z: -0.99998575449
+      position:
+        x: 29.691
+        y: 49.55766666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint115
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint115_WayPoint114
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint114
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint115
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00568662490696
+        x: 1.36291182784e-08
+        y: 5.39321035831e-07
+        z: 0.999983847141
+      position:
+        x: 32.688
+        y: 49.35366666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint116
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint116_WayPoint115
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint115
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint116
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -6.15399330854e-05
+        x: -5.04483956831e-08
+        y: 1.60501116397e-07
+        z: 1.0
+      position:
+        x: 35.701
+        y: 49.154666666666664
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint117
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint117_WayPoint116
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint116
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint117
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0199096482247
+        x: 2.37382167256e-08
+        y: 2.84452653432e-07
+        z: 0.999801874161
+      position:
+        x: 38.557
+        y: 48.96966666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint118
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint118_WayPoint117
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint117
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint118
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0139491828158
+        x: 9.04328700813e-08
+        y: 1.82642679647e-07
+        z: -0.99990272522
+      position:
+        x: 41.254
+        y: 48.79066666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint119
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint119_WayPoint118
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint118
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint119_WayPoint120
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint120
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint119
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0238604433835
+        x: 5.32638253503e-08
+        y: 1.91247821135e-07
+        z: -0.999715387821
+      position:
+        x: 44.685
+        y: 48.54866666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint12
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint12_WayPoint13
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint13
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint12
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00433810055256
+        x: 7.89666358969e-08
+        y: 2.95303578923e-07
+        z: 0.999990582466
+      position:
+        x: 37.731
+        y: 36.9527777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint120
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint120_WayPoint121
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint121
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint120
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00214390782639
+        x: 5.94807616494e-08
+        y: 1.25161477627e-06
+        z: -0.999997615814
+      position:
+        x: 44.774
+        y: 49.88366666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint121
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint121_WayPoint122
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint122
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint121
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0437434092164
+        x: -4.99178938185e-08
+        y: 5.74632856853e-08
+        z: 0.99904280901
+      position:
+        x: 41.343
+        y: 50.123666666666665
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint122
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint122_WayPoint123
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint123
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint122
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0399835184216
+        x: -5.74811132026e-08
+        y: 5.43986864443e-08
+        z: 0.999200344086
+      position:
+        x: 38.65
+        y: 50.30166666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint123
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint123_WayPoint124
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint124
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint123
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.035560566932
+        x: -6.47146762844e-08
+        y: 7.33274845288e-08
+        z: 0.99936747551
+      position:
+        x: 35.797
+        y: 50.483666666666664
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint124
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint124_WayPoint125
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint125
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint124
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0200522020459
+        x: 4.91817999659e-08
+        y: 4.40334702034e-08
+        z: -0.999798953533
+      position:
+        x: 32.776
+        y: 50.678666666666665
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint125
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint125_WayPoint126
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint126
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint125
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0207235850394
+        x: 1.03070611601e-07
+        y: -4.74967663422e-07
+        z: -0.99978530407
+      position:
+        x: 29.783
+        y: 50.879666666666665
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint126
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint126_WayPoint127
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint127
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint126
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0126058561727
+        x: 2.08160145121e-07
+        y: -1.67940299889e-06
+        z: -0.999920606613
+      position:
+        x: 26.798
+        y: 51.08566666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint127
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint127_WayPoint128
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint128
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint127
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0290221013129
+        x: -6.15434316842e-08
+        y: 1.0566200217e-06
+        z: -0.999578773975
+      position:
+        x: 23.82
+        y: 51.30166666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint128
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint128_WayPoint131
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint131
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint128
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0438285209239
+        x: -5.38284155027e-08
+        y: 2.03543891075e-07
+        z: 0.999039173126
+      position:
+        x: 20.829
+        y: 51.52066666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint13
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint13_WayPoint14
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint14
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint13
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.000165712059243
+        x: 6.12817245838e-08
+        y: 1.59757817642e-07
+        z: -1.0
+      position:
+        x: 34.85
+        y: 37.1337777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint131
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint131_WayPoint67
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint67
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint131_WayPoint73
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint73
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint131_WayPoint74
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint74
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint131
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.388745754957
+        x: -3.69112953535e-08
+        y: -2.50849041095e-07
+        z: 0.921345055103
+      position:
+        x: 17.899
+        y: 51.720666666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint132
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint132_WayPoint67
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint67
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint132_WayPoint73
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint73
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint132_WayPoint74
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint74
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint132
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00742003321648
+        x: -6.56231122775e-08
+        y: 7.62667617948e-09
+        z: 0.999972581863
+      position:
+        x: 17.803
+        y: 50.40266666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint133
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint133_WayPoint102
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint102
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint133_WayPoint67
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint67
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint133_WayPoint73
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint73
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint133_WayPoint74
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint74
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint133
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999989569187
+        x: 3.41470247633e-08
+        y: -1.07760034229e-09
+        z: -0.00458851503208
+      position:
+        x: 17.707
+        y: 49.07566666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint134
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint134_WayPoint93
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint93
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint134_WayPoint67
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint67
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint134_WayPoint73
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint73
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint134_WayPoint74
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint74
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint134
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.99998486042
+        x: 4.1951619778e-07
+        y: 1.51667620685e-08
+        z: 0.00550031615421
+      position:
+        x: 17.604
+        y: 47.76866666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint138
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint138_WayPoint67
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint67
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint138_WayPoint73
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint73
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint138_WayPoint74
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint74
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint138
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.442344725132
+        x: -5.06007218348e-08
+        y: 3.54384660506e-10
+        z: 0.89684510231
+      position:
+        x: 17.515
+        y: 46.44766666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint139
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint139_WayPoint67
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint67
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint139_WayPoint73
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint73
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint139_WayPoint74
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint74
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint139
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999938130379
+        x: 7.50608963873e-10
+        y: 4.64825990198e-11
+        z: -0.0111324097961
+      position:
+        x: 17.419
+        y: 45.129666666666665
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint14
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint14_WayPoint15
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint15
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint14
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0161987747997
+        x: -3.32145830839e-08
+        y: 6.71169573252e-08
+        z: 0.999868810177
+      position:
+        x: 31.864
+        y: 37.3377777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint140
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint140_WayPoint74
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint74
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint140_WayPoint141
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint141
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint140
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 1.0
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 12.15
+        y: 46.05
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.689999997616
+    - x: -0.287000000477
+      y: 0.689999997616
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.689999997616
+    - x: 0.287000000477
+      y: -0.689999997616
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint141
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint141_WayPoint73
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint73
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint141_WayPoint140
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint140
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint141
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 1.0
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 12.3
+        y: 48.6
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.689999997616
+    - x: -0.287000000477
+      y: 0.689999997616
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.689999997616
+    - x: 0.287000000477
+      y: -0.689999997616
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint15
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint15_WayPoint16
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint16
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint15
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0101956585422
+        x: -2.90677135695e-08
+        y: -1.59799839139e-07
+        z: -0.99994802475
+      position:
+        x: 28.869
+        y: 37.5377777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint16
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint16_WayPoint17
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint17
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint16
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0205708257854
+        x: 3.01786187151e-08
+        y: 1.99683199753e-07
+        z: 0.999788403511
+      position:
+        x: 25.861
+        y: 37.7467777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint17
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint17_WayPoint18
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint18
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint17
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00124818854965
+        x: 7.08405934802e-07
+        y: 2.72842385129e-06
+        z: 0.99999922514
+      position:
+        x: 22.839
+        y: 37.9527777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint18
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint18_WayPoint64
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint64
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint18
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0214244574308
+        x: -3.5907607554e-08
+        y: 8.40320808493e-08
+        z: 0.999770462513
+      position:
+        x: 19.825
+        y: 38.1697777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint19
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint19_WayPoint20
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint20
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint19
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.999226629734
+        x: -4.90274089771e-07
+        y: 7.85364164813e-08
+        z: 0.039321064949
+      position:
+        x: 19.938
+        y: 39.5047777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint2
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint2_WayPoint6
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint6
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint2
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0090204551816
+        x: 1.37361283237e-07
+        y: 5.38505446457e-07
+        z: 0.999959349632
+      position:
+        x: 22.738
+        y: 36.6157777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint20
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint20_WayPoint21
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint21
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint20
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.999849915504
+        x: 3.79741038614e-07
+        y: 4.33454871995e-09
+        z: 0.0173252765089
+      position:
+        x: 22.939
+        y: 39.2907777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint21
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint21_WayPoint22
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint22
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint21
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999714314938
+        x: 1.79631092578e-06
+        y: -1.92730681192e-07
+        z: -0.0239006560296
+      position:
+        x: 25.945
+        y: 39.0807777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint22
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint22_WayPoint23
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint23
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint22
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.998037338257
+        x: 1.18591238163e-07
+        y: -2.79005529791e-08
+        z: 0.0626218691468
+      position:
+        x: 28.96
+        y: 38.8777777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint23
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint23_WayPoint24
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint24
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint23
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.999365389347
+        x: 5.3351607221e-07
+        y: -2.33004744388e-08
+        z: 0.0356193855405
+      position:
+        x: 31.975
+        y: 38.6787777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint24
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint24_WayPoint25
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint25
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint24
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.998269796371
+        x: 1.18567150764e-07
+        y: -6.35658903292e-09
+        z: 0.0587996467948
+      position:
+        x: 34.959
+        y: 38.4707777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint25
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint25_WayPoint26
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint26
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint25
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.999355077744
+        x: 4.05348501431e-08
+        y: -2.19269935542e-10
+        z: 0.0359082855284
+      position:
+        x: 37.814
+        y: 38.2877777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint26
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint26_WayPoint27
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint27
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint26
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999723911285
+        x: 2.82834111687e-08
+        y: -5.26442578419e-09
+        z: -0.0235010199249
+      position:
+        x: 40.513
+        y: 38.1317777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint27
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint27_WayPoint10
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint10
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint27
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.707474768162
+        x: 2.88345560762e-08
+        y: -9.43189348845e-09
+        z: -0.706738710403
+      position:
+        x: 43.953
+        y: 37.896
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint28
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint28_WayPoint29
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint29
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint28
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999215245247
+        x: 1.53819657012e-09
+        y: -3.00829094968e-09
+        z: -0.039609555155
+      position:
+        x: 20.046
+        y: 40.8347777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint29
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint29_WayPoint30
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint30
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint29
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999285459518
+        x: 1.57049773186e-09
+        y: -5.53424506222e-09
+        z: -0.0377963446081
+      position:
+        x: 23.037
+        y: 40.6367777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint3
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint3_WayPoint4
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint4
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint3
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0405681878328
+        x: 7.97431596311e-08
+        y: -2.35042648455e-07
+        z: -0.999176681042
+      position:
+        x: 34.75
+        y: 35.8027777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint30
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint30_WayPoint31
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint31
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint30
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.998592495918
+        x: 2.61335642016e-09
+        y: -3.25074012153e-09
+        z: -0.0530380681157
+      position:
+        x: 26.047
+        y: 40.4227777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint31
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint31_WayPoint32
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint32
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint31
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999154746532
+        x: 1.63014002297e-09
+        y: -4.14550793693e-09
+        z: -0.0411073826253
+      position:
+        x: 29.071
+        y: 40.2187777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint32
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint32_WayPoint33
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint33
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint32
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999250054359
+        x: 1.86570137117e-09
+        y: -5.04856512151e-09
+        z: -0.038721229881
+      position:
+        x: 32.083
+        y: 40.0157777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint33
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint33_WayPoint34
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint34
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint33
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.99954277277
+        x: 1.53338086673e-09
+        y: -4.08512423888e-09
+        z: -0.0302362088114
+      position:
+        x: 35.06
+        y: 39.8067777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint34
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint34_WayPoint35
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint35
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint34
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999299943447
+        x: 1.74380709872e-09
+        y: -4.4564041346e-09
+        z: -0.0374140329659
+      position:
+        x: 37.904
+        y: 39.6267777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint35
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint35_WayPoint36
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint36
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint35
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999457359314
+        x: 1.5770823536e-09
+        y: -3.20686144306e-09
+        z: -0.0329386368394
+      position:
+        x: 40.611
+        y: 39.4567777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint36
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint36_WayPoint45
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint45
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint36
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.708875238895
+        x: -3.62899434947e-08
+        y: -9.87765758076e-10
+        z: 0.705333948135
+      position:
+        x: 44.049
+        y: 39.22
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint37
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint37_WayPoint58
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint58
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint37
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00808424595743
+        x: 4.19372327087e-07
+        y: 2.67410996457e-07
+        z: -0.999967336655
+      position:
+        x: 20.151
+        y: 42.1727777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint38
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint38_WayPoint37
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint37
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint38
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0127752153203
+        x: -5.59580781712e-09
+        y: 2.61224613496e-07
+        z: 0.999918460846
+      position:
+        x: 23.143
+        y: 41.9637777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint39
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint39_WayPoint38
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint38
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint39
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0326162315905
+        x: 7.53178071022e-08
+        y: 1.3052272152e-07
+        z: -0.999467968941
+      position:
+        x: 26.137
+        y: 41.7537777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint4
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint4_WayPoint5
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint5
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint4
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00123305059969
+        x: 5.6524701364e-08
+        y: -3.6940016912e-07
+        z: -0.999999165535
+      position:
+        x: 31.762
+        y: 36.0037777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint40
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint40_WayPoint39
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint39
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint40
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00534229585901
+        x: 1.51165536977e-07
+        y: 6.22782522441e-07
+        z: -0.99998575449
+      position:
+        x: 29.155
+        y: 41.5487777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint41
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint41_WayPoint40
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint40
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint41
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00568662490696
+        x: 1.36291182784e-08
+        y: 5.39321035831e-07
+        z: 0.999983847141
+      position:
+        x: 32.171
+        y: 41.3377777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint42
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint42_WayPoint41
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint41
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint42
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -6.15399330854e-05
+        x: -5.04483956831e-08
+        y: 1.60501116397e-07
+        z: 1.0
+      position:
+        x: 35.151
+        y: 41.1267777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint43
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint43_WayPoint42
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint42
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint43
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0199096482247
+        x: 2.37382167256e-08
+        y: 2.84452653432e-07
+        z: 0.999801874161
+      position:
+        x: 38.005
+        y: 40.9377777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint44
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint44_WayPoint43
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint43
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint44
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0139491828158
+        x: 9.04328700813e-08
+        y: 1.82642679647e-07
+        z: -0.99990272522
+      position:
+        x: 40.725
+        y: 40.7557777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint45
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint45_WayPoint44
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint44
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint45_WayPoint46
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint46
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint45
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0238604433835
+        x: 5.32638253503e-08
+        y: 1.91247821135e-07
+        z: -0.999715387821
+      position:
+        x: 44.164
+        y: 40.514
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint46
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint46_WayPoint47
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint47
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint46
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00214390782639
+        x: 5.94807616494e-08
+        y: 1.25161477627e-06
+        z: -0.999997615814
+      position:
+        x: 44.255
+        y: 41.83
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint47
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint47_WayPoint48
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint48
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint47
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0437434092164
+        x: -4.99178938185e-08
+        y: 5.74632856853e-08
+        z: 0.99904280901
+      position:
+        x: 40.819
+        y: 42.0747777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint48
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint48_WayPoint49
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint49
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint48
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0399835184216
+        x: -5.74811132026e-08
+        y: 5.43986864443e-08
+        z: 0.999200344086
+      position:
+        x: 38.096
+        y: 42.2667777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint49
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint49_WayPoint50
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint50
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint49
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.035560566932
+        x: -6.47146762844e-08
+        y: 7.33274845288e-08
+        z: 0.99936747551
+      position:
+        x: 35.252
+        y: 42.4577777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint5
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint5_WayPoint1
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint1
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint5
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0181193761528
+        x: -4.25237693946e-08
+        y: 5.10004802834e-08
+        z: 0.999835848808
+      position:
+        x: 28.774
+        y: 36.2007777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint50
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint50_WayPoint51
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint51
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint50
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0200522020459
+        x: 4.91817999659e-08
+        y: 4.40334702034e-08
+        z: -0.999798953533
+      position:
+        x: 32.273
+        y: 42.6707777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint51
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint51_WayPoint52
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint52
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint51
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0207235850394
+        x: 1.03070611601e-07
+        y: -4.74967663422e-07
+        z: -0.99978530407
+      position:
+        x: 29.25
+        y: 42.8867777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint52
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint52_WayPoint53
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint53
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint52
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0126058561727
+        x: 2.08160145121e-07
+        y: -1.67940299889e-06
+        z: -0.999920606613
+      position:
+        x: 26.23
+        y: 43.0887777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint53
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint53_WayPoint54
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint54
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint53
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0290221013129
+        x: -6.15434316842e-08
+        y: 1.0566200217e-06
+        z: -0.999578773975
+      position:
+        x: 23.244
+        y: 43.3007777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint54
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint54_WayPoint57
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint57
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint54
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0438285209239
+        x: -5.38284155027e-08
+        y: 2.03543891075e-07
+        z: 0.999039173126
+      position:
+        x: 20.26
+        y: 43.5067777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint56
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint56_WayPoint59
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint59
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint56_WayPoint60
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint60
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint56_WayPoint63
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint63
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint56_WayPoint66
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint66
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint56_WayPoint65
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint65
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint56_WayPoint64
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint64
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint56_WayPoint58
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint58
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint56_WayPoint57
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint57
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint56
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 1.0
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 13.518
+        y: 40.136
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.689999997616
+    - x: -0.287000000477
+      y: 0.689999997616
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.689999997616
+    - x: 0.287000000477
+      y: -0.689999997616
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint57
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint57_WayPoint56
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint56
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint57_WayPoint63
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint63
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint57_WayPoint66
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint66
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint57
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.388745754957
+        x: -3.69112953535e-08
+        y: -2.50849041095e-07
+        z: 0.921345055103
+      position:
+        x: 17.323
+        y: 43.7117777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint58
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint58_WayPoint56
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint56
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint58_WayPoint63
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint63
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint58_WayPoint66
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint66
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint58
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.435908526182
+        x: -6.32912460219e-08
+        y: 5.78446579524e-09
+        z: 0.899991095066
+      position:
+        x: 17.212
+        y: 42.3747777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint59
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint59_WayPoint28
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint28
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint59_WayPoint63
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint63
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint59_WayPoint56
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint56
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint59_WayPoint66
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint66
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint59
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999989569187
+        x: 3.41470247633e-08
+        y: -1.07760034229e-09
+        z: -0.00458851503208
+      position:
+        x: 17.108
+        y: 41.0317777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint6
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint6_WayPoint65
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint65
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint6
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0201251916587
+        x: 9.70694955527e-08
+        y: 1.01766076455e-07
+        z: -0.999797523022
+      position:
+        x: 19.716
+        y: 36.8357777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint60
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint60_WayPoint19
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint19
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint60_WayPoint63
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint63
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint60_WayPoint56
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint56
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint60_WayPoint66
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint66
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint60
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.99998486042
+        x: 4.1951619778e-07
+        y: 1.51667620685e-08
+        z: 0.00550031615421
+      position:
+        x: 16.998
+        y: 39.7007777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint63
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint63_WayPoint59
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint59
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint63_WayPoint60
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint60
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint63_WayPoint56
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint56
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint63_WayPoint65
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint65
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint63_WayPoint64
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint64
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint63_WayPoint58
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint58
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint63_WayPoint57
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint57
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint63
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 1.0
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 13.363
+        y: 37.181
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.689999997616
+    - x: -0.287000000477
+      y: 0.689999997616
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.689999997616
+    - x: 0.287000000477
+      y: -0.689999997616
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint64
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint64_WayPoint56
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint56
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint64_WayPoint63
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint63
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint64_WayPoint66
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint66
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint64
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.442344725132
+        x: -5.06007218348e-08
+        y: 3.54384660506e-10
+        z: 0.89684510231
+      position:
+        x: 16.88
+        y: 38.3657777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint65
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint65_WayPoint56
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint56
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint65_WayPoint63
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint63
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint65_WayPoint66
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint66
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint65
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999938130379
+        x: 7.50608963873e-10
+        y: 4.64825990198e-11
+        z: -0.0111324097961
+      position:
+        x: 16.769
+        y: 37.0287777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint66
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint66_WayPoint59
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint59
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint66_WayPoint60
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint60
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint66_WayPoint56
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint56
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint66_WayPoint74
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint74
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint66_WayPoint65
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint65
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint66_WayPoint64
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint64
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint66_WayPoint58
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint58
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint66_WayPoint58_000
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint58
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint66_WayPoint57
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint57
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint66
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 1.0
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 13.672
+        y: 43.083
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.689999997616
+    - x: -0.287000000477
+      y: 0.689999997616
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.689999997616
+    - x: 0.287000000477
+      y: -0.689999997616
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint67
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint67_WayPoint68
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint68
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint67_WayPoint73
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint73
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint67_WayPoint131
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint131
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint67_WayPoint132
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint132
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint67_WayPoint133
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint133
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint67_WayPoint134
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint134
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint67_WayPoint138
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint138
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint67_WayPoint139
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint139
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint67
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 1.0
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 14.138
+        y: 51.481
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.689999997616
+    - x: -0.287000000477
+      y: 0.689999997616
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.689999997616
+    - x: 0.287000000477
+      y: -0.689999997616
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint68
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint68_WayPoint67
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint67
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint68_WayPoint69
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint69
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint68
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 1.0
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 6.228
+        y: 54.08
+        z: 0.0
+    verts:
+    - x: 1.14424562454
+      y: 0.140581056476
+    - x: 0.287000000477
+      y: 0.689999997616
+    - x: -0.287000000477
+      y: 0.689999997616
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.0904550850391
+      y: -1.25599491596
+    - x: 0.701017856598
+      y: -1.23890507221
+    - x: 1.19902324677
+      y: -0.752370893955
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint69
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint69_WayPoint68
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint68
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint69_WayPoint70
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint70
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint69_WayPoint71
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint71
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint69_WayPoint72
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint72
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint69
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.70710678
+        x: 0.0
+        y: 0.0
+        z: 0.70710678
+      position:
+        x: 5.8197
+        y: 47.711
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.689999997616
+    - x: -0.287000000477
+      y: 0.689999997616
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.689999997616
+    - x: 0.287000000477
+      y: -0.689999997616
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint7
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint7_WayPoint3
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint3
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint7
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.057000067085
+        x: -4.02193904847e-08
+        y: 8.02770614428e-08
+        z: 0.998374283314
+      position:
+        x: 37.64
+        y: 35.6237777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint70
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint70_WayPoint69
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint69
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint70
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.70710678
+        x: 0.0
+        y: 0.0
+        z: 0.70710678
+      position:
+        x: 7.9433
+        y: 44.149
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.689999997616
+    - x: -0.287000000477
+      y: 0.689999997616
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.689999997616
+    - x: 0.287000000477
+      y: -0.689999997616
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint71
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint71_WayPoint69
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint69
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint71
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.70710678
+        x: 0.0
+        y: 0.0
+        z: 0.70710678
+      position:
+        x: 6.347
+        y: 44.159
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.689999997616
+    - x: -0.287000000477
+      y: 0.689999997616
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.689999997616
+    - x: 0.287000000477
+      y: -0.689999997616
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint72
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint72_WayPoint69
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint69
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint72
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.70710678
+        x: 0.0
+        y: 0.0
+        z: 0.70710678
+      position:
+        x: 4.751
+        y: 44.209
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.689999997616
+    - x: -0.287000000477
+      y: 0.689999997616
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.689999997616
+    - x: 0.287000000477
+      y: -0.689999997616
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint73
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint73_WayPoint74
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint74
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint73_WayPoint67
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint67
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint73_WayPoint131
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint131
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint73_WayPoint132
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint132
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint73_WayPoint133
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint133
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint73_WayPoint134
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint134
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint73_WayPoint138
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint138
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint73_WayPoint139
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint139
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint73_WayPoint141
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint141
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint73
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 1.0
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 13.985
+        y: 48.575
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.689999997616
+    - x: -0.287000000477
+      y: 0.689999997616
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.689999997616
+    - x: 0.287000000477
+      y: -0.689999997616
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint74
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint74_WayPoint66
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint66
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint74_WayPoint73
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint73
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint74_WayPoint131
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint131
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint74_WayPoint132
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint132
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint74_WayPoint133
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint133
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint74_WayPoint134
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint134
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint74_WayPoint138
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint138
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint74_WayPoint139
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint139
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint74_WayPoint140
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint140
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint74
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 1.0
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 13.838
+        y: 46.033
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.689999997616
+    - x: -0.287000000477
+      y: 0.689999997616
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.689999997616
+    - x: 0.287000000477
+      y: -0.689999997616
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint75
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint75_WayPoint76
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint76
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint75
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0237836781889
+        x: -1.67063330991e-06
+        y: 4.6610125537e-06
+        z: 0.999717235565
+      position:
+        x: 26.331
+        y: 44.47866666666667
+        z: 1.65918641401e-05
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint76
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint76_WayPoint80
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint80
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint76
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0090204551816
+        x: 1.37361283237e-07
+        y: 5.38505446457e-07
+        z: 0.999959349632
+      position:
+        x: 23.37
+        y: 44.699666666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint77
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint77_WayPoint78
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint78
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint77
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0405681878328
+        x: 7.97431596311e-08
+        y: -2.35042648455e-07
+        z: -0.999176681042
+      position:
+        x: 35.32
+        y: 43.840666666666664
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint78
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint78_WayPoint79
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint79
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint78
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00123305059969
+        x: 5.6524701364e-08
+        y: -3.6940016912e-07
+        z: -0.999999165535
+      position:
+        x: 32.333
+        y: 44.05466666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint79
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint79_WayPoint75
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint75
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint79
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0181193761528
+        x: -4.25237693946e-08
+        y: 5.10004802834e-08
+        z: 0.999835848808
+      position:
+        x: 29.322
+        y: 44.269666666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint8
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint8_WayPoint7
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint7
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint8
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00742902886122
+        x: 9.08720707571e-08
+        y: 3.32433870653e-07
+        z: -0.999972462654
+      position:
+        x: 40.35
+        y: 35.4827777778
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint80
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint80_WayPoint139
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint139
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint80
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.0201251916587
+        x: 9.70694955527e-08
+        y: 1.01766076455e-07
+        z: -0.999797523022
+      position:
+        x: 20.354
+        y: 44.92066666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint81
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint81_WayPoint77
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint77
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint81
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.057000067085
+        x: -4.02193904847e-08
+        y: 8.02770614428e-08
+        z: 0.998374283314
+      position:
+        x: 38.184
+        y: 43.64266666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint82
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint82_WayPoint81
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint81
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint82
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00742902886122
+        x: 9.08720707571e-08
+        y: 3.32433870653e-07
+        z: -0.999972462654
+      position:
+        x: 40.896
+        y: 43.458666666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint83
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint83_WayPoint82
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint82
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint83
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0235095582902
+        x: -4.25079136335e-08
+        y: 8.97391316812e-08
+        z: 0.999723672867
+      position:
+        x: 44.331
+        y: 43.209666666666664
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint84
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint84_WayPoint83
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint83
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    - action: move_base
+      edge_id: WayPoint84_WayPoint85
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint85
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint84
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.000756916066166
+        x: -3.30434932039e-06
+        y: -4.35643187302e-06
+        z: 0.999999701977
+      position:
+        x: 44.42
+        y: 44.544666666666664
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint85
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint85_WayPoint86
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint86
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint85
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0018698873464
+        x: -4.68142928867e-07
+        y: -1.11718225071e-06
+        z: -0.999998271465
+      position:
+        x: 40.986
+        y: 44.791666666666664
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint86
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint86_WayPoint87
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint87
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint86
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00433810055256
+        x: 7.89666358969e-08
+        y: 2.95303578923e-07
+        z: 0.999990582466
+      position:
+        x: 38.277
+        y: 44.974666666666664
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint87
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint87_WayPoint88
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint88
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint87
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.000165712059243
+        x: 6.12817245838e-08
+        y: 1.59757817642e-07
+        z: -1.0
+      position:
+        x: 35.415
+        y: 45.16866666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint88
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint88_WayPoint89
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint89
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint88
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0161987747997
+        x: -3.32145830839e-08
+        y: 6.71169573252e-08
+        z: 0.999868810177
+      position:
+        x: 32.422
+        y: 45.379666666666665
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint89
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint89_WayPoint90
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint90
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint89
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0101956585422
+        x: -2.90677135695e-08
+        y: -1.59799839139e-07
+        z: -0.99994802475
+      position:
+        x: 29.414
+        y: 45.59166666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint9
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint9_WayPoint8
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint8
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint9
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0235095582902
+        x: -4.25079136335e-08
+        y: 8.97391316812e-08
+        z: 0.999723672867
+      position:
+        x: 43.797
+        y: 35.25
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint90
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint90_WayPoint91
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint91
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint90
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0205708257854
+        x: 3.01786187151e-08
+        y: 1.99683199753e-07
+        z: 0.999788403511
+      position:
+        x: 26.425
+        y: 45.800666666666665
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint91
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint91_WayPoint92
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint92
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint91
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.00124818854965
+        x: 7.08405934802e-07
+        y: 2.72842385129e-06
+        z: 0.99999922514
+      position:
+        x: 23.46
+        y: 46.019666666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint92
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint92_WayPoint138
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint138
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint92
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.0214244574308
+        x: -3.5907607554e-08
+        y: 8.40320808493e-08
+        z: 0.999770462513
+      position:
+        x: 20.449
+        y: 46.24066666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint93
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint93_WayPoint94
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint94
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint93
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.999226629734
+        x: -4.90274089771e-07
+        y: 7.85364164813e-08
+        z: 0.039321064949
+      position:
+        x: 20.539
+        y: 47.562666666666665
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint94
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint94_WayPoint95
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint95
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint94
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.999849915504
+        x: 3.79741038614e-07
+        y: 4.33454871995e-09
+        z: 0.0173252765089
+      position:
+        x: 23.549
+        y: 47.337666666666664
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint95
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint95_WayPoint96
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint96
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint95
+    pointset: riseholme
+    pose:
+      orientation:
+        w: 0.999714314938
+        x: 1.79631092578e-06
+        y: -1.92730681192e-07
+        z: -0.0239006560296
+      position:
+        x: 26.514
+        y: 47.11066666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint96
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint96_WayPoint97
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint97
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint96
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.998037338257
+        x: 1.18591238163e-07
+        y: -2.79005529791e-08
+        z: 0.0626218691468
+      position:
+        x: 29.517
+        y: 46.898666666666664
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint97
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint97_WayPoint98
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint98
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint97
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.999365389347
+        x: 5.3351607221e-07
+        y: -2.33004744388e-08
+        z: 0.0356193855405
+      position:
+        x: 32.516
+        y: 46.69466666666666
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint98
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint98_WayPoint99
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint99
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint98
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.998269796371
+        x: 1.18567150764e-07
+        y: -6.35658903292e-09
+        z: 0.0587996467948
+      position:
+        x: 35.508
+        y: 46.489666666666665
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1
+- meta:
+    map: riseholme
+    node: WayPoint99
+    pointset: riseholme
+  node:
+    edges:
+    - action: move_base
+      edge_id: WayPoint99_WayPoint100
+      inflation_radius: 0.0
+      map_2d: riseholme
+      node: WayPoint100
+      recovery_behaviours_config: ''
+      top_vel: 0.55
+    localise_by_topic: ''
+    map: riseholme
+    name: WayPoint99
+    pointset: riseholme
+    pose:
+      orientation:
+        w: -0.999355077744
+        x: 4.05348501431e-08
+        y: -2.19269935542e-10
+        z: 0.0359082855284
+      position:
+        x: 38.377
+        y: 46.30166666666667
+        z: 0.0
+    verts:
+    - x: 0.689999997616
+      y: 0.287000000477
+    - x: 0.287000000477
+      y: 0.490000009537
+    - x: -0.287000000477
+      y: 0.490000009537
+    - x: -0.689999997616
+      y: 0.287000000477
+    - x: -0.689999997616
+      y: -0.287000000477
+    - x: -0.287000000477
+      y: -0.490000009537
+    - x: 0.287000000477
+      y: -0.490000009537
+    - x: 0.689999997616
+      y: -0.287000000477
+    xy_goal_tolerance: 0.3
+    yaw_goal_tolerance: 0.1

@@ -1,7 +1,14 @@
+from pathlib import Path
 from tkinter import filedialog, messagebox
 import tkinter as tk
 import elements
 import frames
+import yaml
+import PIL
+import os
+from PIL import Image
+import shutil
+from shutil import copy2
 import contants as const
 
 
@@ -41,5 +48,58 @@ class LaunchFrame:
             self.window.mainloop()
 
     def getimportfilename(self):
-        self.master.filename = filedialog.asksaveasfilename(initialdir="/", title="Select file",
-                                                            filetypes=(("jpeg files", "*.jpg"), ("all files", "*.*")))
+        dirName = 'tempDir'
+
+        try:
+            os.mkdir(dirName)
+            print("Directory ", dirName, " Created")
+        except FileExistsError:
+            print("Directory ", dirName, " already exists")
+
+        self.master.filenames = filedialog.askopenfilenames(initialdir="/", title="Select file",
+                                                            filetypes=(
+                                                                ("Map files", ".yaml .pgm .tmap"),
+                                                                ("All files", "*.*")))
+
+        if self.setfilenames() == 1:
+            self.readyaml()
+            self.readpgm()
+
+    def setfilenames(self):
+        self.master.files = ["", "", ""]
+        numfiles = 0
+        for x in self.master.filenames:
+            if Path(x).suffix == ".pgm" and self.master.files[0] == "":
+                self.master.files[0] = x
+                print("PGM file imported: ", x, "\n")
+                numfiles += 1
+            elif Path(x).suffix == ".tmap" and self.master.files[1] == "":
+                self.master.files[1] = x
+                print("TMAP file imported: ", x, "\n")
+                copy2(self.master.files[1], 'tempDir')
+                print("TMAP file saved to temporary directory. \n")
+                numfiles += 1
+            elif Path(x).suffix == ".yaml" and self.master.files[2] == "":
+                self.master.files[2] = x
+                print("YAML file imported: ", x, "\n")
+                copy2(self.master.files[2], 'tempDir')
+                print("YAML file saved to temporary directory. \n")
+                numfiles += 1
+            else:
+                print("Invalid file type selected: ", x, "\n")
+        if numfiles != 3:
+            print("Not all files selected. Please select again.")
+            return 0
+        else:
+            return 1
+
+    def readyaml(self):
+        with open(self.master.files[2]) as file:
+            self.master.yamldata = yaml.load(file, Loader=yaml.FullLoader)
+            print(self.master.yamldata)
+
+    def readpgm(self):
+        image = PIL.Image.open(self.master.files[0])
+        rgb_im = image.convert('RGB')
+        rgb_im.save('tempDir\map.jpg')
+        print(".pgm successful converted to .jpg.")
