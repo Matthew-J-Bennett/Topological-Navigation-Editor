@@ -19,19 +19,27 @@ class MainFrame:
 
         # active_files_canvas = elements.Canvas(master=master.master,width = 200, height = 200)
         # active_files_canvas.pack()
-        canvas = Canvas(self.window, width=1250, height=800)
-        canvas.pack()
         img = PhotoImage(file="tempDir/test.pgm")
+        canvas = Canvas(self.window, width=1250, height=800, scrollregion=(0, 0, 1583, 1806))
+        canvas.pack(expand=YES, fill=BOTH)
         canvas.create_image(10, 20, anchor=NW, image=img)
 
-        scroll_x = Scrollbar(canvas, orient="horizontal", command=canvas.xview)
-        scroll_x.grid(row=1, column=1, sticky="ew")
+        scroll_x = Scrollbar(canvas, orient="horizontal", command=canvas.xview, jump=1)
+        scroll_x.pack(side=BOTTOM, fill=X)
+        scroll_x.config(command=canvas.xview)
+        canvas.config(xscrollcommand=scroll_x.set)
 
-        scroll_y = tk.Scrollbar(canvas, orient="vertical", command=canvas.yview)
-        scroll_y.grid(row=0, column=1, sticky="ns")
+        scroll_y = Scrollbar(canvas, orient="vertical", command=canvas.yview, jump=1)
+        scroll_y.pack(side=RIGHT, fill=Y)
+        scroll_y.config(command=canvas.yview)
+        canvas.config(yscrollcommand=scroll_y.set)
 
-        canvas.configure(yscrollcommand=scroll_y.set, xscrollcommand=scroll_x.set)
-        canvas.configure(scrollregion=canvas.bbox("all"))
+        # scroll_y = tk.Scrollbar(canvas, orient="vertical", command=canvas.yview)
+        # scroll_y.grid(row=0, column=1, sticky="ns")
+
+        # canvas.configure(yscrollcommand=scroll_y.set, xscrollcommand=scroll_x.set)
+        # canvas.configure(scrollregion=canvas.bbox("all"))
+
         mainloop()
 
         # canvas = Canvas(self.window, width=1250, height=800, scrollregion=(0, 0, 500, 500))
