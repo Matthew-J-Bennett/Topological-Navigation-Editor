@@ -100,9 +100,15 @@ def readyaml(self):
         self.master.yamldata = yaml.load(file, Loader=yaml.FullLoader)
         self.logging.info(self.master.yamldata)
 
+    # needs a def readtmap() function here
+    def readtmap(self):
+        with open(self.master.files[1]) as file:
+            self.master.tmapdata = yaml.load(file, Loader=yaml.FullLoader)
+            print(self.master.tmapdata)
+
 
 def readpgm(self):
     image = PIL.Image.open(self.master.files[0])
     rgb_im = image.convert('RGB')
-    rgb_im.save('tempDir\map.jpg')
     self.logging.info(".pgm successful converted to .jpg.")
+    rgb_im.save('tempDir\map.jpg')
