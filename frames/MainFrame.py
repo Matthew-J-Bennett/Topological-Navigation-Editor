@@ -16,9 +16,7 @@ class MainFrame:
                                          width=30, func=lambda: self.master.frame_swap(old_frame=self.frame,
                                                                                        new_frame=lambda: frames.LaunchFrame(
                                                                                            master=self.master)))
-
-        # active_files_canvas = elements.Canvas(master=master.master,width = 200, height = 200)
-        # active_files_canvas.pack()
+        # This block imports the pgm file.
         img = PhotoImage(file="tempDir/test.pgm")
         canvas = Canvas(self.window, width=1250, height=800, scrollregion=(0, 0, 1583, 1806))
         canvas.pack(expand=YES, fill=BOTH)
@@ -34,16 +32,4 @@ class MainFrame:
         scroll_y.config(command=canvas.yview)
         canvas.config(yscrollcommand=scroll_y.set)
 
-        # scroll_y = tk.Scrollbar(canvas, orient="vertical", command=canvas.yview)
-        # scroll_y.grid(row=0, column=1, sticky="ns")
-
-        # canvas.configure(yscrollcommand=scroll_y.set, xscrollcommand=scroll_x.set)
-        # canvas.configure(scrollregion=canvas.bbox("all"))
-
         mainloop()
-
-        # canvas = Canvas(self.window, width=1250, height=800, scrollregion=(0, 0, 500, 500))
-        # canvas.pack()
-        # img = PhotoImage(file="tempDir/test.pgm")
-        # canvas.create_image(20, 20, anchor=NW, image=img)
-        # mainloop()

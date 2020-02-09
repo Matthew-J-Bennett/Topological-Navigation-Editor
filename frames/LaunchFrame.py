@@ -65,7 +65,6 @@ class LaunchFrame:
             self.readyaml()
             self.readpgm()
 
-
     def setfilenames(self):
         self.master.files = ["", "", ""]
         numfiles = 0
@@ -94,21 +93,29 @@ class LaunchFrame:
         else:
             return 1
 
-
     def readyaml(self):
         with open(self.master.files[2]) as file:
             self.master.yamldata = yaml.load(file, Loader=yaml.FullLoader)
             self.logging.info(self.master.yamldata)
 
-        # needs a def readtmap() function here
-        def readtmap(self):
-            with open(self.master.files[1]) as file:
-                self.master.tmapdata = yaml.load(file, Loader=yaml.FullLoader)
-                print(self.master.tmapdata)
+    # needs a def readtmap() function here
 
+    def readtmap(self):
+        with open(self.master.files[1]) as file:
+            self.master.tmapdata = yaml.load(file, Loader=yaml.FullLoader)
+            print(self.master.tmapdata)
+
+    # This is my attempt as replicating the readtmap and readyaml functions
 
     def readpgm(self):
-        image = PIL.Image.open(self.master.files[0])
-        rgb_im = image.convert('RGB')
-        self.logging.info(".pgm successful converted to .jpg.")
-        rgb_im.save('tempDir\map.jpg')
+        with open(self.master.files[0]) as file:
+            self.master.pgmdata = yaml.load(file, Loader=yaml.FullLoader)
+            self.logging.info(self.master.pgmdata)
+
+    # Here's the pgm to jpg function :
+
+    # def readpgm(self):
+    # image = PIL.Image.open(self.master.files[0])
+    # rgb_im = image.convert('RGB')
+    # self.logging.info(".pgm successful converted to .jpg.")
+    # rgb_im.save('tempDir\map.jpg')
