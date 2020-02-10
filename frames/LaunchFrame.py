@@ -1,4 +1,7 @@
 from tkinter import filedialog
+from tkinter import *
+from tkinter import ttk
+from tkinter.filedialog import asksaveasfilename
 from pathlib import Path
 import elements
 import frames
@@ -22,7 +25,8 @@ class LaunchFrame:
                                                                                            master=self.master)))
         import_button = elements.Button(master=master.master, x=10, y=40, text="Import Files", width=20,
                                         func=lambda: self.getimportfilename())
-        temp_save_button = elements.Button(master=master.master, x=10, y=90, text="Save Files", width=20)
+        temp_save_button = elements.Button(master=master.master, x=10, y=90, text="Save Files", width=20,
+                                           func=lambda: self.savefilename())
 
         if not self.master.launched:
             self.logging.info("Creating Launch Frame")
@@ -84,3 +88,8 @@ class LaunchFrame:
         rgb_im = image.convert('RGB')
         rgb_im.save('tempDir\map.jpg')
         print(".pgm successful converted to .jpg.")
+
+    def savefilename(self):
+        files2 = [('TMAP Files', '*.*')]
+        file = asksaveasfilename(filetypes=files2, defaultextension='.tmap')
+        copy2(self.master.files[1], file)
