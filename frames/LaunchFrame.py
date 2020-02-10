@@ -1,17 +1,11 @@
 from tkinter import filedialog
-from tkinter import *
-from tkinter import ttk
 from tkinter.filedialog import asksaveasfilename
 from pathlib import Path
 import elements
 import frames
 import yaml
-import PIL
-from PIL import Image
 import os
-import shutil
 from shutil import copy2
-
 
 class LaunchFrame:
     def __init__(self, master):
@@ -27,14 +21,12 @@ class LaunchFrame:
                                         func=lambda: self.getimportfilename())
         temp_save_button = elements.Button(master=master.master, x=10, y=90, text="Save Files", width=20,
                                            func=lambda: self.savefilename())
-
         if not self.master.launched:
             self.logging.info("Creating Launch Frame")
             self.window.mainloop()
 
     def getimportfilename(self):
         dirName = 'tempDir'
-
         try:
             os.mkdir(dirName)
             print("Directory ", dirName, " Created")
@@ -49,6 +41,11 @@ class LaunchFrame:
         if self.setfilenames() == 1:
             self.readyaml()
             self.readpgm()
+
+    def savefilename(self):
+        files2 = [('TMAP Files', '*.*')]
+        file = asksaveasfilename(filetypes=files2, defaultextension='.tmap')
+        copy2(self.master.files[1], file)
 
     def setfilenames(self):
         self.master.files = ["", "", ""]
@@ -84,12 +81,25 @@ class LaunchFrame:
             print(self.master.yamldata)
 
     def readpgm(self):
-        image = PIL.Image.open(self.master.files[0])
-        rgb_im = image.convert('RGB')
-        rgb_im.save('tempDir\map.jpg')
-        print(".pgm successful converted to .jpg.")
+        image = open(self.master.files[0], 'r')
+        x = 0
+        while x < 4:
+            line = image.readline()
+            if x == 0:
+                id = line
+            if x == 2:
+                size = line.split()
+                pgmX = size[0]
+                pgmY = size[1]
+            if x == 3:
+                maxval = line
+            x += 1
+        self.master.pgm = pgm(id,pgmX,pgmY,maxval)
 
-    def savefilename(self):
-        files2 = [('TMAP Files', '*.*')]
-        file = asksaveasfilename(filetypes=files2, defaultextension='.tmap')
-        copy2(self.master.files[1], file)
+class pgm():
+    def __init__(self,id,width,height,maxval):
+        self.id = id
+        self.width = width
+        self.height = height
+        self.maxval = maxval
+
