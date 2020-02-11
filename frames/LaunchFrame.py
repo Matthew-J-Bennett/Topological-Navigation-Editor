@@ -3,7 +3,6 @@ import tkinter as tk
 from pathlib import Path
 from shutil import copy2
 from tkinter import filedialog, messagebox
-from tkinter.filedialog import asksaveasfilename
 
 import yaml
 
@@ -68,7 +67,7 @@ class LaunchFrame:
 
     def savefilename(self):
         files2 = [('TMAP Files', '*.*')]
-        file = asksaveasfilename(filetypes=files2, defaultextension='.tmap')
+        file = filedialog.asksaveasfilename(filetypes=files2, defaultextension='.tmap')
         copy2(self.master.files[1], file)
 
     def setfilenames(self):
