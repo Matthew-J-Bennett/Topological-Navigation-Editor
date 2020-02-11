@@ -1,4 +1,6 @@
 from pathlib import Path
+from tkinter import filedialog
+from tkinter.filedialog import asksaveasfilename
 from tkinter import filedialog, messagebox
 import tkinter as tk
 import elements
@@ -8,9 +10,9 @@ import PIL
 import os
 from PIL import Image
 import shutil
+import os
 from shutil import copy2
 import contants as const
-
 
 class LaunchFrame:
 
@@ -43,13 +45,14 @@ class LaunchFrame:
         temp_recent_files_text = elements.Label(master=master.master, text="Here is where Recent Files will go", x=755,
                                                 y=160, font=("Verdana", 14), fg='white', bg=const.tertiary_colour)
 
+        temp_save_button = elements.Button(master=master.master, x=10, y=90, text="Save Files", width=20,
+                                           func=lambda: self.savefilename())
         if not self.master.launched:
             self.logging.info("Creating Launch Frame")
             self.window.mainloop()
 
     def getimportfilename(self):
         dirName = 'tempDir'
-
         try:
             os.mkdir(dirName)
             self.logging.info("Directory {} Created".format(dirName))
@@ -64,6 +67,11 @@ class LaunchFrame:
         if self.setfilenames() == 1:
             self.readyaml()
             self.readpgm()
+
+    def savefilename(self):
+        files2 = [('TMAP Files', '*.*')]
+        file = asksaveasfilename(filetypes=files2, defaultextension='.tmap')
+        copy2(self.master.files[1], file)
 
     def setfilenames(self):
         self.master.files = ["", "", ""]
@@ -108,14 +116,25 @@ class LaunchFrame:
     # This is my attempt as replicating the readtmap and readyaml functions
 
     def readpgm(self):
-        with open(self.master.files[0]) as file:
-            self.master.pgmdata = yaml.load(file, Loader=yaml.FullLoader)
-            self.logging.info(self.master.pgmdata)
+        image = open(self.master.files[0], 'r')
+        x = 0
+        while x < 4:
+            line = image.readline()
+            if x == 0:
+                id = line
+            if x == 2:
+                size = line.split()
+                pgmX = size[0]
+                pgmY = size[1]
+            if x == 3:
+                maxval = line
+            x += 1
+        self.master.pgm = pgm(id,pgmX,pgmY,maxval)
 
-    # Here's the pgm to jpg function :
+class pgm():
+    def __init__(self,id,width,height,maxval):
+        self.id = id
+        self.width = width
+        self.height = height
+        self.maxval = maxval
 
-    # def readpgm(self):
-    # image = PIL.Image.open(self.master.files[0])
-    # rgb_im = image.convert('RGB')
-    # self.logging.info(".pgm successful converted to .jpg.")
-    # rgb_im.save('tempDir\map.jpg')
