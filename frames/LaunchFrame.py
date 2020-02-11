@@ -1,18 +1,16 @@
-from pathlib import Path
-from tkinter import filedialog
-from tkinter.filedialog import asksaveasfilename
-from tkinter import filedialog, messagebox
+import os
 import tkinter as tk
+from pathlib import Path
+from shutil import copy2
+from tkinter import filedialog, messagebox
+from tkinter.filedialog import asksaveasfilename
+
+import yaml
+
+import contants as const
 import elements
 import frames
-import yaml
-import PIL
-import os
-from PIL import Image
-import shutil
-import os
-from shutil import copy2
-import contants as const
+
 
 class LaunchFrame:
 
@@ -129,12 +127,12 @@ class LaunchFrame:
             if x == 3:
                 maxval = line
             x += 1
-        self.master.pgm = pgm(id,pgmX,pgmY,maxval)
+        self.master.pgm = pgm(id, pgmX, pgmY, maxval)
+
 
 class pgm():
-    def __init__(self,id,width,height,maxval):
+    def __init__(self, id, width, height, maxval):
         self.id = id
         self.width = width
         self.height = height
         self.maxval = maxval
-
