@@ -78,6 +78,8 @@ class LaunchFrame:
             if Path(x).suffix == ".pgm" and self.master.files[0] == "":
                 self.master.files[0] = x
                 self.logging.info("PGM file imported: ".format(x))
+                copy2(self.master.files[0], 'tempDir')
+                self.logging.info("PGM file saved to temporary directory.")
                 numfiles += 1
             elif Path(x).suffix == ".tmap" and self.master.files[1] == "":
                 self.master.files[1] = x

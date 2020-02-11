@@ -17,7 +17,7 @@ class MainFrame:
                                                                                        new_frame=lambda: frames.LaunchFrame(
                                                                                            master=self.master)))
         # This block imports the pgm file.
-        img = PhotoImage(file="tempDir/test.pgm")
+        img = PhotoImage(file=self.master.files[0])
         canvas = Canvas(self.window, width=1250, height=800, scrollregion=(0, 0, 1583, 1806))
         canvas.pack(expand=YES, fill=BOTH)
         canvas.create_image(10, 20, anchor=NW, image=img)
