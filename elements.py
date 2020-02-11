@@ -11,13 +11,18 @@ class Element:
         self.anchor = anchor
         self.element.place(x=x, y=y, anchor=anchor)
 
+# Defines the Frame attributes
+
 
 class Frame(Element):
+    # Uses constants to create the frame
     def __init__(self, master, bg=const.primary_colour, height=800, width=1250, x=0, y=0, bd=0, relief=tk.FLAT,
                  anchor=None):
         self.element = tk.Frame(master=master, height=height, width=width, bg=bg, bd=bd, relief=relief)
         self.element.pack()
         super().__init__(self.element, x=x, y=y, anchor=anchor)
+
+# Defines the Button attributes
 
 
 class Button(Element):
@@ -33,6 +38,8 @@ class Button(Element):
         self.element.bind(sequence=sequence, func=lambda x: self.clicked(execute=func))
         super().__init__(self.element, x=x, y=y, anchor=anchor)
 
+    # Provides instructions for what to do when clicked
+
     def clicked(self, execute, *args):
         if self.animation:
             self.element.config(bg=const.active_colour)
@@ -40,6 +47,8 @@ class Button(Element):
             self.master.after(100, lambda: execute())
         else:
             execute()
+
+# Defines the Label attributes
 
 
 class Label(Element):
@@ -51,6 +60,8 @@ class Label(Element):
                                 image=image,
                                 fg=fg)
         super().__init__(self.element, x=x, y=y, anchor=anchor)
+
+# Defines the Photo attributes
 
 
 class Photo(Element):

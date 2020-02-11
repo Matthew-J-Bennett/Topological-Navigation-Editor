@@ -4,9 +4,13 @@ import time
 import os
 import sys
 
+# exceptions handler
+
 
 def execp_handler(type, value, tb):
     logger.exception("Exception: {}".format(value))
+
+# Initiates the logger
 
 
 if __name__ == "__main__":
@@ -14,6 +18,7 @@ if __name__ == "__main__":
     if not os.path.exists('logs'):
         os.mkdir('logs')
     logger = logging.getLogger("Topological-Navigation-Editor")
+    # Creates a console log with timestamp
     handler = logging.FileHandler('logs/{}.log'.format(time.strftime("%Y-%m-%d %H-%M-%S")))
     formatter = logging.Formatter("%(asctime)s %(levelname)s: %(message)s")
     handler.setFormatter(formatter)

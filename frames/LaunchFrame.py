@@ -17,50 +17,58 @@ class LaunchFrame:
         self.master = master
         self.logging = master.logger
         self.window = master.master
+
+        # Creates the launch frame
         self.frame = elements.Frame(master=self.window)
 
+        # Adds Decorative Image
         label = elements.Photo(master=master.master, x=100, y=150, imgpath="test.png", height=450, width=300,
                                relief=tk.RIDGE, bd=3)
+        # Creates a button to swap between frames
         swap_frame_tmp = elements.Button(master=master.master, x=10, y=750, text="Swap Frame to Main Project Frame",
                                          width=30, func=lambda: self.master.frame_swap(old_frame=self.frame,
                                                                                        new_frame=lambda: frames.MainFrame(
                                                                                            master=self.master)))
-
+        # Adds a title to the top of the screen
         title_label = elements.Label(master=master.master, text="Topological-Navigation-Editor", x=625, y=50,
-                                     font=("Verdana", 44),
+                                     font=("Comic Sans MS", 44),
                                      fg='white', anchor=tk.CENTER)
+        # Import files button
         import_button = elements.Button(master=master.master, x=800, y=650, text="Import Files", width=20,
                                         func=lambda: self.getimportfilename())
-
+        # Open files button - To be considered
         open_button = elements.Button(master=master.master, x=1000, y=650, text="Open Files", width=20,
                                       func=lambda: messagebox.showinfo("Title", "a box"))
-
+        # Creates a frame to display recent files
         recent_files_frame = elements.Frame(master=master.master, x=750, y=150, height=450, width=450,
                                             bg=const.tertiary_colour,
                                             relief=tk.RIDGE, bd=3)
-
+        # Placeholder text
         temp_recent_files_text = elements.Label(master=master.master, text="Here is where Recent Files will go", x=755,
                                                 y=160, font=("Verdana", 14), fg='white', bg=const.tertiary_colour)
-
+        # Placeholder Button
         temp_save_button = elements.Button(master=master.master, x=10, y=90, text="Save Files", width=20,
                                            func=lambda: self.savefilename())
         if not self.master.launched:
             self.logging.info("Creating Launch Frame")
             self.window.mainloop()
 
+    # Import Files function
+
     def getimportfilename(self):
+        # Creates a Temporary Directory
         dirName = 'tempDir'
         try:
             os.mkdir(dirName)
             self.logging.info("Directory {} Created".format(dirName))
         except FileExistsError:
             self.logging.info("Directory {} already exists".format(dirName))
-
+        # Produces a Dialog window to allow the user to select files
         self.master.filenames = filedialog.askopenfilenames(initialdir="/", title="Select file",
                                                             filetypes=(
                                                                 ("Map files", ".yaml .pgm .tmap"),
                                                                 ("All files", "*.*")))
-
+        # File Validation/Duplication
         if self.setfilenames() == 1:
             self.readyaml()
             self.readpgm()
@@ -70,15 +78,22 @@ class LaunchFrame:
         file = filedialog.asksaveasfilename(filetypes=files2, defaultextension='.tmap')
         copy2(self.master.files[1], file)
 
+    # Saves a copy of the files to a temporary directory / Ensures that Files have been imported successfully
     def setfilenames(self):
+        # Creates an array to store file names
         self.master.files = ["", "", ""]
         numfiles = 0
+        # Compares a file to ensure that it is correct
         for x in self.master.filenames:
+            # Checks the suffix
             if Path(x).suffix == ".pgm" and self.master.files[0] == "":
                 self.master.files[0] = x
+                # Logs a file has been imported
                 self.logging.info("PGM file imported: ".format(x))
+                # Copies the file to the tempDir
                 copy2(self.master.files[0], 'tempDir')
                 self.logging.info("PGM file saved to temporary directory.")
+                # Adds to the file counter
                 numfiles += 1
             elif Path(x).suffix == ".tmap" and self.master.files[1] == "":
                 self.master.files[1] = x
@@ -94,26 +109,27 @@ class LaunchFrame:
                 numfiles += 1
             else:
                 self.logging.info("Invalid file type selected: {}".format(x))
+        # If not enough files are provided then it will fail
         if numfiles != 3:
             self.logging.info("Not all files selected. Please select again.")
             return 0
+        # If successful - then return TRUE condition
         else:
             return 1
 
+    # Reads in and stores the data of the YAML file
     def readyaml(self):
         with open(self.master.files[2]) as file:
             self.master.yamldata = yaml.load(file, Loader=yaml.FullLoader)
             self.logging.info(self.master.yamldata)
 
-    # needs a def readtmap() function here
-
+    # Reads in and stores the data of the TMAP file
     def readtmap(self):
         with open(self.master.files[1]) as file:
             self.master.tmapdata = yaml.load(file, Loader=yaml.FullLoader)
             print(self.master.tmapdata)
 
-    # This is my attempt as replicating the readtmap and readyaml functions
-
+    # Reads in the PGM file
     def readpgm(self):
         image = open(self.master.files[0], 'r')
         x = 0
