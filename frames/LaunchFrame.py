@@ -31,7 +31,7 @@ class LaunchFrame:
                                                                                            master=self.master)))
         # Adds a title to the top of the screen
         title_label = elements.Label(master=master.master, text="Topological-Navigation-Editor", x=625, y=50,
-                                     font=("Comic Sans MS", 44),
+                                     font=("Verdana", 44),
                                      fg='white', anchor=tk.CENTER)
         # Import files button
         import_button = elements.Button(master=master.master, x=800, y=650, text="Import Files", width=20,
