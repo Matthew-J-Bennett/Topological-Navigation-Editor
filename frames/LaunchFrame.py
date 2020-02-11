@@ -69,6 +69,7 @@ class LaunchFrame:
                                                                 ("All files", "*.*")))
         # File Validation/Duplication
         if self.setfilenames() == 1:
+            self.readtmap()
             self.readyaml()
             self.readpgm()
 
