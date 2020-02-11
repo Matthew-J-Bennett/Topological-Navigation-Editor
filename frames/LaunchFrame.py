@@ -3,9 +3,8 @@ import tkinter as tk
 from pathlib import Path
 from shutil import copy2
 from tkinter import filedialog, messagebox
-
+import tmap
 import yaml
-
 import contants as const
 import elements
 import frames
@@ -126,11 +125,28 @@ class LaunchFrame:
     # Reads in and stores the data of the TMAP file
     def readtmap(self):
         with open(self.master.files[1]) as file:
-            self.master.tmapdata = yaml.load(file, Loader=yaml.FullLoader)
-            print(self.master.tmapdata)
+            tmapdata = yaml.load(file, Loader=yaml.FullLoader)
+            mapname = tmapdata[0]["meta"]["map"]
+            pointset = tmapdata[0]["meta"]["pointset"]
+        self.master.tmap = tmap.Tmap(mapname, pointset)
+        count = 0
+        while count < len(tmapdata):
+            data = tmapdata[count]["node"]
+            map = data["map"]
+            name = data["name"]
+            pointset = data["pointset"]
+            edges = data["edges"]
+            pose = data["pose"]
+            xy = data["xy_goal_tolerance"]
+            yaw = data["yaw_goal_tolerance"]
+            newnode = tmap.Node(map, name, pointset, edges, pose, xy, yaw)
+            self.master.tmap.addNode(name,newnode)
+            count+=1
+        self.logging.info("Number of nodes: "+str(self.master.tmap.nodetotal))
 
     # Reads in the PGM file
     def readpgm(self):
+        id, pgmX, pgmY, maxval = 0, 0, 0, 0
         image = open(self.master.files[0], 'r')
         x = 0
         while x < 4:
