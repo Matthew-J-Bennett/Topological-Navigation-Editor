@@ -1,5 +1,5 @@
 class Tmap():
-    def __init__(self,map,pointset):
+    def __init__(self, map, pointset):
         self.map = map
         self.pointset = pointset
         self.nodelist = []
@@ -13,7 +13,7 @@ class Tmap():
 
 
 class Node(Tmap):
-    def __init__(self,map,name,pointset,edges,pose,xy,yaw):
+    def __init__(self, map, name, pointset, edges, pose, xy, yaw):
         self.map = map
         self.name = name
         self.pointset = pointset

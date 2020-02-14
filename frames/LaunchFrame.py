@@ -72,6 +72,10 @@ class LaunchFrame:
             self.readtmap()
             self.readyaml()
             self.readpgm()
+        if len(self.master.filenames) == 3:
+            self.master.frame_swap(old_frame=self.frame,
+                                   new_frame=lambda: frames.MainFrame(
+                                       master=self.master))
 
     def savefilename(self):
         files2 = [('TMAP Files', '*.*')]
@@ -141,9 +145,12 @@ class LaunchFrame:
             xy = data["xy_goal_tolerance"]
             yaw = data["yaw_goal_tolerance"]
             newnode = tmap.Node(map, name, pointset, edges, pose, xy, yaw)
-            self.master.tmap.addNode(name,newnode)
-            count+=1
-        self.logging.info("Number of nodes: "+str(self.master.tmap.nodetotal))
+            self.master.tmap.addNode(name, newnode)
+            count += 1
+        self.logging.info("Number of nodes: " + str(self.master.tmap.nodetotal))
+
+        for key in data:
+            self.logging.debug(key)
 
     # Reads in the PGM file
     def readpgm(self):
