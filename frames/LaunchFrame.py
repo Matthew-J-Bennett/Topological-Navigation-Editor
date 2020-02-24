@@ -55,13 +55,6 @@ class LaunchFrame:
     # Import Files function
 
     def getimportfilename(self):
-        # Creates a Temporary Directory
-        dirName = 'tempDir'
-        try:
-            os.mkdir(dirName)
-            self.logging.info("Directory {} Created".format(dirName))
-        except FileExistsError:
-            self.logging.info("Directory {} already exists".format(dirName))
         # Produces a Dialog window to allow the user to select files
         self.master.filenames = filedialog.askopenfilenames(initialdir="/", title="Select file",
                                                             filetypes=(
