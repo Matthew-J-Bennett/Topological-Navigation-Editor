@@ -82,3 +82,4 @@ class MainFrame:
 
             self.mapcanvas.create_oval(position["x"] - 2, position["y"] - 2, position["x"] + 1, position["y"] + 1)
 
+        mainloop()
