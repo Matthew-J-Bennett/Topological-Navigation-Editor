@@ -23,7 +23,7 @@ class LaunchFrame:
         self.frame = elements.Frame(master=self.window)
 
         # Adds Decorative Image
-        label = elements.Photo(master=master.master, x=100, y=150, imgpath="test.png", height=450, width=300,
+        label = elements.Photo(master=master.master, x=100, y=150, imgpath="logo.png", height=200, width=200,
                                relief=tk.RIDGE, bd=3)
         # Creates a button to swap between frames
         swap_frame_tmp = elements.Button(master=master.master, x=10, y=750, text="Swap Frame to Main Project Frame",
