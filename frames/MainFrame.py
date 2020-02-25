@@ -78,4 +78,3 @@ class MainFrame:
             position = point["node"]["pose"]["position"]
             self.mapcanvas.create_oval(position["x"] - 1, position["y"] - 1, position["x"] + 1, position["y"] + 1)
 
-        mainloop()
