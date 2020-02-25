@@ -1,8 +1,8 @@
-import frames
-import elements
-from tkinter import *
-from PIL import ImageTk, Image
 import tkinter as tk
+from tkinter import *
+
+import elements
+import frames
 
 
 class MainFrame:
