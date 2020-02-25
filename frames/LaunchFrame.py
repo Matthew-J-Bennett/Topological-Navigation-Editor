@@ -19,6 +19,11 @@ class LaunchFrame:
         self.logging = master.logger
         self.window = master.master
 
+        if not os.path.exists("data/RecentProjects.json"):
+            with open('data/RecentProjects.json', 'w') as fp:
+                json.dump({}, fp, indent=2)
+
+
         # Creates the launch frame
         self.frame = elements.Frame(master=self.window)
 
@@ -93,6 +98,7 @@ class LaunchFrame:
         # Creates an array to store file names
         self.master.files = {}
         numfiles = 0
+
         # Compares a file to ensure that it is correct
         for x in self.master.filenames:
             # Checks the suffix
@@ -118,7 +124,13 @@ class LaunchFrame:
             return 0
         # If successful - then return TRUE condition
         else:
-            filelocdict = {
+            with open('data/RecentProjects.json', 'r') as f:
+                filelocdict = json.loads(f)
+
+
+            filelocdict["name"] = random.randint(123,9999)
+            
+            {
                 "name": random.randint(1245, 99999),
                 "files": self.master.files
             }
