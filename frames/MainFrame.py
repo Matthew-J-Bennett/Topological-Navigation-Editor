@@ -20,7 +20,7 @@ class MainFrame:
                                                                                            master=self.master)))
         # This block imports the pgm file.
         # Sets a variable for the background image
-        img = PhotoImage(file=self.master.files[0])
+        img = PhotoImage(file=self.master.files["pgm"])
         # Creates a imgcanvas and sets the size of the imgcanvas - NEED TO USE IMAGE VARIABLE WIDTHS
         self.mapcanvas = Canvas(self.window, width=850, height=800, scrollregion=(0, 0, 1583, 1806))
         self.mapcanvas.pack(expand=YES, side=tk.LEFT, fill=BOTH)
