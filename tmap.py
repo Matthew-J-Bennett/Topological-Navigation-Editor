@@ -2,6 +2,7 @@ import logging
 
 logger = logging.getLogger("Topological-Navigation-Editor")
 
+
 # Function to add an action to an existing node,
 # 3 parameters ([node dataset], [name of current node being manipulated],
 #   [name of the node being connected to from current node])
@@ -20,13 +21,13 @@ def addAction(data, nodename, nodeconnection):
                 connectionexists = 1
         if connectionexists == 0:
             newaction = {"action": "move_base", "edge_id": newedge_id, "inflation_radius": "0.0",
-                             "map_2d": data[pos - 1]["meta"]["map"], "node": nodeconnection,
-                             "recovery_behaviours_config": "", "top_vel": "0.55"}
+                         "map_2d": data[pos - 1]["meta"]["map"], "node": nodeconnection,
+                         "recovery_behaviours_config": "", "top_vel": "0.55"}
             actionslist.append(newaction)
-            logger.info("Connection established between nodes "+nodename+" and "+nodeconnection)
+            logger.info("Connection established between nodes " + nodename + " and " + nodeconnection)
             logger.info(actionslist)
         else:
-            logger.info("Connection already exists between nodes "+nodename+" and "+nodeconnection)
+            logger.info("Connection already exists between nodes " + nodename + " and " + nodeconnection)
     return data
 
 
@@ -46,12 +47,12 @@ def deleteAction(data, nodename, nodeconnection):
                     connectionpos = x
             if connectionexists == 1:
                 del actionslist[connectionpos]
-                logger.info("Action removed between nodes "+nodename+" and "+nodeconnection)
+                logger.info("Action removed between nodes " + nodename + " and " + nodeconnection)
                 logger.info(actionslist)
             else:
-                logger.info("No action exists between nodes "+nodename+" and "+nodeconnection)
+                logger.info("No action exists between nodes " + nodename + " and " + nodeconnection)
         else:
-            logger.info(nodename+" node has no actions")
+            logger.info(nodename + " node has no actions")
     return data
 
 
@@ -71,10 +72,11 @@ def addNode(data, map, node, pointset, orientation, position, verts):
                 for x in range(8):
                     vertsdict.append({"x": verts[x][0], "y": verts[x][1]})
                 newnode = {"meta": metadict, "node": {"edges": []}, "localise_by_topic": "", "map": map, "name": node,
-                               "pointset": pointset, "pose": {"orienation": oridict, "position": posdict}, "verts": vertsdict,
-                               "xy_goal_tolerance": "0.3", "yaw_goal_tolerance": "0.1"}
+                           "pointset": pointset, "pose": {"orienation": oridict, "position": posdict},
+                           "verts": vertsdict,
+                           "xy_goal_tolerance": "0.3", "yaw_goal_tolerance": "0.1"}
                 data.append(newnode)
-                logger.info("Node created "+node)
+                logger.info("Node created " + node)
                 logger.info(newnode)
             else:
                 logger.info("Invalid orientation items")
@@ -91,7 +93,7 @@ def deleteNode(data, nodename):
     pos = getNodePos(data, nodename)
     if pos != -1:
         del data[pos]
-        logger.info(nodename+" deleted")
+        logger.info(nodename + " deleted")
     return data
 
 
@@ -109,13 +111,15 @@ def getNodePos(data, nodename):
         logger.info("Position not found for node " + nodename)
         return pos
 
+
 def printNodeNames(data):
     nodes = []
     for x in range(len(data)):
         nodes.append(data[x]["meta"]["node"])
     logger.info(nodes)
 
-def printNode(data,node):
-    pos = getNodePos(data,node)
+
+def printNode(data, node):
+    pos = getNodePos(data, node)
     if pos != -1:
         logger.info(data[pos])
