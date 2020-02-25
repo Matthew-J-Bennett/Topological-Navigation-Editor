@@ -11,6 +11,7 @@ class Element:
         self.anchor = anchor
         self.element.place(x=x, y=y, anchor=anchor)
 
+
 # Defines the Frame attributes
 
 
@@ -21,6 +22,7 @@ class Frame(Element):
         self.element = tk.Frame(master=master, height=height, width=width, bg=bg, bd=bd, relief=relief)
         self.element.pack()
         super().__init__(self.element, x=x, y=y, anchor=anchor)
+
 
 # Defines the Button attributes
 
@@ -48,11 +50,13 @@ class Button(Element):
         else:
             execute()
 
+
 # Defines the Label attributes
 
 
 class Label(Element):
-    def __init__(self, master, text, x, y, width=None, height=None, bg=const.primary_colour, bd=0, relief=tk.FLAT, font=None,
+    def __init__(self, master, text, x, y, width=None, height=None, bg=const.primary_colour, bd=0, relief=tk.FLAT,
+                 font=None,
                  anchor=None, image=None,
                  fg='Black'):
         self.element = tk.Label(master=master, bg=bg, text=text, bd=bd, relief=relief, font=font, width=width,
@@ -60,6 +64,7 @@ class Label(Element):
                                 image=image,
                                 fg=fg)
         super().__init__(self.element, x=x, y=y, anchor=anchor)
+
 
 # Defines the Photo attributes
 

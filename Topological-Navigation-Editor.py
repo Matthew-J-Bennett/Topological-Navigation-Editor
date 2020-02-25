@@ -4,11 +4,13 @@ import time
 import os
 import sys
 
+
 # exceptions handler
 
 
 def execp_handler(type, value, tb):
     logger.exception("Exception: {}".format(value))
+
 
 # Initiates the logger
 
