@@ -76,5 +76,10 @@ class MainFrame:
 
         for point in self.master.tmapdata:
             position = point["node"]["pose"]["position"]
-            self.mapcanvas.create_oval(position["x"] - 1, position["y"] - 1, position["x"] + 1, position["y"] + 1)
 
+            position["x"] = position["x"] * 25 - 31.4
+            position["y"] = position["y"] * 25 - 14.5
+
+            self.mapcanvas.create_oval(position["x"] - 2, position["y"] - 2, position["x"] + 1, position["y"] + 1)
+
+        mainloop()

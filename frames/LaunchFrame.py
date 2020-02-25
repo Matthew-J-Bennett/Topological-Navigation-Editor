@@ -32,7 +32,7 @@ class LaunchFrame:
                                                                                            master=self.master)))
         # Adds a title to the top of the screen
         title_label = elements.Label(master=master.master, text="Topological-Navigation-Editor", x=625, y=50,
-                                     font=("Comic Sans MS", 44),
+                                     font=("Roboto", 44),
                                      fg='white', anchor=tk.CENTER)
         # Import files button
         import_button = elements.Button(master=master.master, x=800, y=650, text="Import Files", width=20,
@@ -46,7 +46,7 @@ class LaunchFrame:
                                             relief=tk.RIDGE, bd=3)
         # Placeholder text
         temp_recent_files_text = elements.Label(master=master.master, text="Here is where Recent Files will go", x=755,
-                                                y=160, font=("Comic Sans MS", 14), fg='white', bg=const.tertiary_colour)
+                                                y=160, font=("Roboto", 14), fg='white', bg=const.tertiary_colour)
         # Placeholder Button
         temp_save_button = elements.Button(master=master.master, x=10, y=90, text="Save Files", width=20,
                                            func=lambda: self.savefilename())
@@ -66,7 +66,6 @@ class LaunchFrame:
         if self.setfilenames() == 1:
             self.readtmap()
             self.readyaml()
-            self.readpgm()
             data = self.master.tmapdata
             data = tmap.addAction(data, "WayPoint10", "WayPoint20")
             data = tmap.deleteAction(data, "WayPoint10", "WayPoint20")
@@ -119,7 +118,6 @@ class LaunchFrame:
             return 0
         # If successful - then return TRUE condition
         else:
-            self.logging.debug(self.master.files)
             filelocdict = {
                 "name": random.randint(1245, 99999),
                 "files": self.master.files
@@ -141,24 +139,6 @@ class LaunchFrame:
     def readtmap(self):
         with open(self.master.files["tmap"]) as file:
             self.master.tmapdata = yaml.load(file, Loader=yaml.FullLoader)
-
-    # Reads in the PGM file
-    def readpgm(self):
-        id, pgmX, pgmY, maxval = 0, 0, 0, 0
-        image = open(self.master.files["pgm"], 'r')
-        x = 0
-        while x < 4:
-            line = image.readline()
-            if x == 0:
-                id = line
-            if x == 2:
-                size = line.split()
-                pgmX = size[0]
-                pgmY = size[1]
-            if x == 3:
-                maxval = line
-            x += 1
-        self.master.pgm = pgm(id, pgmX, pgmY, maxval)
 
 
 class pgm():
