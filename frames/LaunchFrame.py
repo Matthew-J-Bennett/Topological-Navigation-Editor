@@ -30,7 +30,7 @@ class LaunchFrame:
                                                                                            master=self.master)))
         # Adds a title to the top of the screen
         title_label = elements.Label(master=master.master, text="Topological-Navigation-Editor", x=625, y=50,
-                                     font=("Verdana", 44),
+                                     font=("Comic Sans MS", 44),
                                      fg='white', anchor=tk.CENTER)
         # Import files button
         import_button = elements.Button(master=master.master, x=800, y=650, text="Import Files", width=20,
@@ -44,7 +44,7 @@ class LaunchFrame:
                                             relief=tk.RIDGE, bd=3)
         # Placeholder text
         temp_recent_files_text = elements.Label(master=master.master, text="Here is where Recent Files will go", x=755,
-                                                y=160, font=("Verdana", 14), fg='white', bg=const.tertiary_colour)
+                                                y=160, font=("Comic Sans MS", 14), fg='white', bg=const.tertiary_colour)
         # Placeholder Button
         temp_save_button = elements.Button(master=master.master, x=10, y=90, text="Save Files", width=20,
                                            func=lambda: self.savefilename())
@@ -53,7 +53,6 @@ class LaunchFrame:
             self.window.mainloop()
 
     # Import Files function
-
     def getimportfilename(self):
         # Creates a Temporary Directory
         dirName = 'tempDir'
@@ -72,6 +71,18 @@ class LaunchFrame:
             self.readtmap()
             self.readyaml()
             self.readpgm()
+            data = self.master.tmapdata
+            data = tmap.addAction(data,"WayPoint10","WayPoint20")
+            data = tmap.deleteAction(data, "WayPoint10", "WayPoint20")
+            orientation = [0.5,0.6,0.7,0.8]
+            position = [24,43,2.1]
+            verts = [[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[1,9]]
+            tmap.printNodeNames(data)
+            tmap.addNode(data,"riseholme","WayPoint225","riseholme",orientation,position,verts)
+            tmap.printNodeNames(data)
+            tmap.deleteNode(data, "WayPoint225")
+            tmap.printNodeNames(data)
+
         if len(self.master.filenames) == 3:
             self.master.frame_swap(old_frame=self.frame,
                                    new_frame=lambda: frames.MainFrame(
@@ -125,32 +136,11 @@ class LaunchFrame:
     def readyaml(self):
         with open(self.master.files[2]) as file:
             self.master.yamldata = yaml.load(file, Loader=yaml.FullLoader)
-            self.logging.info(self.master.yamldata)
 
     # Reads in and stores the data of the TMAP file
     def readtmap(self):
         with open(self.master.files[1]) as file:
-            tmapdata = yaml.load(file, Loader=yaml.FullLoader)
-            mapname = tmapdata[0]["meta"]["map"]
-            pointset = tmapdata[0]["meta"]["pointset"]
-        self.master.tmap = tmap.Tmap(mapname, pointset)
-        count = 0
-        while count < len(tmapdata):
-            data = tmapdata[count]["node"]
-            map = data["map"]
-            name = data["name"]
-            pointset = data["pointset"]
-            edges = data["edges"]
-            pose = data["pose"]
-            xy = data["xy_goal_tolerance"]
-            yaw = data["yaw_goal_tolerance"]
-            newnode = tmap.Node(map, name, pointset, edges, pose, xy, yaw)
-            self.master.tmap.addNode(name, newnode)
-            count += 1
-        self.logging.info("Number of nodes: " + str(self.master.tmap.nodetotal))
-
-        for key in data:
-            self.logging.debug(key)
+            self.master.tmapdata = yaml.load(file, Loader=yaml.FullLoader)
 
     # Reads in the PGM file
     def readpgm(self):
