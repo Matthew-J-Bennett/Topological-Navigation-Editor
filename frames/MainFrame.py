@@ -3,6 +3,7 @@ from tkinter import *
 
 import elements
 import frames
+import tmap
 
 
 class MainFrame:
@@ -21,10 +22,10 @@ class MainFrame:
         # Sets a variable for the background image
         img = PhotoImage(file=self.master.files[0])
         # Creates a imgcanvas and sets the size of the imgcanvas - NEED TO USE IMAGE VARIABLE WIDTHS
-        imgcanvas = Canvas(self.window, width=850, height=800, scrollregion=(0, 0, 1583, 1806))
-        imgcanvas.pack(expand=YES, side=tk.LEFT, fill=BOTH)
+        self.mapcanvas = Canvas(self.window, width=850, height=800, scrollregion=(0, 0, 1583, 1806))
+        self.mapcanvas.pack(expand=YES, side=tk.LEFT, fill=BOTH)
         # Adds the image to the imgcanvas
-        imgcanvas.create_image(10, 20, anchor=NW, image=img)
+        self.mapcanvas.create_image(10, 20, anchor=NW, image=img)
 
         # Creates the Properties Canvas
         propcanvas = Canvas(self.window, width=400, height=800)
@@ -58,19 +59,23 @@ class MainFrame:
         top_vel.grid(row=7, column=1)
 
         # Creates a horizontal scrollbar
-        scroll_x = Scrollbar(imgcanvas, orient="horizontal", command=imgcanvas.xview, jump=1)
+        scroll_x = Scrollbar(self.mapcanvas, orient="horizontal", command=self.mapcanvas.xview, jump=1)
         # Sets the location of the scroll bar
         scroll_x.pack(side=BOTTOM, fill=X)
         # Defines what the scroll bar will do
-        scroll_x.config(command=imgcanvas.xview)
-        imgcanvas.config(xscrollcommand=scroll_x.set)
+        scroll_x.config(command=self.mapcanvas.xview)
+        self.mapcanvas.config(xscrollcommand=scroll_x.set)
 
         # Creates a vertical scrollbar
-        scroll_y = Scrollbar(imgcanvas, orient="vertical", command=imgcanvas.yview, jump=1)
+        scroll_y = Scrollbar(self.mapcanvas, orient="vertical", command=self.mapcanvas.yview, jump=1)
         # Sets the location of the scroll bar
         scroll_y.pack(side=RIGHT, fill=Y)
         # Defines what the scroll bar will do
-        scroll_y.config(command=imgcanvas.yview)
-        imgcanvas.config(yscrollcommand=scroll_y.set)
+        scroll_y.config(command=self.mapcanvas.yview)
+        self.mapcanvas.config(yscrollcommand=scroll_y.set)
+
+        for point in self.master.tmapdata:
+            position = point["node"]["pose"]["position"]
+            self.mapcanvas.create_oval(position["x"] - 1, position["y"] - 1, position["x"] + 1, position["y"] + 1)
 
         mainloop()
