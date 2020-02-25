@@ -72,13 +72,13 @@ class LaunchFrame:
             self.readyaml()
             self.readpgm()
             data = self.master.tmapdata
-            data = tmap.addAction(data,"WayPoint10","WayPoint20")
+            data = tmap.addAction(data, "WayPoint10", "WayPoint20")
             data = tmap.deleteAction(data, "WayPoint10", "WayPoint20")
-            orientation = [0.5,0.6,0.7,0.8]
-            position = [24,43,2.1]
-            verts = [[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[1,9]]
+            orientation = [0.5, 0.6, 0.7, 0.8]
+            position = [24, 43, 2.1]
+            verts = [[1, 2], [1, 3], [1, 4], [1, 5], [1, 6], [1, 7], [1, 8], [1, 9]]
             tmap.printNodeNames(data)
-            tmap.addNode(data,"riseholme","WayPoint225","riseholme",orientation,position,verts)
+            tmap.addNode(data, "riseholme", "WayPoint225", "riseholme", orientation, position, verts)
             tmap.printNodeNames(data)
             tmap.deleteNode(data, "WayPoint225")
             tmap.printNodeNames(data)
