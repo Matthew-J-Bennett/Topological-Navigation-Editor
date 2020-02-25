@@ -8,6 +8,8 @@ import yaml
 import contants as const
 import elements
 import frames
+import json
+import random
 
 
 class LaunchFrame:
@@ -59,6 +61,7 @@ class LaunchFrame:
                                                             filetypes=(
                                                                 ("Map files", ".yaml .pgm .tmap"),
                                                                 ("All files", "*.*")))
+
         # File Validation/Duplication
         if self.setfilenames() == 1:
             self.readtmap()
@@ -84,36 +87,29 @@ class LaunchFrame:
     def savefilename(self):
         files2 = [('TMAP Files', '*.*')]
         file = filedialog.asksaveasfilename(filetypes=files2, defaultextension='.tmap')
-        copy2(self.master.files[1], file)
+        copy2(self.master.files["tmap"], file)
 
-    # Saves a copy of the files to a temporary directory / Ensures that Files have been imported successfully
+    # Ensures that Files have been imported successfully
     def setfilenames(self):
         # Creates an array to store file names
-        self.master.files = ["", "", ""]
+        self.master.files = {}
         numfiles = 0
         # Compares a file to ensure that it is correct
         for x in self.master.filenames:
             # Checks the suffix
-            if Path(x).suffix == ".pgm" and self.master.files[0] == "":
-                self.master.files[0] = x
+            if Path(x).suffix == ".pgm":
+                self.master.files["pgm"] = x
                 # Logs a file has been imported
                 self.logging.info("PGM file imported: ".format(x))
-                # Copies the file to the tempDir
-                copy2(self.master.files[0], 'tempDir')
-                self.logging.info("PGM file saved to temporary directory.")
                 # Adds to the file counter
                 numfiles += 1
-            elif Path(x).suffix == ".tmap" and self.master.files[1] == "":
-                self.master.files[1] = x
+            elif Path(x).suffix == ".tmap":
+                self.master.files["tmap"] = x
                 self.logging.info("TMAP file imported: {}".format(x))
-                copy2(self.master.files[1], 'tempDir')
-                self.logging.info("TMAP file saved to temporary directory.")
                 numfiles += 1
-            elif Path(x).suffix == ".yaml" and self.master.files[2] == "":
-                self.master.files[2] = x
+            elif Path(x).suffix == ".yaml":
+                self.master.files["yaml"] = x
                 self.logging.info("YAML file imported: {}".format(x))
-                copy2(self.master.files[2], 'tempDir')
-                self.logging.info("YAML file saved to temporary directory.")
                 numfiles += 1
             else:
                 self.logging.info("Invalid file type selected: {}".format(x))
@@ -123,22 +119,33 @@ class LaunchFrame:
             return 0
         # If successful - then return TRUE condition
         else:
+            self.logging.debug(self.master.files)
+            filelocdict = {
+                "name": random.randint(1245, 99999),
+                "files": self.master.files
+            }
+
+            if not os.path.exists("data/"):
+                os.mkdir("data/")
+
+            with open('data/RecentProjects.json', 'w') as fp:
+                json.dump(filelocdict, fp, indent=2)
             return 1
 
     # Reads in and stores the data of the YAML file
     def readyaml(self):
-        with open(self.master.files[2]) as file:
+        with open(self.master.files["yaml"]) as file:
             self.master.yamldata = yaml.load(file, Loader=yaml.FullLoader)
 
     # Reads in and stores the data of the TMAP file
     def readtmap(self):
-        with open(self.master.files[1]) as file:
+        with open(self.master.files["tmap"]) as file:
             self.master.tmapdata = yaml.load(file, Loader=yaml.FullLoader)
 
     # Reads in the PGM file
     def readpgm(self):
         id, pgmX, pgmY, maxval = 0, 0, 0, 0
-        image = open(self.master.files[0], 'r')
+        image = open(self.master.files["pgm"], 'r')
         x = 0
         while x < 4:
             line = image.readline()
