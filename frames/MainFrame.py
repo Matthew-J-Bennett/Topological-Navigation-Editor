@@ -89,5 +89,5 @@ class MainFrame:
         for point in self.master.tmapdata:
             position = point["node"]["pose"]["position"]
             posX, posY = tmap.swapToPix(self, position["x"], position["y"])
-            self.logging.info("X:" + str(posX) + " Y:" + str(posY))
+            # self.logging.info("X:" + str(posX) + " Y:" + str(posY))
             self.mapcanvas.create_oval(posX - 3, posY - 3, posX + 3, posY + 3, tags="point")

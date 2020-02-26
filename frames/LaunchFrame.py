@@ -1,15 +1,18 @@
+import datetime
+import json
 import os
+import random
 import tkinter as tk
 from pathlib import Path
 from shutil import copy2
 from tkinter import filedialog, messagebox
-import tmap
+
 import yaml
+
 import contants as const
 import elements
 import frames
-import json
-import random
+import tmap
 
 
 class LaunchFrame:
@@ -18,11 +21,11 @@ class LaunchFrame:
         self.master = master
         self.logging = master.logger
         self.window = master.master
-        """
+
         if not os.path.exists("data/RecentProjects.json"):
             with open('data/RecentProjects.json', 'w') as fp:
-                json.dump({},fp, indent=2)
-        """
+                json.dump({}, fp, indent=2)
+
         # Creates the launch frame
         self.frame = elements.Frame(master=self.window)
 
@@ -71,7 +74,7 @@ class LaunchFrame:
             self.readtmap()
             self.readyaml()
             self.readpgm()
-            self.logging.info("pgm x:"+str(self.master.pgm["width"])+" pgm y:"+str(self.master.pgm["height"]))
+            self.logging.info("pgm x:" + str(self.master.pgm["width"]) + " pgm y:" + str(self.master.pgm["height"]))
             data = self.master.tmapdata
             data = tmap.addAction(data, "WayPoint10", "WayPoint20")
             data = tmap.deleteAction(data, "WayPoint10", "WayPoint20")
@@ -116,15 +119,17 @@ class LaunchFrame:
             return 0
         # If successful - then return TRUE condition
         else:
-            """
-            with open('data/RecentProjects.json','r') as f:
-                filelocdict = json.loads(f)
-            filelocdict["name"] = random.randint(1245,99999)
-            """
-            filelocdict = {
-                "name": random.randint(1245, 99999),
-                "files": self.master.files
+            # Opens and reads previous json as a dict
+            with open('data/RecentProjects.json', 'r') as f:
+                filelocdict = json.loads(f.read())
+            # Creates the new entry as a separate dict
+            random_id = random.randint(1245, 99999)
+            new_dict = {
+                str(random_id): {"files": self.master.files, "last_opened": str(datetime.datetime.now())}
             }
+
+            # Combines the two dicts to one and then saves it to the files making sure the path is still valid
+            filelocdict = {**filelocdict, **new_dict}
             if not os.path.exists("data/"):
                 os.mkdir("data/")
 
@@ -158,4 +163,4 @@ class LaunchFrame:
             if x == 3:
                 maxval = line
             x += 1
-        self.master.pgm = {"id":id,"width":pgmX,"height":pgmY,"maxval":maxval}
+        self.master.pgm = {"id": id, "width": pgmX, "height": pgmY, "maxval": maxval}
