@@ -18,12 +18,11 @@ class LaunchFrame:
         self.master = master
         self.logging = master.logger
         self.window = master.master
-
+        """
         if not os.path.exists("data/RecentProjects.json"):
             with open('data/RecentProjects.json', 'w') as fp:
-                json.dump({}, fp, indent=2)
-
-
+                json.dump({},fp, indent=2)
+        """
         # Creates the launch frame
         self.frame = elements.Frame(master=self.window)
 
@@ -37,7 +36,7 @@ class LaunchFrame:
                                                                                            master=self.master)))
         # Adds a title to the top of the screen
         title_label = elements.Label(master=master.master, text="Topological-Navigation-Editor", x=625, y=50,
-                                     font=("Roboto", 44),
+                                     font=("Comic Sans MS", 44),
                                      fg='white', anchor=tk.CENTER)
         # Import files button
         import_button = elements.Button(master=master.master, x=800, y=650, text="Import Files", width=20,
@@ -51,7 +50,7 @@ class LaunchFrame:
                                             relief=tk.RIDGE, bd=3)
         # Placeholder text
         temp_recent_files_text = elements.Label(master=master.master, text="Here is where Recent Files will go", x=755,
-                                                y=160, font=("Roboto", 14), fg='white', bg=const.tertiary_colour)
+                                                y=160, font=("Comic Sans MS", 14), fg='white', bg=const.tertiary_colour)
         # Placeholder Button
         temp_save_button = elements.Button(master=master.master, x=10, y=90, text="Save Files", width=20,
                                            func=lambda: self.savefilename())
@@ -71,17 +70,11 @@ class LaunchFrame:
         if self.setfilenames() == 1:
             self.readtmap()
             self.readyaml()
+            self.readpgm()
+            self.logging.info("pgm x:"+str(self.master.pgm["width"])+" pgm y:"+str(self.master.pgm["height"]))
             data = self.master.tmapdata
             data = tmap.addAction(data, "WayPoint10", "WayPoint20")
             data = tmap.deleteAction(data, "WayPoint10", "WayPoint20")
-            orientation = [0.5, 0.6, 0.7, 0.8]
-            position = [24, 43, 2.1]
-            verts = [[1, 2], [1, 3], [1, 4], [1, 5], [1, 6], [1, 7], [1, 8], [1, 9]]
-            tmap.printNodeNames(data)
-            tmap.addNode(data, "riseholme", "WayPoint225", "riseholme", orientation, position, verts)
-            tmap.printNodeNames(data)
-            tmap.deleteNode(data, "WayPoint225")
-            tmap.printNodeNames(data)
 
         if len(self.master.filenames) == 3:
             self.master.frame_swap(old_frame=self.frame,
@@ -98,7 +91,6 @@ class LaunchFrame:
         # Creates an array to store file names
         self.master.files = {}
         numfiles = 0
-
         # Compares a file to ensure that it is correct
         for x in self.master.filenames:
             # Checks the suffix
@@ -124,17 +116,15 @@ class LaunchFrame:
             return 0
         # If successful - then return TRUE condition
         else:
-            with open('data/RecentProjects.json', 'r') as f:
+            """
+            with open('data/RecentProjects.json','r') as f:
                 filelocdict = json.loads(f)
-
-
-            filelocdict["name"] = random.randint(123,9999)
-            
-            {
+            filelocdict["name"] = random.randint(1245,99999)
+            """
+            filelocdict = {
                 "name": random.randint(1245, 99999),
                 "files": self.master.files
             }
-
             if not os.path.exists("data/"):
                 os.mkdir("data/")
 
@@ -152,10 +142,20 @@ class LaunchFrame:
         with open(self.master.files["tmap"]) as file:
             self.master.tmapdata = yaml.load(file, Loader=yaml.FullLoader)
 
-
-class pgm():
-    def __init__(self, id, width, height, maxval):
-        self.id = id
-        self.width = width
-        self.height = height
-        self.maxval = maxval
+    # Reads in and stores pgm width and height used on cavas
+    def readpgm(self):
+        id, pgmX, pgmY, maxval = 0, 0, 0, 0
+        image = open(self.master.files["pgm"], 'r')
+        x = 0
+        while x < 4:
+            line = image.readline()
+            if x == 0:
+                id = line
+            if x == 2:
+                size = line.split()
+                pgmX = float(size[0])
+                pgmY = float(size[1])
+            if x == 3:
+                maxval = line
+            x += 1
+        self.master.pgm = {"id":id,"width":pgmX,"height":pgmY,"maxval":maxval}

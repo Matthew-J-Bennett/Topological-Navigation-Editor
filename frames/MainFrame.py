@@ -22,10 +22,12 @@ class MainFrame:
         # Sets a variable for the background image
         img = PhotoImage(file=self.master.files["pgm"])
         # Creates a imgcanvas and sets the size of the imgcanvas - NEED TO USE IMAGE VARIABLE WIDTHS
-        self.mapcanvas = Canvas(self.window, width=850, height=800, scrollregion=(0, 0, 1583, 1806))
+        self.mapcanvas = Canvas(self.window, width=850, height=800, scrollregion=(0, 0,
+                                                                                  self.master.pgm["width"],
+                                                                                  self.master.pgm["height"]))
         self.mapcanvas.pack(expand=YES, side=tk.LEFT, fill=BOTH)
         # Adds the image to the imgcanvas
-        self.mapcanvas.create_image(10, 20, anchor=NW, image=img)
+        self.mapcanvas.create_image(0, 0, anchor=NW, image=img)
 
         # Creates the Properties Canvas
         propcanvas = Canvas(self.window, width=400, height=800)
@@ -73,13 +75,19 @@ class MainFrame:
         # Defines what the scroll bar will do
         scroll_y.config(command=self.mapcanvas.yview)
         self.mapcanvas.config(yscrollcommand=scroll_y.set)
+        self.plotCanvas()
+        orientation = [0.5, 0.6, 0.7, 0.8]
+        position = [20, 20, 1]
+        # able to add a new node and have it displayed on canvas
+        tmap.addNode(self, "riseholme", "WayPoint225", "riseholme", orientation, position)
+        self.plotCanvas()
+        mainloop()
 
+    # Function to plot all the points on the canvas, first deletes all points then plots
+    def plotCanvas(self):
+        self.mapcanvas.delete("point")
         for point in self.master.tmapdata:
             position = point["node"]["pose"]["position"]
-
-            position["x"] = position["x"] * 25 - 31.4
-            position["y"] = position["y"] * 25 - 14.5
-
-            self.mapcanvas.create_oval(position["x"] - 2, position["y"] - 2, position["x"] + 1, position["y"] + 1)
-
-        mainloop()
+            posX, posY = tmap.swapToPix(self, position["x"], position["y"])
+            self.logging.info("X:" + str(posX) + " Y:" + str(posY))
+            self.mapcanvas.create_oval(posX - 3, posY - 3, posX + 3, posY + 3, tags="point")
