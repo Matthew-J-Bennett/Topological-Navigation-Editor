@@ -128,10 +128,10 @@ class MainFrame:
                     node = tags[1]
                     self.logging.info(str(tags[1]))
                     if self.master.multi_clicked_item:
-                        numitems = len(self.master.multi_clicked_item)
+                        num_items = len(self.master.multi_clicked_item)
                         for y in self.master.multi_clicked_item:
                             item2 = self.map_canvas.find_withtag(y)
-                            if y != node and numitems < 2:
+                            if y != node and num_items < 2:
                                 self.map_canvas.itemconfig(item, fill='red')
                                 self.master.multi_clicked_item.append(node)
                                 break
@@ -178,13 +178,13 @@ class MainFrame:
         for point in self.master.tmapdata:
             name = point["meta"]["node"]
             position = point["node"]["pose"]["position"]
-            pos_x, pos_y = tmap.swapToPix(self, position["x"], position["y"])
+            pos_x, pos_y = tmap.swap_to_px(self, position["x"], position["y"])
             node = self.map_canvas.create_oval(pos_x - 4, pos_y - 4, pos_x + 4, pos_y + 4, fill="blue",
                                                tags=("point", name))
         for point in self.master.tmapdata:
             links = point["node"]["edges"]
             position = point["node"]["pose"]["position"]
-            pos_x, pos_y = tmap.swapToPix(self, position["x"], position["y"])
+            pos_x, pos_y = tmap.swap_to_px(self, position["x"], position["y"])
             for link in links:
                 if link != "":
                     self.create_node_link([pos_x, pos_y], link)
@@ -195,8 +195,8 @@ class MainFrame:
         if self.map_canvas.find_withtag(link["edge_id"]) == ():
             connection = link["edge_id"]
             next_node = connection.split("_")[1]
-            next_pos1, next_pos2 = tmap.getPos(self, next_node)
-            next_pos_x, next_pos_y = tmap.swapToPix(self, next_pos1, next_pos2)
+            next_pos1, next_pos2 = tmap.get_pos(self, next_node)
+            next_pos_x, next_pos_y = tmap.swap_to_px(self, next_pos1, next_pos2)
             self.map_canvas.create_line(pos[0], pos[1], next_pos_x, next_pos_y, dash=(4, 2), arrow=tk.LAST,
                                         tags=("connection",
                                               str("Connect" +
@@ -231,14 +231,14 @@ class MainFrame:
     #   the canvas and make it the currently selected item. Currently only takes in the x and y coordinates the rest of
     #   the values are hard coded (EXCEPT FOR NAME WHICH IS AUTO GENERATED, MUCH IMPORTANT VERY PRIMARY KEY)
     def add_canvas_node(self, pos):
-        if pos != [] and self.master.clickmode == 0:
+        if pos != [] and self.master.click_mode == 0:
             self.logging.info(pos)
             pos_x, pos_y = pos[0], pos[1]
-            metre_pos_x, metre_pos_y = tmap.swapToMetre(self, pos_x, pos_y)
+            metre_pos_x, metre_pos_y = tmap.swap_to_metre(self, pos_x, pos_y)
             self.logging.info(metre_pos_x)
             self.logging.info(metre_pos_y)
-            new_node = tmap.addNode(self, "riseholme", "riseholme", [0.5, 0.6, 0.7, 0.8],
-                                    [metre_pos_x, metre_pos_y, 0.0])
+            new_node = tmap.add_node(self, "riseholme", "riseholme", [0.5, 0.6, 0.7, 0.8],
+                                     [metre_pos_x, metre_pos_y, 0.0])
             node = self.map_canvas.create_oval(pos_x - 4, pos_y - 4, pos_x + 4, pos_y + 4, fill="blue",
                                                tags=("point", new_node))
             self.map_canvas.itemconfig(node, fill='red')
@@ -248,10 +248,10 @@ class MainFrame:
     # Function to create a new connection between two selected nodes in the tmap dictionary and to plot the connection
     #   on the canvas, stores the position in the dictionary as metre value then converts to pixels for plotting
     def add_canvas_connection(self, nodes):
-        if len(nodes) == 2 and self.master.clickmode == 1:
-            tmap.addAction(self, nodes[0], nodes[1])
-            pos_x1, pos_y1 = tmap.swapToPix(self, tmap.getPos(self, nodes[0])[0], tmap.getPos(self, nodes[0])[1])
-            pos_x2, pos_y2 = tmap.swapToPix(self, tmap.getPos(self, nodes[1])[0], tmap.getPos(self, nodes[1])[1])
+        if len(nodes) == 2 and self.master.click_mode == 1:
+            tmap.add_action(self, nodes[0], nodes[1])
+            pos_x1, pos_y1 = tmap.swap_to_px(self, tmap.get_pos(self, nodes[0])[0], tmap.get_pos(self, nodes[0])[1])
+            pos_x2, pos_y2 = tmap.swap_to_px(self, tmap.get_pos(self, nodes[1])[0], tmap.get_pos(self, nodes[1])[1])
             self.logging.info("posX1:{} posY1:{} posX2:{} posY2:{}".format(pos_x1, pos_y1, pos_x2, pos_y2))
             self.map_canvas.create_line(pos_x1, pos_y1, pos_x2, pos_y2, dash=(4, 2), arrow=tk.LAST, tags=("connection",
                                                                                                           str(
@@ -269,24 +269,24 @@ class MainFrame:
     # Function to delete a connection between two selected nodes and remove that connection from the dictionary, checks
     # both the nodes to see if they have the connection and deletes from both if necessary
     def delete_connection(self, nodes):
-        if len(nodes) == 2 and self.master.clickmode == 1:
+        if len(nodes) == 2 and self.master.click_mode == 1:
             action_val1 = nodes[0] + "_" + nodes[1]
             action_val2 = nodes[1] + "_" + nodes[0]
-            tmap.deleteAction(self, nodes[0], nodes[1])
-            tmap.deleteAction(self, nodes[1], nodes[0])
+            tmap.delete_action(self, nodes[0], nodes[1])
+            tmap.delete_action(self, nodes[1], nodes[0])
             self.map_canvas.delete(str(action_val1))
             self.map_canvas.delete(str(action_val2))
 
     # Function to delete a node from the tmap dictionary and any associated canvas options
     def delete_canvas_node(self, node):
-        if self.master.clickmode == 0:
-            tmap.deleteNode(self, node)
+        if self.master.click_mode == 0:
+            tmap.delete_node(self, node)
             self.map_canvas.delete(node)
             self.map_canvas.delete(str("Connect" + node))
 
     # Function to update the sidebar labels with the info obtained from the tmap dictionary
     def display_node_info(self, node, labels):
-        data = tmap.getDisplayInfo(self, node)
+        data = tmap.get_display_info(self, node)
 
         labels[0].set(data["name"])
         labels[1].set(data["set"])
@@ -304,8 +304,8 @@ class MainFrame:
     def update_node(self, labels):
         new_pos = [float(labels[2].get()), float(labels[3].get())]
         node_name = labels[0].get()
-        tmap.updatePos(self, node_name, new_pos)
-        node_pos = tmap.getNodePos(self, node_name)
+        tmap.update_pos(self, node_name, new_pos)
+        node_pos = tmap.get_node_pos(self, node_name)
         self.map_canvas.delete(node_name)
         self.map_canvas.delete(str("Connect" + node_name))
         node = self.map_canvas.create_oval(new_pos[0] - 4, new_pos[1] - 4, new_pos[0] + 4, new_pos[1] + 4, fill="blue",
@@ -317,7 +317,7 @@ class MainFrame:
             for link in nodes["node"]["edges"]:
                 node_connection = link["edge_id"]
                 if node_connection.split("_")[1] == node_name:
-                    new_pos[0], new_pos[1] = tmap.swapToPix(self, tmap.getPos(self, node_connection.split("_")[0])[0],
-                                                            tmap.getPos(self, node_connection.split("_")[0])[1])
+                    new_pos[0], new_pos[1] = tmap.swap_to_px(self, tmap.get_pos(self, node_connection.split("_")[0])[0],
+                                                             tmap.get_pos(self, node_connection.split("_")[0])[1])
                     self.create_node_link(new_pos, link)
         self.map_canvas.tag_raise("point")

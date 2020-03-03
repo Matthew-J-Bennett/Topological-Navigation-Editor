@@ -12,52 +12,52 @@ class Tmap:
 # 3 parameters ([node dataset], [name of current node being manipulated],
 #   [name of the node being connected to from current node])
 # Info needed: action, edge_id, inflation_radius, map_2d, node, recovery_behaviours_config, top_vel
-def addAction(self, nodename, nodeconnection):
-    pos = getNodePos(self, nodename)
+def add_action(self, node_name, node_connection):
+    pos = get_node_pos(self, node_name)
     if pos != -1:
-        actionslist = self.master.tmapdata[pos]["node"]["edges"]
-        if nodeconnection != "":
-            newedge_id = nodename + "_" + nodeconnection
+        actions_list = self.master.tmapdata[pos]["node"]["edges"]
+        if node_connection != "":
+            new_edge_id = node_name + "_" + node_connection
         else:
-            newedge_id = nodename
-        connectionexists = 0
-        for x in range(len(actionslist)):
-            if actionslist[x]["edge_id"] == newedge_id:
-                connectionexists = 1
-        if connectionexists == 0:
-            newaction = {"action": "move_base", "edge_id": newedge_id, "inflation_radius": "0.0",
-                         "map_2d": self.master.tmapdata[pos - 1]["meta"]["map"], "node": nodeconnection,
-                         "recovery_behaviours_config": "", "top_vel": "0.55"}
-            actionslist.append(newaction)
-            self.master.tmapdata[pos]["node"]["edges"] = actionslist
-            logger.info("Connection established between nodes " + nodename + " and " + nodeconnection)
-            logger.info(actionslist)
+            new_edge_id = node_name
+        connection_exists = 0
+        for x in range(len(actions_list)):
+            if actions_list[x]["edge_id"] == new_edge_id:
+                connection_exists = 1
+        if connection_exists == 0:
+            new_action = {"action": "move_base", "edge_id": new_edge_id, "inflation_radius": "0.0",
+                          "map_2d": self.master.tmapdata[pos - 1]["meta"]["map"], "node": node_connection,
+                          "recovery_behaviours_config": "", "top_vel": "0.55"}
+            actions_list.append(new_action)
+            self.master.tmapdata[pos]["node"]["edges"] = actions_list
+            logger.info("Connection established between nodes " + node_name + " and " + node_connection)
+            logger.info(actions_list)
         else:
-            logger.info("Connection already exists between nodes " + nodename + " and " + nodeconnection)
+            logger.info("Connection already exists between nodes " + node_name + " and " + node_connection)
 
 
 # Function to add an action to an existing node,
 # 3 parameters ([node dataset], [name of current node being manipulated],
 #   [name of a node connected to the current node])
-def deleteAction(self, nodename, nodeconnection):
-    pos = getNodePos(self, nodename)
+def delete_action(self, node_name, node_connection):
+    pos = get_node_pos(self, node_name)
     if pos != -1:
-        actionslist = self.master.tmapdata[pos]["node"]["edges"]
-        edge_id = nodename + "_" + nodeconnection
-        connectionexists, connectionpos = 0, 0
-        if len(actionslist) != 0:
-            for x in range(len(actionslist)):
-                if actionslist[x]["edge_id"] == edge_id:
-                    connectionexists = 1
-                    connectionpos = x
-            if connectionexists == 1:
-                del actionslist[connectionpos]
-                logger.info("Action removed between nodes " + nodename + " and " + nodeconnection)
-                logger.info(actionslist)
+        actions_list = self.master.tmapdata[pos]["node"]["edges"]
+        edge_id = node_name + "_" + node_connection
+        connection_exists, connection_pos = 0, 0
+        if len(actions_list) != 0:
+            for x in range(len(actions_list)):
+                if actions_list[x]["edge_id"] == edge_id:
+                    connection_exists = 1
+                    connection_pos = x
+            if connection_exists == 1:
+                del actions_list[connection_pos]
+                logger.info("Action removed between nodes " + node_name + " and " + node_connection)
+                logger.info(actions_list)
             else:
-                logger.info("No action exists between nodes " + nodename + " and " + nodeconnection)
+                logger.info("No action exists between nodes " + node_name + " and " + node_connection)
         else:
-            logger.info(nodename + " node has no actions")
+            logger.info(node_name + " node has no actions")
 
 
 # Function to create a new node,
@@ -65,37 +65,38 @@ def deleteAction(self, nodename, nodeconnection):
 #   position[x,y,z], verts(8x[x,y])
 # 6 parameters ([node dataset], [map name], [name of pointset], [orientation as list of 4 values],
 #   [position as list of 3 values], [vertices of node as list of 8 lists of 2 values each])
-def addNode(self, topmap, pointset, orientation, position):
+def add_node(self, top_map, point_set, orientation, position):
     name = 1
-    namefound, count = 0, 0
-    while namefound == 0:
+    name_found, count = 0, 0
+    while name_found == 0:
         for points in self.master.tmapdata:
             current_name = points["meta"]["node"].replace("WayPoint", "")
             if int(current_name) != name:
                 count += 1
-        if count != len(self.master.tmapdata)-1:
-            namefound = 1
+        if count != len(self.master.tmapdata) - 1:
+            name_found = 1
         else:
             name += 1
             count = 0
     name = "WayPoint" + str(name)
-    metadict = {"map": topmap, "node": name, "pointset": pointset}
-    oridict = {"w": orientation[0], "x": orientation[1], "y": orientation[2], "z": orientation[3]}
-    posdict = {"x": position[0], "y": position[1], "z": position[2]}
-    vertsdict = [{"x":0.689999997616, "y":0.287000000477}, {"x":0.287000000477, "y":0.490000009537},
-                 {"x":-0.287000000477, "y":0.490000009537}, {"x":-0.689999997616, "y":0.287000000477},
-                 {"x":-0.689999997616, "y":-0.287000000477}, {"x":-0.287000000477, "y":-0.490000009537},
-                 {"x":0.287000000477, "y":-0.490000009537} , {"x":0.689999997616, "y":-0.287000000477}]
-    if len(vertsdict) == 8:
+    meta_dict = {"map": top_map, "node": name, "pointset": point_set}
+    ori_dict = {"w": orientation[0], "x": orientation[1], "y": orientation[2], "z": orientation[3]}
+    pos_dict = {"x": position[0], "y": position[1], "z": position[2]}
+    verts_dict = [{"x": 0.689999997616, "y": 0.287000000477}, {"x": 0.287000000477, "y": 0.490000009537},
+                  {"x": -0.287000000477, "y": 0.490000009537}, {"x": -0.689999997616, "y": 0.287000000477},
+                  {"x": -0.689999997616, "y": -0.287000000477}, {"x": -0.287000000477, "y": -0.490000009537},
+                  {"x": 0.287000000477, "y": -0.490000009537}, {"x": 0.689999997616, "y": -0.287000000477}]
+    if len(verts_dict) == 8:
         if len(position) == 3:
             if len(orientation) == 4:
-                newnode = {"meta": metadict, "node": {"edges": [], "localise_by_topic": "", "map": topmap,
-                           "name": name, "pointset": pointset, "pose": {"orienation": oridict, "position": posdict},
-                           "verts": vertsdict,
-                           "xy_goal_tolerance": "0.3", "yaw_goal_tolerance": "0.1"}}
-                self.master.tmapdata.append(newnode)
+                new_node = {"meta": meta_dict, "node": {"edges": [], "localise_by_topic": "", "map": top_map,
+                                                        "name": name, "pointset": point_set,
+                                                        "pose": {"orienation": ori_dict, "position": pos_dict},
+                                                        "verts": verts_dict,
+                                                        "xy_goal_tolerance": "0.3", "yaw_goal_tolerance": "0.1"}}
+                self.master.tmapdata.append(new_node)
                 logger.info("Node created " + str(name))
-                logger.info(newnode)
+                logger.info(new_node)
                 return name
             else:
                 logger.info("Invalid orientation items")
@@ -104,93 +105,89 @@ def addNode(self, topmap, pointset, orientation, position):
     else:
         logger.info("Invalid number of vertices")
 
-def updatePos(self, node, newPos):
-    nodePos = getNodePos(self, node)
-    nodeData = self.master.tmapdata[nodePos]["node"]["pose"]["position"]
-    logger.info("Old position X: {} Y: {}".format(newPos[0], newPos[1]))
-    metrePosX, metrePosY = swapToMetre(self, newPos[0], newPos[1])
-    nodeData["x"], nodeData["y"] = metrePosX, metrePosY
-    logger.info("Position updated to X:{} Y:{}".format(metrePosX, metrePosY))
+
+def update_pos(self, node, new_pos):
+    node_pos = get_node_pos(self, node)
+    node_data = self.master.tmapdata[node_pos]["node"]["pose"]["position"]
+    logger.info("Old position X: {} Y: {}".format(new_pos[0], new_pos[1]))
+    metre_pos_x, metre_pos_y = swap_to_metre(self, new_pos[0], new_pos[1])
+    node_data["x"], node_data["y"] = metre_pos_x, metre_pos_y
+    logger.info("Position updated to X:{} Y:{}".format(metre_pos_x, metre_pos_y))
+
 
 # Function to delete a node
 # 2 parameters ([node dataset], [name of node to be deleted])
-def deleteNode(self, nodename):
-    pos = getNodePos(self, nodename)
+def delete_node(self, node_name):
+    pos = get_node_pos(self, node_name)
     if pos != -1:
         del self.master.tmapdata[pos]
         for nodes in self.master.tmapdata:
             for link in nodes["node"]["edges"][:]:
                 if link != "":
-                    nodecon = link["edge_id"]
-                    if nodecon.split("_")[1] == nodename:
+                    node_connection = link["edge_id"]
+                    if node_connection.split("_")[1] == node_name:
                         nodes["node"]["edges"].remove(link)
                         self.logging.info("ACTIONS: {}".format(nodes["node"]["edges"]))
-        logger.info(nodename + " deleted")
+        logger.info(node_name + " deleted")
 
 
 # Function to find node location in array,
 #   2 parameters ([node dataset], [name of the node])
-def getNodePos(self, nodename):
+def get_node_pos(self, node_name):
     pos, count = -1, 0
     while count < len(self.master.tmapdata):
-        if self.master.tmapdata[count]["meta"]["node"] == nodename:
+        if self.master.tmapdata[count]["meta"]["node"] == node_name:
             pos = count
         count += 1
     if pos != -1:
         return pos
     else:
-        logger.info("Position not found for node " + nodename)
+        logger.info("Position not found for node " + node_name)
         return pos
 
 
-def getPos(self, node):
+def get_pos(self, node):
     for point in self.master.tmapdata:
         if point["meta"]["node"] == node:
             pos = point["node"]["pose"]["position"]
             return pos["x"], pos["y"]
 
-def swapToPix(self, node):
-    pos1, pos2 = node["node"]["pose"]["position"]["x"], node["node"]["pose"]["position"]["y"]
-    pos1 = (pos1-self.master.yamldata["origin"][0])/self.master.yamldata["resolution"]
-    pos2 = self.master.pgm["height"] - ((pos2-self.master.yamldata["origin"][1])/self.master.yamldata["resolution"])
-    return pos1, pos2
 
 # Converts the X and Y metre values from the node into pixel values for displaying on cavas
 # Returns 2 values
-def swapToPix(self, pos1, pos2):
-    pos1 = (pos1-self.master.yamldata["origin"][0])/self.master.yamldata["resolution"]
-    pos2 = self.master.pgm["height"] - ((pos2-self.master.yamldata["origin"][1])/self.master.yamldata["resolution"])
+def swap_to_px(self, pos1, pos2):
+    pos1 = (pos1 - self.master.yaml_data["origin"][0]) / self.master.yaml_data["resolution"]
+    pos2 = self.master.pgm["height"] - (
+            (pos2 - self.master.yaml_data["origin"][1]) / self.master.yaml_data["resolution"])
     return pos1, pos2
 
-def swapToMetre(self, node):
-    pos1, pos2 = node["node"]["pose"]["position"]["x"], node["node"]["pose"]["position"]["y"]
-    pos1 = (pos1*self.master.yamldata["resolution"])+self.master.yamldata["origin"][0]
-    pos2 = ((self.master.pgm["height"]-pos2)*self.master.yamldata["resolution"])+self.master.yamldata["origin"][1]
-    return pos1, pos2
 
 # Converts the X and Y pixel values from the node into metre values for storing in file
 # Returns 2 values
-def swapToMetre(self, pos1, pos2):
-    pos1 = (float(pos1)*self.master.yamldata["resolution"])+self.master.yamldata["origin"][0]
-    pos2 = ((self.master.pgm["height"]-float(pos2))*self.master.yamldata["resolution"])+self.master.yamldata["origin"][1]
+def swap_to_metre(self, pos1, pos2):
+    pos1 = (float(pos1) * self.master.yaml_data["resolution"]) + self.master.yaml_data["origin"][0]
+    pos2 = ((self.master.pgm["height"] - float(pos2)) * self.master.yaml_data["resolution"]) + \
+           self.master.yaml_data["origin"][1]
     return pos1, pos2
 
-def getDisplayInfo(self, node):
-    pos = getNodePos(self, node)
-    node = self.master.tmapdata[pos]
-    posX, posY = swapToPix(self, node["node"]["pose"]["position"]["x"], node["node"]["pose"]["position"]["y"])
-    infoPacket = {"name": node["meta"]["node"], "set": node["meta"]["pointset"], "x": posX, "y": posY,
-                  "z": node["node"]["pose"]["position"]["z"]}
-    return infoPacket
 
-def printNodeNames(data):
+def get_display_info(self, node):
+    pos = get_node_pos(self, node)
+    node = self.master.tmapdata[pos]
+    pos_x, pos_y = swap_to_px(self, node["node"]["pose"]["position"]["x"], node["node"]["pose"]["position"]["y"])
+    info_packet = {"name": node["meta"]["node"], "set": node["meta"]["pointset"], "x": pos_x, "y": pos_y,
+                   "z": node["node"]["pose"]["position"]["z"]}
+    return info_packet
+
+
+def print_node_names(data):
     nodes = []
     for x in range(len(data)):
         nodes.append(data[x]["meta"]["node"])
     logger.info(nodes)
 
 
-def printNode(data, node):
-    pos = getNodePos(data, node)
+def print_node(data, node):
+    pos = get_node_pos(data, node)
     if pos != -1:
         logger.info(data[pos])
