@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import *
+# from tkinter import *
 
 import elements
 import frames
@@ -20,18 +20,18 @@ class MainFrame:
                                                                                            master=self.master)))
         # This block imports the pgm file.
         # Sets a variable for the background image
-        img = PhotoImage(file=self.master.files["pgm"])
+        img = tk.PhotoImage(file=self.master.files["pgm"])
         # Creates a imgcanvas and sets the size of the imgcanvas - NEED TO USE IMAGE VARIABLE WIDTHS
-        self.mapcanvas = Canvas(self.window, width=850, height=800, scrollregion=(0, 0,
-                                                                                  self.master.pgm["width"],
-                                                                                  self.master.pgm["height"]))
-        self.mapcanvas.pack(expand=YES, side=tk.LEFT, fill=BOTH)
+        self.mapcanvas = tk.Canvas(self.window, width=850, height=800, scrollregion=(0, 0,
+                                                                                     self.master.pgm["width"],
+                                                                                     self.master.pgm["height"]))
+        self.mapcanvas.pack(expand=tk.YES, side=tk.LEFT, fill=tk.BOTH)
         # Adds the image to the imgcanvas
-        self.mapcanvas.create_image(0, 0, anchor=NW, image=img)
+        self.mapcanvas.create_image(0, 0, anchor=tk.NW, image=img)
 
         # Creates the Properties Canvas
-        propcanvas = Canvas(self.window, width=400, height=800)
-        propcanvas.pack(expand=NO, side=tk.RIGHT, fill=BOTH)
+        propcanvas = tk.Canvas(self.window, width=400, height=800)
+        propcanvas.pack(expand=tk.NO, side=tk.RIGHT, fill=tk.BOTH)
 
         # Populates text Labels
         tk.Label(propcanvas, text="Node Properties").grid(row=0)
@@ -61,17 +61,17 @@ class MainFrame:
         top_vel.grid(row=7, column=1)
 
         # Creates a horizontal scrollbar
-        scroll_x = Scrollbar(self.mapcanvas, orient="horizontal", command=self.mapcanvas.xview, jump=1)
+        scroll_x = tk.Scrollbar(self.mapcanvas, orient="horizontal", command=self.mapcanvas.xview, jump=1)
         # Sets the location of the scroll bar
-        scroll_x.pack(side=BOTTOM, fill=X)
+        scroll_x.pack(side=tk.BOTTOM, fill=tk.X)
         # Defines what the scroll bar will do
         scroll_x.config(command=self.mapcanvas.xview)
         self.mapcanvas.config(xscrollcommand=scroll_x.set)
 
         # Creates a vertical scrollbar
-        scroll_y = Scrollbar(self.mapcanvas, orient="vertical", command=self.mapcanvas.yview, jump=1)
+        scroll_y = tk.Scrollbar(self.mapcanvas, orient="vertical", command=self.mapcanvas.yview, jump=1)
         # Sets the location of the scroll bar
-        scroll_y.pack(side=RIGHT, fill=Y)
+        scroll_y.pack(side=tk.RIGHT, fill=tk.Y)
         # Defines what the scroll bar will do
         scroll_y.config(command=self.mapcanvas.yview)
         self.mapcanvas.config(yscrollcommand=scroll_y.set)
@@ -81,7 +81,7 @@ class MainFrame:
         # able to add a new node and have it displayed on canvas
         tmap.addNode(self, "riseholme", "WayPoint225", "riseholme", orientation, position)
         self.plotCanvas()
-        mainloop()
+        tk.mainloop()
 
     # Function to plot all the points on the canvas, first deletes all points then plots
     def plotCanvas(self):
