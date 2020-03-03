@@ -4,15 +4,11 @@ import os
 import random
 import tkinter as tk
 from pathlib import Path
-from shutil import copy2
 from tkinter import filedialog, messagebox
-
 import yaml
-
 import contants as const
 import elements
 import frames
-import tmap
 
 
 class LaunchFrame:
@@ -21,7 +17,8 @@ class LaunchFrame:
         self.master = master
         self.logging = master.logger
         self.window = master.master
-
+        if not os.path.exists("data/"):
+            os.mkdir("data/")
         if not os.path.exists("data/RecentProjects.json"):
             with open('data/RecentProjects.json', 'w') as fp:
                 json.dump({}, fp, indent=2)
@@ -75,9 +72,6 @@ class LaunchFrame:
             self.readyaml()
             self.readpgm()
             self.logging.info("pgm x:" + str(self.master.pgm["width"]) + " pgm y:" + str(self.master.pgm["height"]))
-            data = self.master.tmapdata
-            data = tmap.addAction(data, "WayPoint10", "WayPoint20")
-            data = tmap.deleteAction(data, "WayPoint10", "WayPoint20")
 
         if len(self.master.filenames) == 3:
             self.master.frame_swap(old_frame=self.frame,
@@ -87,7 +81,8 @@ class LaunchFrame:
     def savefilename(self):
         files2 = [('TMAP Files', '*.*')]
         file = filedialog.asksaveasfilename(filetypes=files2, defaultextension='.tmap')
-        copy2(self.master.files["tmap"], file)
+        with open(file, "w") as outfile:
+            yaml.dump(self.master.tmapdata, outfile, default_flow_style=False)
 
     # Ensures that Files have been imported successfully
     def setfilenames(self):
@@ -100,7 +95,7 @@ class LaunchFrame:
             if Path(x).suffix == ".pgm":
                 self.master.files["pgm"] = x
                 # Logs a file has been imported
-                self.logging.info("PGM file imported: ".format(x))
+                self.logging.info("PGM file imported: {}".format(x))
                 # Adds to the file counter
                 numfiles += 1
             elif Path(x).suffix == ".tmap":
