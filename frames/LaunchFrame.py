@@ -141,6 +141,7 @@ class LaunchFrame:
     def read_tmap(self):
         with open(self.master.files["tmap"]) as file:
             self.master.tmapdata = yaml.load(file, Loader=yaml.FullLoader)
+        self.master.data_loaded = True
 
     # Reads in and stores pgm width and height used on cavas
     def read_pgm(self):
