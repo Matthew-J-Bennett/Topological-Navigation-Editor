@@ -62,7 +62,6 @@ class MainFrame:
         tk.Label(properties_canvas, text="Y Co-ord: ").grid(row=24)
         tk.Label(properties_canvas, text="Z Co-ord: ").grid(row=25)
 
-
         # Uses two labels and three entry's as the name and nodeset are static values whereas the position is changeable
         name = tk.Label(properties_canvas, textvariable=name_label_text)
         nodeset = tk.Label(properties_canvas, textvariable=set_label_text)
@@ -197,6 +196,14 @@ class MainFrame:
 
         # Activates the onclick event when any location on the canvas is clicked
         self.map_canvas.bind('<Button-1>', onclick)
+
+        master.master.bind('<KeyPress-BackSpace>', self.delete_canvas_node_event)
+
+        master.master.bind('<Control-1>', self.add_canvas_node_event)
+        # Needs deselect node function compeleted first
+        master.master.bind('<Control-d>', self.deselect_node_event)
+        master.master.bind('<Control-D>', self.deselect_node_event)
+
         self.master.editmenu.add_command(label="Add Node",
                                          command=lambda: self.add_canvas_node(self.master.clicked_pos))
         self.master.editmenu.add_command(label="Add Node Connection",
@@ -206,14 +213,24 @@ class MainFrame:
         self.master.editmenu.add_command(label="Delete Node Connection",
                                          command=lambda: self.delete_connection(self.master.multi_clicked_item))
 
-        single_item_button = elements.Button(master=master.master, x=840, y=20, text="Single Mode", width=20,
+        single_item_button = elements.Button(master=master.master, x=790, y=20, text="Single Mode", width=20,
                                              func=lambda: self.change_mode(0))
 
-        multi_item_button = elements.Button(master=master.master, x=840, y=70, text="Multi Mode",
+        multi_item_button = elements.Button(master=master.master, x=790, y=70, text="Multi Mode",
                                             width=20,
                                             func=lambda: self.change_mode(1))
 
         tk.mainloop()
+
+    def delete_canvas_node_event(self, event):
+        self.delete_canvas_node(self.master.clicked_item)
+
+    def add_canvas_node_event(self, event):
+        self.add_canvas_node(self.master.clicked_pos)
+
+    def deselect_node_event(self, event):
+        # Ready for deselect shortcuts
+        pass
 
     # Function to plot all the points on the canvas, first cycles through all the nodes and plots them then cycles
     #   through all the links and plots them.
