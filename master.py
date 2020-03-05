@@ -54,7 +54,7 @@ class Master:
 
             self.logger.info("Saving tmap data to: {}".format(file))
             with open(file, "w") as outfile:
-                yaml.dump(self.master.tmapdata, outfile, default_flow_style=False)
+                yaml.dump(self.tmapdata, outfile, default_flow_style=False)
             self.logger.info("Save Complete")
         else:
             messagebox.showerror("Can't save data", "Can not save because no data is loaded to save")
