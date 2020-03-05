@@ -38,14 +38,14 @@ class LaunchFrame:
         import_button = elements.Button(master=master.master, x=800, y=650, text="Import Files", width=20,
                                         func=lambda: self.get_import_filename())
         # Open files button - To be considered
-        open_button = elements.Button(master=master.master, x=1000, y=650, text="Open Files", width=20,
+        open_button = elements.Button(master=master.master, x=1000, y=650, text="Open Project", width=20,
                                       func=lambda: messagebox.showinfo("Title", "a box"))
         # Creates a frame to display recent files
         recent_files_frame = elements.Frame(master=master.master, x=750, y=150, height=450, width=450,
                                             bg=const.tertiary_colour,
                                             relief=tk.RIDGE, bd=3)
         # Placeholder text
-        temp_recent_files_text = elements.Label(master=master.master, text="Here is where Recent Files will go", x=755,
+        temp_recent_files_text = elements.Label(master=master.master, text="Here is where Recent Projects will go", x=755,
                                                 y=160, font=("Roboto", 14), fg='white', bg=const.tertiary_colour)
 
         if not self.master.launched:
