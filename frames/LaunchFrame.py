@@ -47,7 +47,7 @@ class LaunchFrame:
         # Placeholder text
         temp_recent_files_text = elements.Label(master=master.master, text="Here is where Recent Files will go", x=755,
                                                 y=160, font=("Roboto", 14), fg='white', bg=const.tertiary_colour)
-        
+
         if not self.master.launched:
             self.logging.info("Creating Launch Frame")
             self.window.mainloop()

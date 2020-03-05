@@ -167,9 +167,6 @@ class MainFrame:
         multi_item_button = elements.Button(master=master.master, x=600, y=700, text="Multi Mode", width=20,
                                             func=lambda: self.change_mode(1))
 
-        temp_save_button = elements.Button(master=master.master, x=50, y=700, text="Save File", width=20,
-                                           func=lambda: frames.LaunchFrame.save_filename(self))
-
         tk.mainloop()
 
     # Function to plot all the points on the canvas, first cycles through all the nodes and plots them then cycles
