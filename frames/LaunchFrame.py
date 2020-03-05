@@ -29,11 +29,7 @@ class LaunchFrame:
         # Adds Decorative Image
         label = elements.Photo(master=master.master, x=100, y=150, imgpath="logo.png", height=200, width=200,
                                relief=tk.RIDGE, bd=3)
-        # Creates a button to swap between frames
-        swap_frame_tmp = elements.Button(master=master.master, x=10, y=750, text="Swap Frame to Main Project Frame",
-                                         width=30, func=lambda: self.master.frame_swap(old_frame=self.frame,
-                                                                                       new_frame=lambda: frames.MainFrame(
-                                                                                           master=self.master)))
+
         # Adds a title to the top of the screen
         title_label = elements.Label(master=master.master, text="Topological-Navigation-Editor", x=625, y=50,
                                      font=("Roboto", 44),
@@ -51,9 +47,7 @@ class LaunchFrame:
         # Placeholder text
         temp_recent_files_text = elements.Label(master=master.master, text="Here is where Recent Files will go", x=755,
                                                 y=160, font=("Roboto", 14), fg='white', bg=const.tertiary_colour)
-        # Placeholder Button
-        temp_save_button = elements.Button(master=master.master, x=10, y=90, text="Save Files", width=20,
-                                           func=lambda: self.save_filename())
+        
         if not self.master.launched:
             self.logging.info("Creating Launch Frame")
             self.window.mainloop()
