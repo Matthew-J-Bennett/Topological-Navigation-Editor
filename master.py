@@ -18,24 +18,25 @@ class Master:
         self.logger.info("Window Created")
         self.data_loaded = False
 
-        menubar = Menu(self.master)
-        filemenu = Menu(menubar, tearoff=0)
-        helpmenu = Menu(menubar, tearoff=0)
+        self.menubar = Menu(self.master)
+        self.filemenu = Menu(self.menubar, tearoff=0)
+        self.helpmenu = Menu(self.menubar, tearoff=0)
         # funcmenu = Menu(menubar, tearoff=0)
-        menubar.add_cascade(label="File", menu=filemenu)
-        menubar.add_cascade(label="Help", menu=helpmenu)
+        self.menubar.add_cascade(label="File", menu=self.filemenu)
+        self.menubar.add_cascade(label="Help", menu=self.helpmenu)
         # menubar.add_cascade(label="Function Tests", menu=funcmenu)
         # Extra menu to test functions quickly (ignore this)
-        filemenu.add_command(label="Open", command=lambda: messagebox.showinfo("Open", "Open a file"))
-        filemenu.add_command(label="Save                   Ctrl+S", command=lambda: self.save_filename())
-        filemenu.add_command(label="Save As", command=lambda: messagebox.showinfo("Save As", "Save as a file"))
-        filemenu.add_command(label="Recent Files/Projects", command=lambda: messagebox.showinfo("Recent Files/Projects",
-                                                                                                "Open an Recent "
-                                                                                                "Files/Projects"))
-        filemenu.add_command(label="Quit", command=lambda: self.master.quit())
-        helpmenu.add_command(label="About", command=lambda: messagebox.showinfo("About", "About the program"))
+        self.filemenu.add_command(label="Open", command=lambda: messagebox.showinfo("Open", "Open a file"))
+        self.filemenu.add_command(label="Save                   Ctrl+S", command=lambda: self.save_filename())
+        self.filemenu.add_command(label="Save As", command=lambda: messagebox.showinfo("Save As", "Save as a file"))
+        self.filemenu.add_command(label="Recent Files/Projects",
+                                  command=lambda: messagebox.showinfo("Recent Files/Projects",
+                                                                      "Open an Recent "
+                                                                      "Files/Projects"))
+        self.filemenu.add_command(label="Quit", command=lambda: self.master.quit())
+        self.helpmenu.add_command(label="About", command=lambda: messagebox.showinfo("About", "About the program"))
 
-        self.master.config(menu=menubar)
+        self.master.config(menu=self.menubar)
         self.master.bind("<Control-s>", self.save_shortcut_event)
 
     def save_shortcut_event(self, event):
