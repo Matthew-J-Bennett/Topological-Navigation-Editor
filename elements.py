@@ -32,9 +32,13 @@ class Button(Element):
                  bg=const.secondary_colour,
                  bd=4,
                  relief=tk.FLAT,
-                 anchor=None, animation=True):
+                 anchor=None, animation=True, toggle=False):
         self.animation = animation
         self.master = master
+        # Attempt as toggle display functionality
+        self.on = False
+        self.toggle = toggle
+        ######################
         self.element = tk.Label(master=master, text=text, font=font, bg=bg, bd=bd, relief=relief, width=width,
                                 height=height)
         self.element.bind(sequence=sequence, func=lambda x: self.clicked(execute=func))
@@ -43,10 +47,18 @@ class Button(Element):
     # Provides instructions for what to do when clicked
 
     def clicked(self, execute, *args):
+        # Currently not working - ignore this
+        if self.toggle:
+            if self.on:
+                pass
+            else:
+                self.element.config(bd=2, highlightcolor="deep pink")
+        ######################
         if self.animation:
             self.element.config(bg=const.active_colour)
             self.element.after(100, lambda: self.element.config(bg=const.secondary_colour))
             self.master.after(100, lambda: execute())
+
         else:
             execute()
 

@@ -146,25 +146,20 @@ class MainFrame:
 
         # Activates the onclick event when any location on the canvas is clicked
         self.map_canvas.bind('<Button-1>', onclick)
+        self.master.editmenu.add_command(label="Add Node",
+                                         command=lambda: self.add_canvas_node(self.master.clicked_pos))
+        self.master.editmenu.add_command(label="Add Node Connection",
+                                         command=lambda: self.add_canvas_connection(self.master.multi_clicked_item))
+        self.master.editmenu.add_command(label="Delete Node",
+                                         command=lambda: self.delete_canvas_node(self.master.clicked_item))
+        self.master.editmenu.add_command(label="Delete Node Connection",
+                                         command=lambda: self.delete_connection(self.master.multi_clicked_item))
 
-        # All the buttons for the various different functions (Currently temporary as they look shit anyway)
-        add_button = elements.Button(master=master.master, x=800, y=550, text="Add Node", width=20,
-                                     func=lambda: self.add_canvas_node(self.master.clicked_pos))
-
-        delete_button = elements.Button(master=master.master, x=800, y=600, text="Delete Node", width=20,
-                                        func=lambda: self.delete_canvas_node(self.master.clicked_item))
-
-        add_connection_button = elements.Button(master=master.master, x=800, y=650, text="Add Connection", width=20,
-                                                func=lambda: self.add_canvas_connection(self.master.multi_clicked_item))
-
-        delete_connection_button = elements.Button(master=master.master, x=800, y=700, text="Delete Connection",
-                                                   width=20,
-                                                   func=lambda: self.delete_connection(self.master.multi_clicked_item))
-
-        single_item_button = elements.Button(master=master.master, x=600, y=650, text="Single Mode", width=20,
+        single_item_button = elements.Button(master=master.master, x=840, y=20, text="Single Mode", width=20,
                                              func=lambda: self.change_mode(0))
 
-        multi_item_button = elements.Button(master=master.master, x=600, y=700, text="Multi Mode", width=20,
+        multi_item_button = elements.Button(master=master.master, x=840, y=70, text="Multi Mode",
+                                            width=20,
                                             func=lambda: self.change_mode(1))
 
         tk.mainloop()
