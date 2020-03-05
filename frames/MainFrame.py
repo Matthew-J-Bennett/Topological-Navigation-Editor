@@ -36,28 +36,79 @@ class MainFrame:
 
         # Populates text Labels
         tk.Label(properties_canvas, text="Node Properties").grid(row=0)
-        tk.Label(properties_canvas, text="Node Name").grid(row=1)
-        tk.Label(properties_canvas, text="Node Set").grid(row=2)
-        tk.Label(properties_canvas, text="X Co-ord").grid(row=3)
-        tk.Label(properties_canvas, text="Y Co-ord").grid(row=4)
-        tk.Label(properties_canvas, text="Z Co-ord").grid(row=5)
+        tk.Label(properties_canvas, text=" ").grid(row=1)
+        tk.Label(properties_canvas, text="Meta").grid(row=2)
+        tk.Label(properties_canvas, text="Map:").grid(row=3)
+        tk.Label(properties_canvas, text="Node:").grid(row=4)
+        tk.Label(properties_canvas, text="Pointset:").grid(row=5)
+        tk.Label(properties_canvas, text=" ").grid(row=6)
+        tk.Label(properties_canvas, text="Edges").grid(row=7)
+        tk.Label(properties_canvas, text="Action:").grid(row=8)
+        tk.Label(properties_canvas, text="Edge-ID:").grid(row=9)
+        tk.Label(properties_canvas, text="Inflation Radius:").grid(row=10)
+        tk.Label(properties_canvas, text="Map 2D:").grid(row=11)
+        tk.Label(properties_canvas, text="Node:").grid(row=12)
+        tk.Label(properties_canvas, text="Recovery Behaviors Config: ").grid(row=13)
+        tk.Label(properties_canvas, text="Top Velocity:").grid(row=14)
+        tk.Label(properties_canvas, text=" ").grid(row=15)
+        tk.Label(properties_canvas, text="Orientation").grid(row=16)
+        tk.Label(properties_canvas, text="W: ").grid(row=17)
+        tk.Label(properties_canvas, text="X: ").grid(row=18)
+        tk.Label(properties_canvas, text="Y: ").grid(row=19)
+        tk.Label(properties_canvas, text="Z: ").grid(row=20)
+        tk.Label(properties_canvas, text=" ").grid(row=21)
+        tk.Label(properties_canvas, text="Position").grid(row=22)
+        tk.Label(properties_canvas, text="X Co-ord: ").grid(row=23)
+        tk.Label(properties_canvas, text="Y Co-ord: ").grid(row=24)
+        tk.Label(properties_canvas, text="Z Co-ord: ").grid(row=25)
+
 
         # Uses two labels and three entry's as the name and nodeset are static values whereas the position is changeable
         name = tk.Label(properties_canvas, textvariable=name_label_text)
         nodeset = tk.Label(properties_canvas, textvariable=set_label_text)
+        pointset = tk.Label(properties_canvas, textvariable=name_label_text)
+
+        action = tk.Entry(properties_canvas)
+        edge_id = tk.Entry(properties_canvas)
+        inflation_radius = tk.Entry(properties_canvas)
+        map_2d = tk.Entry(properties_canvas)
+        node = tk.Entry(properties_canvas)
+        recovery_behaviours_config = tk.Entry(properties_canvas)
+        top_vel = tk.Entry(properties_canvas)
+
+        w_orientation = tk.Entry(properties_canvas)
+        x_orientation = tk.Entry(properties_canvas)
+        y_orientation = tk.Entry(properties_canvas)
+        z_orientation = tk.Entry(properties_canvas)
+
         x_entry = tk.Entry(properties_canvas)
         y_entry = tk.Entry(properties_canvas)
         z_entry = tk.Entry(properties_canvas)
         self.master.labels = [name_label_text, set_label_text, x_entry, y_entry, z_entry]
 
         # Puts the labels in the correct spots in the grid
-        name.grid(row=1, column=1)
-        nodeset.grid(row=2, column=1)
-        x_entry.grid(row=3, column=1)
-        y_entry.grid(row=4, column=1)
-        z_entry.grid(row=5, column=1)
+        name.grid(row=3, column=1)
+        nodeset.grid(row=4, column=1)
+        node.grid(row=5, column=1)
+
+        action.grid(row=8, column=1)
+        edge_id.grid(row=9, column=1)
+        inflation_radius.grid(row=10, column=1)
+        map_2d.grid(row=11, column=1)
+        node.grid(row=12, column=1)
+        recovery_behaviours_config.grid(row=13, column=1)
+        top_vel.grid(row=14, column=1)
+
+        w_orientation.grid(row=17, column=1)
+        x_orientation.grid(row=18, column=1)
+        y_orientation.grid(row=19, column=1)
+        z_orientation.grid(row=20, column=1)
+
+        x_entry.grid(row=23, column=1)
+        y_entry.grid(row=24, column=1)
+        z_entry.grid(row=25, column=1)
         # Adds an update button at the bottom
-        tk.Button(properties_canvas, text="Update", command=lambda: self.update_node(self.master.labels)).grid(row=6,
+        tk.Button(properties_canvas, text="Update", command=lambda: self.update_node(self.master.labels)).grid(row=30,
                                                                                                                column=1)
 
         # Creates a horizontal scrollbar
