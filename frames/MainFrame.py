@@ -226,11 +226,15 @@ class MainFrame:
 
         tk.mainloop()
 
-    def _on_mousewheel(self, event):
+    def _on_mousewheel_y_view(self, event):
         self.map_canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
 
+    def _on_mousewheel_x_view(self, event):
+        self.map_canvas.xview_scroll(int(-1 * (event.delta / 120)), "units")
+
     def _bind_to_mousewheel(self, event):
-        self.map_canvas.bind_all("<MouseWheel>", self._on_mousewheel)
+        self.map_canvas.bind_all("<MouseWheel>", self._on_mousewheel_y_view)
+        self.map_canvas.bind_all("<Control-MouseWheel>", self._on_mousewheel_x_view)
 
     def delete_canvas_node_event(self, event):
         self.delete_canvas_node(self.master.clicked_item)
