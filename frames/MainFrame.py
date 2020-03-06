@@ -207,7 +207,6 @@ class MainFrame:
         master.master.bind('<Control-D>', self.deselect_node_event)
 
         master.master.bind('<Enter>', self._bind_to_mousewheel)
-        master.master.bind('<Leave>', self._unbind_from_mousewheel)
 
         self.master.editmenu.add_command(label="Add Node                                         CTRL + Mouse 1",
                                          command=lambda: self.add_canvas_node(self.master.clicked_pos))
@@ -232,9 +231,6 @@ class MainFrame:
 
     def _bind_to_mousewheel(self, event):
         self.map_canvas.bind_all("<MouseWheel>", self._on_mousewheel)
-
-    def _unbind_from_mousewheel(self, event):
-        self.map_canvas.unbind_all("<MouseWheel>")
 
     def delete_canvas_node_event(self, event):
         self.delete_canvas_node(self.master.clicked_item)
