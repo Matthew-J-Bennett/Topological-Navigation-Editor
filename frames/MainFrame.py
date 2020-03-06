@@ -198,19 +198,21 @@ class MainFrame:
         self.map_canvas.bind('<Button-1>', onclick)
 
         master.master.bind('<KeyPress-BackSpace>', self.delete_canvas_node_event)
+        master.master.bind('<Control-BackSpace>', self.delete_canvas_node__connection_event)
 
         master.master.bind('<Control-1>', self.add_canvas_node_event)
+        master.master.bind('<Control-3>', self.add_canvas_node__connection_event)
         # Needs deselect node function compeleted first
         master.master.bind('<Control-d>', self.deselect_node_event)
         master.master.bind('<Control-D>', self.deselect_node_event)
 
-        self.master.editmenu.add_command(label="Add Node",
+        self.master.editmenu.add_command(label="Add Node                                         CTRL + Mouse 1",
                                          command=lambda: self.add_canvas_node(self.master.clicked_pos))
-        self.master.editmenu.add_command(label="Add Node Connection",
+        self.master.editmenu.add_command(label="Add Node Connection                   CTRL + Mouse 2",
                                          command=lambda: self.add_canvas_connection(self.master.multi_clicked_item))
-        self.master.editmenu.add_command(label="Delete Node",
+        self.master.editmenu.add_command(label="Delete Node                                     Backspace",
                                          command=lambda: self.delete_canvas_node(self.master.clicked_item))
-        self.master.editmenu.add_command(label="Delete Node Connection",
+        self.master.editmenu.add_command(label="Delete Node Connection               CTRL + Backspace",
                                          command=lambda: self.delete_connection(self.master.multi_clicked_item))
 
         single_item_button = elements.Button(master=master.master, x=790, y=20, text="Single Mode", width=20,
@@ -224,6 +226,12 @@ class MainFrame:
 
     def delete_canvas_node_event(self, event):
         self.delete_canvas_node(self.master.clicked_item)
+
+    def delete_canvas_node__connection_event(self, event):
+        self.delete_connection(self.master.multi_clicked_item)
+
+    def add_canvas_node__connection_event(self, event):
+        self.add_canvas_connection(self.master.multi_clicked_item)
 
     def add_canvas_node_event(self, event):
         self.add_canvas_node(self.master.clicked_pos)
