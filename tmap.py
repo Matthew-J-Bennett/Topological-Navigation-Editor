@@ -182,8 +182,16 @@ def get_display_info(self, node):
     node = self.master.tmapdata[pos]
     pos_x, pos_y = swap_to_px(self, node["node"]["pose"]["position"]["x"], node["node"]["pose"]["position"]["y"])
     pose = node["node"]["pose"]
+    actions = node["node"]["edges"]
+    action_packet = []
+    if len(actions) != 0:
+        for action in actions:
+            action_packet.append({"node": action["node"], "map": action["map_2d"], "action": action["action"],
+                                  "inflation": action["inflation_radius"], "recovery":
+                                      action["recovery_behaviours_config"], "vel": action["top_vel"]})
     info_packet = [node["meta"]["node"], node["meta"]["pointset"], pos_x, pos_y, pose["position"]["z"],
-                   pose["orientation"]["w"],pose["orientation"]["x"],pose["orientation"]["y"],pose["orientation"]["z"]]
+                   pose["orientation"]["w"], pose["orientation"]["x"], pose["orientation"]["y"],
+                   pose["orientation"]["z"], action_packet]
     return info_packet
 
 
