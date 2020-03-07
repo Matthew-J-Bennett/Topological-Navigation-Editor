@@ -91,7 +91,7 @@ def add_node(self, top_map, point_set, orientation, position):
             if len(orientation) == 4:
                 new_node = {"meta": meta_dict, "node": {"edges": [], "localise_by_topic": "", "map": top_map,
                                                         "name": name, "pointset": point_set,
-                                                        "pose": {"orienation": ori_dict, "position": pos_dict},
+                                                        "pose": {"orientation": ori_dict, "position": pos_dict},
                                                         "verts": verts_dict,
                                                         "xy_goal_tolerance": "0.3", "yaw_goal_tolerance": "0.1"}}
                 self.master.tmapdata.append(new_node)
@@ -111,8 +111,14 @@ def update_pos(self, node, new_pos):
     node_data = self.master.tmapdata[node_pos]["node"]["pose"]["position"]
     logger.info("Old position X: {} Y: {}".format(new_pos[0], new_pos[1]))
     metre_pos_x, metre_pos_y = swap_to_metre(self, new_pos[0], new_pos[1])
-    node_data["x"], node_data["y"] = metre_pos_x, metre_pos_y
+    node_data["x"], node_data["y"], node_data["z"] = metre_pos_x, metre_pos_y, new_pos[2]
     logger.info("Position updated to X:{} Y:{}".format(metre_pos_x, metre_pos_y))
+
+
+def update_ori(self, node, new_ori):
+    node_pos = get_node_pos(self, node)
+    node_data = self.master.tmapdata[node_pos]["node"]["pose"]["orientation"]
+    node_data["w"], node_data["x"], node_data["y"], node_data["z"] = new_ori[0], new_ori[1], new_ori[2], new_ori[3]
 
 
 # Function to delete a node
@@ -175,8 +181,9 @@ def get_display_info(self, node):
     pos = get_node_pos(self, node)
     node = self.master.tmapdata[pos]
     pos_x, pos_y = swap_to_px(self, node["node"]["pose"]["position"]["x"], node["node"]["pose"]["position"]["y"])
-    info_packet = {"name": node["meta"]["node"], "set": node["meta"]["pointset"], "x": pos_x, "y": pos_y,
-                   "z": node["node"]["pose"]["position"]["z"]}
+    pose = node["node"]["pose"]
+    info_packet = [node["meta"]["node"], node["meta"]["pointset"], pos_x, pos_y, pose["position"]["z"],
+                   pose["orientation"]["w"],pose["orientation"]["x"],pose["orientation"]["y"],pose["orientation"]["z"]]
     return info_packet
 
 

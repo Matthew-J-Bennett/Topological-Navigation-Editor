@@ -42,30 +42,30 @@ class MainFrame:
         tk.Label(properties_canvas, text="Node:").grid(row=4)
         tk.Label(properties_canvas, text="Pointset:").grid(row=5)
         tk.Label(properties_canvas, text=" ").grid(row=6)
-        tk.Label(properties_canvas, text="Edges").grid(row=7)
-        tk.Label(properties_canvas, text="Action:").grid(row=8)
-        tk.Label(properties_canvas, text="Edge-ID:").grid(row=9)
-        tk.Label(properties_canvas, text="Inflation Radius:").grid(row=10)
-        tk.Label(properties_canvas, text="Map 2D:").grid(row=11)
-        tk.Label(properties_canvas, text="Node:").grid(row=12)
-        tk.Label(properties_canvas, text="Recovery Behaviors Config: ").grid(row=13)
-        tk.Label(properties_canvas, text="Top Velocity:").grid(row=14)
-        tk.Label(properties_canvas, text=" ").grid(row=15)
-        tk.Label(properties_canvas, text="Orientation").grid(row=16)
-        tk.Label(properties_canvas, text="W: ").grid(row=17)
-        tk.Label(properties_canvas, text="X: ").grid(row=18)
-        tk.Label(properties_canvas, text="Y: ").grid(row=19)
-        tk.Label(properties_canvas, text="Z: ").grid(row=20)
-        tk.Label(properties_canvas, text=" ").grid(row=21)
-        tk.Label(properties_canvas, text="Position").grid(row=22)
-        tk.Label(properties_canvas, text="X Co-ord: ").grid(row=23)
-        tk.Label(properties_canvas, text="Y Co-ord: ").grid(row=24)
-        tk.Label(properties_canvas, text="Z Co-ord: ").grid(row=25)
+        tk.Label(properties_canvas, text="Position").grid(row=7)
+        tk.Label(properties_canvas, text="X Co-ord: ").grid(row=8)
+        tk.Label(properties_canvas, text="Y Co-ord: ").grid(row=9)
+        tk.Label(properties_canvas, text="Z Co-ord: ").grid(row=10)
+        tk.Label(properties_canvas, text=" ").grid(row=11)
+        tk.Label(properties_canvas, text="Orientation").grid(row=12)
+        tk.Label(properties_canvas, text="W: ").grid(row=13)
+        tk.Label(properties_canvas, text="X: ").grid(row=14)
+        tk.Label(properties_canvas, text="Y: ").grid(row=15)
+        tk.Label(properties_canvas, text="Z: ").grid(row=16)
+        tk.Label(properties_canvas, text=" ").grid(row=17)
+        tk.Label(properties_canvas, text="Edges").grid(row=18)
+        tk.Label(properties_canvas, text="Action:").grid(row=19)
+        tk.Label(properties_canvas, text="Edge-ID:").grid(row=20)
+        tk.Label(properties_canvas, text="Inflation Radius:").grid(row=21)
+        tk.Label(properties_canvas, text="Map 2D:").grid(row=22)
+        tk.Label(properties_canvas, text="Node:").grid(row=23)
+        tk.Label(properties_canvas, text="Recovery Behaviors Config: ").grid(row=24)
+        tk.Label(properties_canvas, text="Top Velocity:").grid(row=25)
 
         # Uses two labels and three entry's as the name and nodeset are static values whereas the position is changeable
         name = tk.Label(properties_canvas, textvariable=name_label_text)
         nodeset = tk.Label(properties_canvas, textvariable=set_label_text)
-        pointset = tk.Label(properties_canvas, textvariable=name_label_text)
+        pointset = tk.Label(properties_canvas, textvariable=set_label_text)
 
         action = tk.Entry(properties_canvas)
         edge_id = tk.Entry(properties_canvas)
@@ -83,32 +83,33 @@ class MainFrame:
         x_entry = tk.Entry(properties_canvas)
         y_entry = tk.Entry(properties_canvas)
         z_entry = tk.Entry(properties_canvas)
-        self.master.labels = [name_label_text, set_label_text, x_entry, y_entry, z_entry]
+        self.master.labels = [name_label_text, set_label_text, x_entry, y_entry, z_entry, w_orientation, x_orientation,
+                              y_orientation, z_orientation]
 
         # Puts the labels in the correct spots in the grid
         name.grid(row=3, column=1)
         nodeset.grid(row=4, column=1)
-        node.grid(row=5, column=1)
+        pointset.grid(row=5, column=1)
 
-        action.grid(row=8, column=1)
-        edge_id.grid(row=9, column=1)
-        inflation_radius.grid(row=10, column=1)
-        map_2d.grid(row=11, column=1)
-        node.grid(row=12, column=1)
-        recovery_behaviours_config.grid(row=13, column=1)
-        top_vel.grid(row=14, column=1)
+        x_entry.grid(row=8, column=1)
+        y_entry.grid(row=9, column=1)
+        z_entry.grid(row=10, column=1)
 
-        w_orientation.grid(row=17, column=1)
-        x_orientation.grid(row=18, column=1)
-        y_orientation.grid(row=19, column=1)
-        z_orientation.grid(row=20, column=1)
+        w_orientation.grid(row=13, column=1)
+        x_orientation.grid(row=14, column=1)
+        y_orientation.grid(row=15, column=1)
+        z_orientation.grid(row=16, column=1)
 
-        x_entry.grid(row=23, column=1)
-        y_entry.grid(row=24, column=1)
-        z_entry.grid(row=25, column=1)
+        action.grid(row=19, column=1)
+        edge_id.grid(row=20, column=1)
+        inflation_radius.grid(row=21, column=1)
+        map_2d.grid(row=22, column=1)
+        node.grid(row=23, column=1)
+        recovery_behaviours_config.grid(row=24, column=1)
+        top_vel.grid(row=25, column=1)
+
         # Adds an update button at the bottom
-        tk.Button(properties_canvas, text="Update", command=lambda: self.update_node(self.master.labels)).grid(row=30,
-                                                                                                               column=1)
+        tk.Button(properties_canvas, text="Update", command=lambda: self.update_node(1)).grid(row=30, column=1)
 
         # Creates a horizontal scrollbar
         scroll_x = tk.Scrollbar(self.map_canvas, orient="horizontal", command=self.map_canvas.xview, jump=1)
@@ -156,7 +157,7 @@ class MainFrame:
                     if self.master.clicked_item == 0 or self.master.clicked_item != node:
                         self.map_canvas.itemconfig(item, fill='red')
                         self.master.clicked_item = node
-                        self.display_node_info(node, self.master.labels)
+                        self.display_node_info(node)
                     elif self.master.clicked_item == node:
                         self.map_canvas.itemconfig(item, fill='blue')
                         self.master.clicked_item = 0
@@ -194,15 +195,47 @@ class MainFrame:
                     self.master.clicked_pos = []
                 self.logging.info(self.master.multi_clicked_item)
 
+        def drag_begin(event):
+            self.logging.info("drag_begin active")
+            item = self.map_canvas.find_closest(self.map_canvas.canvasx(event.x), self.map_canvas.canvasy(event.y))
+            item_type = self.map_canvas.type(item)
+            tags = self.map_canvas.gettags(item)
+            self.master.drag_data["item"] = tags[1]
+            if self.master.click_mode == 0 and item_type == "oval":
+                self.master.drag_data["x"] = self.map_canvas.canvasx(event.x)
+                self.master.drag_data["y"] = self.map_canvas.canvasy(event.y)
+                self.logging.info("Drag object: {}, Tag:{}".format(item_type, tags[1]))
+                self.logging.info("Drag start x:{}, y:{}".format(self.master.drag_data["x"], self.master.drag_data["y"]))
+
+        def drag_move(event):
+            diff_x = self.map_canvas.canvasx(event.x) - self.master.drag_data["x"]
+            diff_y = self.map_canvas.canvasy(event.y) - self.master.drag_data["y"]
+            item = self.map_canvas.find_withtag(self.master.drag_data["item"])
+            self.logging.info("Object:{},{}".format(self.master.drag_data["item"],item))
+            self.map_canvas.move(item, diff_x, diff_y)
+            self.master.drag_data["x"] = self.map_canvas.canvasx(event.x)
+            self.master.drag_data["y"] = self.map_canvas.canvasy(event.y)
+
+        def drag_end(event):
+            self.logging.info("drag_end active")
+            self.update_node(0)
+            self.master.drag_data["x"] = 0
+            self.master.drag_data["y"] = 0
+
+        self.master.drag_data = {"x":0, "y":0, "item":None}
+
         # Activates the onclick event when any location on the canvas is clicked
         self.map_canvas.bind('<Button-1>', onclick)
+        self.map_canvas.tag_bind("point", '<ButtonPress-3>', drag_begin)
+        self.map_canvas.tag_bind("point", '<B3-Motion>', drag_move)
+        self.map_canvas.tag_bind("point", '<ButtonRelease-3>', drag_end)
 
-        master.master.bind('<KeyPress-BackSpace>', self.delete_canvas_node_event)
-        master.master.bind('<Control-BackSpace>', self.delete_canvas_node__connection_event)
+        master.master.bind('<Control-BackSpace>', self.delete_canvas_node_event)
+        master.master.bind('<Shift-BackSpace>', self.delete_canvas_node__connection_event)
 
         master.master.bind('<Control-1>', self.add_canvas_node_event)
         master.master.bind('<Control-3>', self.add_canvas_node__connection_event)
-        # Needs deselect node function compeleted first
+        # Needs deselect node function completed first
         master.master.bind('<Control-d>', self.deselect_node_event)
         master.master.bind('<Control-D>', self.deselect_node_event)
 
@@ -212,9 +245,9 @@ class MainFrame:
                                          command=lambda: self.add_canvas_node(self.master.clicked_pos))
         self.master.editmenu.add_command(label="Add Node Connection                   CTRL + Mouse 2",
                                          command=lambda: self.add_canvas_connection(self.master.multi_clicked_item))
-        self.master.editmenu.add_command(label="Delete Node                                     Backspace",
+        self.master.editmenu.add_command(label="Delete Node                                     CTRL + Backspace",
                                          command=lambda: self.delete_canvas_node(self.master.clicked_item))
-        self.master.editmenu.add_command(label="Delete Node Connection               CTRL + Backspace",
+        self.master.editmenu.add_command(label="Delete Node Connection               SHIFT + Backspace",
                                          command=lambda: self.delete_connection(self.master.multi_clicked_item))
 
         single_item_button = elements.Button(master=master.master, x=790, y=20, text="Single Mode", width=20,
@@ -323,7 +356,7 @@ class MainFrame:
                                                tags=("point", new_node))
             self.map_canvas.itemconfig(node, fill='red')
             self.master.clicked_item = new_node
-            self.display_node_info(new_node, self.master.labels)
+            self.display_node_info(new_node)
 
     # Function to create a new connection between two selected nodes in the tmap dictionary and to plot the connection
     #   on the canvas, stores the position in the dictionary as metre value then converts to pixels for plotting
@@ -359,38 +392,50 @@ class MainFrame:
 
     # Function to delete a node from the tmap dictionary and any associated canvas options
     def delete_canvas_node(self, node):
-        if self.master.click_mode == 0:
+        if self.master.click_mode == 0 and self.map_canvas.type(node) == "oval":
             tmap.delete_node(self, node)
             self.map_canvas.delete(node)
             self.map_canvas.delete(str("Connect" + node))
 
     # Function to update the sidebar labels with the info obtained from the tmap dictionary
-    def display_node_info(self, node, labels):
+    def display_node_info(self, node):
         data = tmap.get_display_info(self, node)
 
-        labels[0].set(data["name"])
-        labels[1].set(data["set"])
-
-        labels[2].delete(0, tk.END)
-        labels[3].delete(0, tk.END)
-        labels[4].delete(0, tk.END)
-        labels[2].insert(0, data["x"])
-        labels[3].insert(0, data["y"])
-        labels[4].insert(0, data["z"])
+        self.master.labels[0].set(data[0])
+        self.master.labels[1].set(data[1])
+        x = 2
+        for label in self.master.labels[2:9]:
+            label.delete(0, tk.END)
+            label.insert(0, data[x])
+            x=x+1
 
     # Function to update a position of a node through the sidebar options, updates position in tmap dictionary then
     #   deletes all canvas objects associated to the node and replots the node, connections and searches for any
     #   connections adjacent nodes have to the updated node to plot
-    def update_node(self, labels):
-        new_pos = [float(labels[2].get()), float(labels[3].get())]
-        node_name = labels[0].get()
+    def update_node(self, from_labels):
+        labels = self.master.labels
+        new_ori = []
+        if from_labels == 1:
+            new_pos = [float(labels[2].get()), float(labels[3].get()), float(labels[4].get())]
+            new_ori = [float(labels[5].get()), float(labels[6].get()), float(labels[7].get()), float(labels[8].get())]
+            node_name = labels[0].get()
+        else:
+            node_pos = tmap.get_node_pos(self, self.master.drag_data["item"])
+            new_pos = [float(self.master.drag_data["x"]), float(self.master.drag_data["y"]),
+                       float(self.master.tmapdata[node_pos]["node"]["pose"]["position"]["z"])]
+            node_name = self.master.drag_data["item"]
         tmap.update_pos(self, node_name, new_pos)
+        if from_labels == 1:
+            tmap.update_ori(self, node_name, new_ori)
+        if from_labels == 0 and self.master.clicked_item == node_name:
+            self.display_node_info(node_name)
         node_pos = tmap.get_node_pos(self, node_name)
         self.map_canvas.delete(node_name)
         self.map_canvas.delete(str("Connect" + node_name))
         node = self.map_canvas.create_oval(new_pos[0] - 4, new_pos[1] - 4, new_pos[0] + 4, new_pos[1] + 4, fill="blue",
                                            tags=("point", node_name))
-        self.map_canvas.itemconfig(node, fill='red')
+        if from_labels == 1 or self.master.clicked_item == node_name:
+            self.map_canvas.itemconfig(node, fill='red')
         for link in self.master.tmapdata[node_pos]["node"]["edges"]:
             self.create_node_link(new_pos, link)
         for nodes in self.master.tmapdata:
