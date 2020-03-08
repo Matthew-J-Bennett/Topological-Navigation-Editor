@@ -255,6 +255,10 @@ class MainFrame:
                                          command=lambda: self.delete_canvas_node(self.master.clicked_item))
         self.master.editmenu.add_command(label="Delete Node Connection               SHIFT + Backspace",
                                          command=lambda: self.delete_connection(self.master.multi_clicked_item))
+        self.master.filemenu.add_command(label="Close Project",
+                                         command=lambda: self.master.frame_swap(old_frame=self.frame,
+                                                                                new_frame=lambda: frames.LaunchFrame(
+                                                                                    master=self.master)))
 
         single_item_button = elements.Button(master=master.master, x=790, y=20, text="Single Mode", width=20,
                                              func=lambda: self.change_mode(0))
