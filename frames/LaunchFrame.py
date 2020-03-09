@@ -4,7 +4,7 @@ import os
 import random
 import tkinter as tk
 from pathlib import Path
-from tkinter import filedialog, messagebox
+from tkinter import filedialog, messagebox, simpledialog
 import yaml
 import contants as const
 import elements
@@ -45,7 +45,8 @@ class LaunchFrame:
                                             bg=const.tertiary_colour,
                                             relief=tk.RIDGE, bd=3)
         # Placeholder text
-        temp_recent_files_text = elements.Label(master=master.master, text="Here is where Recent Projects will go", x=755,
+        temp_recent_files_text = elements.Label(master=master.master, text="Here is where Recent Projects will go",
+                                                x=755,
                                                 y=160, font=("Roboto", 14), fg='white', bg=const.tertiary_colour)
 
         if not self.master.launched:
@@ -108,13 +109,17 @@ class LaunchFrame:
             return 0
         # If successful - then return TRUE condition
         else:
+            ROOT = tk.Tk()
+            ROOT.withdraw()
+            project_name = simpledialog.askstring(title="Test",
+                                                  prompt="Please choose a name for your collection of files:")
+            self.logging.info("Please choose a name for your project:")
             # Opens and reads previous json as a dict
             with open('data/RecentProjects.json', 'r') as f:
                 file_location_dict = json.loads(f.read())
             # Creates the new entry as a separate dict
-            random_id = random.randint(1245, 99999)
             new_dict = {
-                str(random_id): {"files": self.master.files, "last_opened": str(datetime.datetime.now())}
+                str(project_name): {"files": self.master.files, "last_opened": str(datetime.datetime.now())}
             }
 
             # Combines the two dicts to one and then saves it to the files making sure the path is still valid
@@ -137,7 +142,7 @@ class LaunchFrame:
             self.master.tmapdata = yaml.load(file, Loader=yaml.FullLoader)
         self.master.data_loaded = True
 
-    # Reads in and stores pgm width and height used on cavas
+    # Reads in and stores pgm width and height used on canvas
     def read_pgm(self):
         value, pgm_x, pgm_y, max_val = 0, 0, 0, 0
         image = open(self.master.files["pgm"], 'r')
