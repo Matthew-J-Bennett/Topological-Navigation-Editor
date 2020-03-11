@@ -120,6 +120,27 @@ def update_ori(self, node, new_ori):
     node_data = self.master.tmapdata[node_pos]["node"]["pose"]["orientation"]
     node_data["w"], node_data["x"], node_data["y"], node_data["z"] = new_ori[0], new_ori[1], new_ori[2], new_ori[3]
 
+def update_action(self, node, new_action):
+    node_pos = get_node_pos(self, node)
+    node_data = self.master.tmapdata[node_pos]["node"]["edges"]
+    for connection in node_data:
+        if connection["node"] == new_action[0]:
+            connection["action"], connection["inflation_radius"], connection["recovery_behaviours_config"], \
+                connection["top_vel"] = new_action[1], new_action[2], new_action[3], new_action[4]
+
+def update_verts(self, node, new_verts):
+    node_pos = get_node_pos(self, node)
+    node_data = self.master.tmapdata[node_pos]["node"]["verts"]
+    count = 0
+    for x in range(8):
+        node_data[int(count/2)]["x"], node_data[int(count/2)]["y"] = new_verts[count], new_verts[count+1]
+        count += 2
+
+def update_tolerance(self, node, new_tolerance):
+    node_pos = get_node_pos(self, node)
+    node_data = self.master.tmapdata[node_pos]["node"]
+    node_data["xy_goal_tolerance"], node_data["yaw_goal_tolerance"] = new_tolerance[0], new_tolerance[1]
+
 
 # Function to delete a node
 # 2 parameters ([node dataset], [name of node to be deleted])
@@ -154,7 +175,7 @@ def get_node_pos(self, node_name):
 
 def get_pos(self, node):
     for point in self.master.tmapdata:
-        if point["meta"]["node"] == node:
+        if point["node"]["name"] == node:
             pos = point["node"]["pose"]["position"]
             return pos["x"], pos["y"]
 
@@ -189,9 +210,11 @@ def get_display_info(self, node):
             action_packet.append({"node": action["node"], "map": action["map_2d"], "action": action["action"],
                                   "inflation": action["inflation_radius"], "recovery":
                                       action["recovery_behaviours_config"], "vel": action["top_vel"]})
+    verts_packet = node["node"]["verts"]
     info_packet = [node["meta"]["node"], node["meta"]["pointset"], pos_x, pos_y, pose["position"]["z"],
                    pose["orientation"]["w"], pose["orientation"]["x"], pose["orientation"]["y"],
-                   pose["orientation"]["z"], action_packet]
+                   pose["orientation"]["z"], action_packet, verts_packet, node["node"]["xy_goal_tolerance"],
+                   node["node"]["yaw_goal_tolerance"]]
     return info_packet
 
 

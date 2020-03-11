@@ -65,56 +65,75 @@ class MainFrame:
         tk.Label(properties_canvas, text="Inflation Radius:").grid(row=22)
         tk.Label(properties_canvas, text="Recovery Behaviors Config: ").grid(row=23)
         tk.Label(properties_canvas, text="Top Velocity:").grid(row=24)
+        tk.Label(properties_canvas, text=" ").grid(row=25)
+        tk.Label(properties_canvas, text="Verts").grid(row=26)
+        grid_spot = 27
+        for loop in range(8):
+            tk.Label(properties_canvas, text="X:").grid(row=grid_spot)
+            tk.Label(properties_canvas, text="Y:").grid(row=grid_spot+1)
+            grid_spot += 2
+        tk.Label(properties_canvas, text=" ").grid(row=43)
+        tk.Label(properties_canvas, text="XY Goal Tolerance").grid(row=44)
+        tk.Label(properties_canvas, text="Yaw Goal Tolerance").grid(row=45)
 
         # Uses two labels and three entry's as the name and nodeset are static values whereas the position is changeable
-        name = tk.Label(properties_canvas, textvariable=name_label_text)
-        nodeset = tk.Label(properties_canvas, textvariable=set_label_text)
-        pointset = tk.Label(properties_canvas, textvariable=set_label_text)
+        name = tk.Label(properties_canvas, textvariable=name_label_text).grid(row=3, column=1)
+        nodeset = tk.Label(properties_canvas, textvariable=set_label_text).grid(row=4, column=1)
+        pointset = tk.Label(properties_canvas, textvariable=set_label_text).grid(row=5, column=1)
 
-        action = tk.Entry(properties_canvas)
-        inflation_radius = tk.Entry(properties_canvas)
-        map_2d = tk.Label(properties_canvas, textvariable=map_label_text)
-        self.master.node_box = tk.OptionMenu(properties_canvas, self.master.connection_label_text,
-                                             *self.master.option_list)
-        recovery_behaviours_config = tk.Entry(properties_canvas)
-        top_vel = tk.Entry(properties_canvas)
+        x_entry = tk.Entry(properties_canvas)
+        y_entry = tk.Entry(properties_canvas)
+        z_entry = tk.Entry(properties_canvas)
+        x_entry.grid(row=8, column=1)
+        y_entry.grid(row=9, column=1)
+        z_entry.grid(row=10, column=1)
 
         w_orientation = tk.Entry(properties_canvas)
         x_orientation = tk.Entry(properties_canvas)
         y_orientation = tk.Entry(properties_canvas)
         z_orientation = tk.Entry(properties_canvas)
-
-        x_entry = tk.Entry(properties_canvas)
-        y_entry = tk.Entry(properties_canvas)
-        z_entry = tk.Entry(properties_canvas)
-
-        self.master.labels = [name_label_text, set_label_text, x_entry, y_entry, z_entry, w_orientation, x_orientation,
-                              y_orientation, z_orientation, map_label_text, self.master.connection_label_text, action,
-                              inflation_radius, recovery_behaviours_config, top_vel]
-
-        # Puts the labels in the correct spots in the grid
-        name.grid(row=3, column=1)
-        nodeset.grid(row=4, column=1)
-        pointset.grid(row=5, column=1)
-
-        x_entry.grid(row=8, column=1)
-        y_entry.grid(row=9, column=1)
-        z_entry.grid(row=10, column=1)
-
         w_orientation.grid(row=13, column=1)
         x_orientation.grid(row=14, column=1)
         y_orientation.grid(row=15, column=1)
         z_orientation.grid(row=16, column=1)
 
-        self.master.node_box.grid(row=20, column=1)
+        map_2d = tk.Label(properties_canvas, textvariable=map_label_text)
+        self.master.node_box = tk.OptionMenu(properties_canvas, self.master.connection_label_text,
+                                             *self.master.option_list)
+        action = tk.Entry(properties_canvas)
+        inflation_radius = tk.Entry(properties_canvas)
+        recovery_behaviours_config = tk.Entry(properties_canvas)
+        top_vel = tk.Entry(properties_canvas)
         map_2d.grid(row=19, column=1)
+        self.master.node_box.grid(row=20, column=1)
         action.grid(row=21, column=1)
         inflation_radius.grid(row=22, column=1)
         recovery_behaviours_config.grid(row=23, column=1)
         top_vel.grid(row=24, column=1)
 
-        # Adds an update button at the bottom
-        tk.Button(properties_canvas, text="Update", command=lambda: self.update_node(1)).grid(row=30, column=1)
+        grid_spot = 27
+        verts_labels = []
+        for x in range(8):
+            verts_x = tk.Entry(properties_canvas)
+            verts_y = tk.Entry(properties_canvas)
+            verts_x.grid(row=grid_spot, column=1)
+            verts_y.grid(row=grid_spot+1, column=1)
+            verts_labels.append(verts_x)
+            verts_labels.append(verts_y)
+            grid_spot += 2
+
+        xy_goal_tolerance = tk.Entry(properties_canvas)
+        yaw_goal_tolerance = tk.Entry(properties_canvas)
+        xy_goal_tolerance.grid(row=44, column=1)
+        yaw_goal_tolerance.grid(row=45, column=1)
+
+        self.master.labels = [name_label_text, set_label_text, x_entry, y_entry, z_entry, w_orientation, x_orientation,
+                              y_orientation, z_orientation, map_label_text, self.master.connection_label_text, action,
+                              inflation_radius, recovery_behaviours_config, top_vel, verts_labels, xy_goal_tolerance,
+                              yaw_goal_tolerance]
+
+        # Adds an update button at the top
+        tk.Button(properties_canvas, text="Update", command=lambda: self.update_node(1)).grid(row=0, column=1)
 
         # Creates a horizontal scrollbar
         scroll_x = tk.Scrollbar(self.map_canvas, orient="horizontal", command=self.map_canvas.xview, jump=1)
@@ -299,7 +318,7 @@ class MainFrame:
     #   through all the links and plots them.
     def plot_canvas(self):
         for point in self.master.tmapdata:
-            name = point["meta"]["node"]
+            name = point["node"]["name"]
             position = point["node"]["pose"]["position"]
             pos_x, pos_y = tmap.swap_to_px(self, position["x"], position["y"])
             node = self.map_canvas.create_oval(pos_x - 4, pos_y - 4, pos_x + 4, pos_y + 4, fill="blue",
@@ -418,25 +437,35 @@ class MainFrame:
             label.delete(0, tk.END)
             label.insert(0, data[x])
             x = x + 1
-        if len(data) == 10 and data[9]:
+        if data[9]:
             names_list = []
             for item in data[9]:
                 name = item["node"]
                 names_list.append(name)
-                self.logging.info("Name added:{}".format(name))
             x = x + 2
             for label in self.master.labels[11:15]:
                 label.delete(0, tk.END)
                 x = x + 1
-            self.logging.info("Names list:{}".format(names_list))
             self.master.option_list = names_list
             self.master.connection_data = [data[9]]
             self.master.connection_label_text.set(names_list[0])
             self.master.node_box['menu'].delete(0, 'end')
             for name in names_list:
-                self.master.node_box['menu'].add_command(label=name, command=lambda value=name:
-                [self.master.connection_label_text.set(value), self.select_connection()])
+                self.master.node_box['menu'].add_command(label=name, command=lambda value=name: [
+                    self.master.connection_label_text.set(value), self.select_connection()])
             self.master.labels[9].set(data[9][0]["map"])
+        count = 0
+        for loop in range(8):
+            x, y = data[10][int(count/2)]["x"], data[10][int(count/2)]["y"]
+            self.master.labels[15][count].delete(0, tk.END)
+            self.master.labels[15][count+1].delete(0, tk.END)
+            self.master.labels[15][count].insert(0, x)
+            self.master.labels[15][count+1].insert(0, y)
+            count += 2
+        self.master.labels[16].delete(0, tk.END)
+        self.master.labels[17].delete(0, tk.END)
+        self.master.labels[16].insert(0, data[11])
+        self.master.labels[17].insert(0, data[12])
 
     def select_connection(self):
         connect_node = self.master.connection_label_text.get()
@@ -468,11 +497,16 @@ class MainFrame:
     #   connections adjacent nodes have to the updated node to plot
     def update_node(self, from_labels):
         labels = self.master.labels
-        new_ori = []
+        new_ori, new_action, new_verts, new_tolerance = [], [], [], []
         if from_labels == 1:
             new_pos = [float(labels[2].get()), float(labels[3].get()), float(labels[4].get())]
             new_ori = [float(labels[5].get()), float(labels[6].get()), float(labels[7].get()), float(labels[8].get())]
-            node_name = labels[0].get()
+            new_action = [self.master.connection_label_text.get(), labels[11].get(), labels[12].get(),
+                          labels[13].get(), float(labels[14].get())]
+            for entry in labels[15]:
+                new_verts.append(entry.get())
+            new_tolerance = [float(labels[16].get()), float(labels[17].get())]
+            node_name = labels[1].get()
         else:
             node_pos = tmap.get_node_pos(self, self.master.drag_data["item"])
             new_pos = [float(self.master.drag_data["x"]), float(self.master.drag_data["y"]),
@@ -481,6 +515,9 @@ class MainFrame:
         tmap.update_pos(self, node_name, new_pos)
         if from_labels == 1:
             tmap.update_ori(self, node_name, new_ori)
+            tmap.update_action(self, node_name, new_action)
+            tmap.update_verts(self, node_name, new_verts)
+            tmap.update_tolerance(self, node_name, new_tolerance)
         if from_labels == 0 and self.master.clicked_item == node_name:
             self.display_node_info(node_name)
         node_pos = tmap.get_node_pos(self, node_name)

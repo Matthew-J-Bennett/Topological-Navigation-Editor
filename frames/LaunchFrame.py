@@ -149,13 +149,9 @@ class LaunchFrame:
         x = 0
         while x < 4:
             line = image.readline()
-            if x == 0:
-                value = line
-            if x == 2:
-                size = line.split()
+            size = line.split()
+            if len(size) == 2:
                 pgm_x = float(size[0])
                 pgm_y = float(size[1])
-            if x == 3:
-                max_val = line
             x += 1
         self.master.pgm = {"id": value, "width": pgm_x, "height": pgm_y, "maxval": max_val}
