@@ -28,7 +28,6 @@ class Master:
         # Extra menu to test functions quickly (ignore this)
         self.filemenu.add_command(label="Open", command=lambda: messagebox.showinfo("Open", "Open a file"))
         self.filemenu.add_command(label="Save                   Ctrl+S", command=lambda: self.save_filename())
-        self.filemenu.add_command(label="Save As", command=lambda: messagebox.showinfo("Save As", "Save as a file"))
         self.filemenu.add_command(label="Recent Files/Projects",
                                   command=lambda: messagebox.showinfo("Recent Files/Projects",
                                                                       "Open an Recent "

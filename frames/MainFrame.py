@@ -1,4 +1,8 @@
+import os
+import sys
 import tkinter as tk
+from tkinter import messagebox
+
 import elements
 import frames
 import tmap
@@ -275,9 +279,7 @@ class MainFrame:
         self.master.editmenu.add_command(label="Delete Node Connection               SHIFT + Backspace",
                                          command=lambda: self.delete_connection(self.master.multi_clicked_item))
         self.master.filemenu.add_command(label="Close Project",
-                                         command=lambda: self.master.frame_swap(old_frame=self.frame,
-                                                                                new_frame=lambda: frames.LaunchFrame(
-                                                                                    master=self.master)))
+                                         command=lambda: self._save_and_close())
 
         single_item_button = elements.Button(master=master.master, x=790, y=20, text="Single Mode", width=20,
                                              func=lambda: self.change_mode(0))
@@ -287,6 +289,17 @@ class MainFrame:
                                             func=lambda: self.change_mode(1))
 
         tk.mainloop()
+
+    def _save_and_close(self):
+        MsgBox = tk.messagebox.askquestion('Exit Application', 'Would you like to save before quitting?',
+                                           icon='warning')
+        if MsgBox == 'yes':
+            self.master.save_filename()
+            os.execl(sys.executable, sys.executable, *sys.argv)
+        else:
+            os.execl(sys.executable, sys.executable, *sys.argv)
+
+            # if conformation is true, save and quit, else just quit
 
     def _on_mousewheel_y_view(self, event):
         self.map_canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
