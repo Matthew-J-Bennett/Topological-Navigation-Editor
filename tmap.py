@@ -163,7 +163,7 @@ def delete_node(self, node_name):
 def get_node_pos(self, node_name):
     pos, count = -1, 0
     while count < len(self.master.tmapdata):
-        if self.master.tmapdata[count]["meta"]["node"] == node_name:
+        if self.master.tmapdata[count]["node"]["name"] == node_name:
             pos = count
         count += 1
     if pos != -1:
@@ -221,7 +221,7 @@ def get_display_info(self, node):
 def print_node_names(data):
     nodes = []
     for x in range(len(data)):
-        nodes.append(data[x]["meta"]["node"])
+        nodes.append(data[x]["node"]["name"])
     logger.info(nodes)
 
 
