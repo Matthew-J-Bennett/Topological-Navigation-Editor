@@ -32,9 +32,13 @@ class Button(Element):
                  bg=const.secondary_colour,
                  bd=4,
                  relief=tk.FLAT,
-                 anchor=None, animation=True):
+                 anchor=None, animation=True, toggle=False):
         self.animation = animation
         self.master = master
+        # Attempt as toggle display functionality
+        self.on = False
+        self.toggle = toggle
+        ######################
         self.element = tk.Label(master=master, text=text, font=font, bg=bg, bd=bd, relief=relief, width=width,
                                 height=height)
         self.element.bind(sequence=sequence, func=lambda x: self.clicked(execute=func))
@@ -43,10 +47,18 @@ class Button(Element):
     # Provides instructions for what to do when clicked
 
     def clicked(self, execute, *args):
+        # Currently not working - ignore this
+        if self.toggle:
+            if self.on:
+                pass
+            else:
+                self.element.config(bd=2, highlightcolor="deep pink")
+        ######################
         if self.animation:
             self.element.config(bg=const.active_colour)
             self.element.after(100, lambda: self.element.config(bg=const.secondary_colour))
             self.master.after(100, lambda: execute())
+
         else:
             execute()
 
@@ -77,3 +89,64 @@ class Photo(Element):
                                 height=height,
                                 image=self.image)
         super().__init__(self.element, x=x, y=y, anchor=anchor)
+
+
+class Selector(Element):
+    def __init__(self, master, x, y, bg='LightSkyBlue1', font=None, options=[], callback=None, width=10, modifier=1,
+                 selector_id=None, locked=False):
+        self.used_ids = []
+        self.callback = callback
+        self.selector_id = selector_id
+        self.locked = locked
+        self.bg = bg
+
+        self.options_elements = []
+        for i in range(len(options)):
+            if i == 0:
+                self.options_elements.append(
+                    Button(master=master, x=x + i * 50 * modifier, y=y, text='{}'.format(options[i]), width=width,
+                           animation=False,
+                           font=font,
+                           func=lambda arg=self.id_gen(): self.clicked(arg), relief='sunken'))
+            else:
+                self.options_elements.append(
+                    Button(master=master, x=x + i * 50 * modifier, y=y, text='{}'.format(options[i]), width=width,
+                           animation=False,
+                           font=font,
+                           func=lambda arg=self.id_gen(): self.clicked(arg)))
+        self.selected = 0
+
+        if self.locked:
+            self.lock()
+
+    def lock(self):
+        self.locked = True
+        for i in range(len(self.options_elements)):
+            self.options_elements[i].element.config(bg='grey')
+
+    def unlock(self):
+        self.locked = False
+        for i in range(len(self.options_elements)):
+            self.options_elements[i].element.config(bg=self.bg)
+
+    def id_gen(self):
+        if len(self.used_ids) == 0:
+            self.used_ids.append(0)
+            return 0
+
+        else:
+            self.used_ids.append(self.used_ids[-1] + 1)
+            return self.used_ids[-1]
+
+    def clicked(self, *args):
+        if not self.locked:
+            if not args[0] == self.selected:
+                self.options_elements[args[0]].element.config(relief='sunken')
+                self.options_elements[self.selected].element.config(relief='raised')
+                self.selected = args[0]
+                if self.callback is not None:
+                    if self.selector_id is None:
+                        self.callback(self.options_elements[args[0]].element.cget('text'))
+                    else:
+                        self.callback(new_selected=self.options_elements[args[0]].element.cget('text'),
+                                      selector_id=self.selector_id)

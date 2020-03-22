@@ -1,7 +1,8 @@
 import tkinter as tk
 import frames as frame
 
-from tkinter import Menu, messagebox
+from tkinter import Menu, messagebox, filedialog
+import yaml
 
 
 class Master:
@@ -15,25 +16,47 @@ class Master:
         self.master.geometry('{}x{}'.format(self.window_width, self.window_height))
         self.launched = False
         self.logger.info("Window Created")
+        self.data_loaded = False
 
-        menubar = Menu(self.master)
-        filemenu = Menu(menubar, tearoff=0)
-        helpmenu = Menu(menubar, tearoff=0)
-        # funcmenu = Menu(menubar, tearoff=0)
-        menubar.add_cascade(label="File", menu=filemenu)
-        menubar.add_cascade(label="Help", menu=helpmenu)
-        # menubar.add_cascade(label="Function Tests", menu=funcmenu)
+        self.menubar = Menu(self.master)
+        self.filemenu = Menu(self.menubar, tearoff=0)
+        self.helpmenu = Menu(self.menubar, tearoff=0)
+        self.editmenu = Menu(self.menubar, tearoff=0)
+        self.menubar.add_cascade(label="File", menu=self.filemenu)
+        self.menubar.add_cascade(label="Help", menu=self.helpmenu)
+        self.menubar.add_cascade(label="Edit", menu=self.editmenu)
         # Extra menu to test functions quickly (ignore this)
-        filemenu.add_command(label="Open", command=lambda: messagebox.showinfo("Open", "Open a file"))
-        filemenu.add_command(label="Save", command=lambda: messagebox.showinfo("Save", "Save a file"))
-        filemenu.add_command(label="Save As", command=lambda: messagebox.showinfo("Save As", "Save as a file"))
-        filemenu.add_command(label="Save All", command=lambda: messagebox.showinfo("Save All", "Save all files"))
-        filemenu.add_command(label="Recent Files/Projects", command=lambda: messagebox.showinfo("Recent Files/Projects",
-                                                                                                "Open an Recent "
-                                                                                                "Files/Projects"))
-        filemenu.add_command(label="Quit", command=lambda: self.master.quit())
-        helpmenu.add_command(label="About", command=lambda: messagebox.showinfo("About", "About the program"))
-        self.master.config(menu=menubar)
+        self.filemenu.add_command(label="Open", command=lambda: messagebox.showinfo("Open", "Open a file"))
+        self.filemenu.add_command(label="Save                   Ctrl+S", command=lambda: self.save_filename())
+        self.filemenu.add_command(label="Recent Files/Projects",
+                                  command=lambda: messagebox.showinfo("Recent Files/Projects",
+                                                                      "Open an Recent "
+                                                                      "Files/Projects"))
+        self.filemenu.add_command(label="Quit", command=lambda: self.master.quit())
+        self.helpmenu.add_command(label="About", command=lambda: messagebox.showinfo("About", "About the program"))
+
+        self.master.config(menu=self.menubar)
+        self.master.bind("<Control-s>", self.save_shortcut_event)
+
+    def save_shortcut_event(self, event):
+        self.save_filename()
+
+    def save_filename(self):
+        if self.data_loaded:
+            self.logger.info("Opening File Save Dialog box")
+            files2 = [('TMAP Files', '*.tmap')]
+            file = filedialog.asksaveasfilename(filetypes=files2, defaultextension='.tmap')
+
+            if file == "":
+                self.logger.info("Saving Cancelled")
+                return 0
+
+            self.logger.info("Saving tmap data to: {}".format(file))
+            with open(file, "w") as outfile:
+                yaml.dump(self.tmapdata, outfile, default_flow_style=False)
+            self.logger.info("Save Complete")
+        else:
+            messagebox.showerror("Can't save data", "Can not save because no data is loaded to save")
 
     @staticmethod
     def frame_swap(old_frame, new_frame):
