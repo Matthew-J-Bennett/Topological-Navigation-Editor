@@ -3,6 +3,7 @@ import frames as frame
 
 from tkinter import Menu, messagebox, filedialog
 import yaml
+import contants
 
 
 class Master:
@@ -16,6 +17,7 @@ class Master:
         self.master.geometry('{}x{}'.format(self.window_width, self.window_height))
         self.launched = False
         self.logger.info("Window Created")
+        self.master.iconbitmap(contants.ICON_LOC)
         self.data_loaded = False
 
         self.menubar = Menu(self.master)
