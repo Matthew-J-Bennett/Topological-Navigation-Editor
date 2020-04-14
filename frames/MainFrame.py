@@ -367,9 +367,9 @@ class MainFrame:
     #   deselects any currently selected items and reverts them to their natural state
     def change_mode(self, mode):
         if self.master.click_mode != mode:
-            self.master.click_mode = mode
-            self.map_canvas.delete("clickspot")
             self.deselect_all()
+            self.map_canvas.delete("clickspot")
+            self.master.click_mode = mode
             if self.master.clicked_item != 0:
                 item = self.map_canvas.find_withtag(self.master.clicked_item)
                 for x in item:
