@@ -61,13 +61,15 @@ class LaunchFrame:
                                                                 ("All files", "*.*")))
 
         # File Validation/Duplication
+        check = 0
         if self.set_filenames() == 1:
-            self.read_tmap()
-            self.read_yaml()
-            self.read_pgm()
-            self.logging.info("pgm x:" + str(self.master.pgm["width"]) + " pgm y:" + str(self.master.pgm["height"]))
+            check = check + self.read_tmap()
+            check = check + self.read_yaml()
+            check = check + self.read_pgm()
+            if check == 3:
+                self.logging.info("pgm x:" + str(self.master.pgm["width"]) + " pgm y:" + str(self.master.pgm["height"]))
 
-        if len(self.master.filenames) == 3:
+        if len(self.master.filenames) == 3 and check == 3:
             self.master.frame_swap(old_frame=self.frame,
                                    new_frame=lambda: frames.MainFrame(
                                        master=self.master))
@@ -136,12 +138,18 @@ class LaunchFrame:
     def read_yaml(self):
         with open(self.master.files["yaml"]) as file:
             self.master.yaml_data = yaml.load(file, Loader=yaml.FullLoader)
+        if self.master.yaml_data is not None:
+            return 1
+        return 0
 
     # Reads in and stores the data of the TMAP file
     def read_tmap(self):
         with open(self.master.files["tmap"]) as file:
             self.master.tmapdata = yaml.load(file, Loader=yaml.FullLoader)
         self.master.data_loaded = True
+        if self.master.tmapdata is not None:
+            return 1
+        return 0
 
     # Reads in and stores pgm width and height used on canvas
     def read_pgm(self):
@@ -156,3 +164,4 @@ class LaunchFrame:
                 pgm_y = float(size[1])
             x += 1
         self.master.pgm = {"id": value, "width": pgm_x, "height": pgm_y, "maxval": max_val}
+        return 1
