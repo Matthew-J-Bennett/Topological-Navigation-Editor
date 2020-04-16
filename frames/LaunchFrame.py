@@ -92,6 +92,7 @@ class LaunchFrame:
                 self.master.files["pgm"] = x
                 # Logs a file has been imported
                 self.logging.info("PGM file imported: {}".format(x))
+                self.master.map_name = x.replace(".pgm", "")
                 # Adds to the file counter
                 num_files += 1
             elif Path(x).suffix == ".tmap":
@@ -113,7 +114,7 @@ class LaunchFrame:
             # Creates a window to allow the user to select
             ROOT = tk.Tk()
             ROOT.withdraw()
-            project_name = simpledialog.askstring(title="Test",
+            self.master.project_name = simpledialog.askstring(title="Project Name",
                                                   prompt="Please choose a name for your collection of files:")
             self.logging.info("Please choose a name for your project:")
             # Opens and reads previous json as a dict
@@ -121,7 +122,7 @@ class LaunchFrame:
                 file_location_dict = json.loads(f.read())
             # Creates the new entry as a separate dict
             new_dict = {
-                random.randint(1245, 99999): {"project_name": str(project_name), "files": self.master.files,
+                random.randint(1245, 99999): {"project_name": str(self.master.project_name), "files": self.master.files,
                                               "last_opened": str(datetime.datetime.now())}
             }
 

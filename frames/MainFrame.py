@@ -1,11 +1,11 @@
+import datetime
 import os
 import sys
 import tkinter as tk
 from tkinter import messagebox
-
 import elements
 import frames
-import tmap
+import map_function
 
 
 class MainFrame:
@@ -18,30 +18,34 @@ class MainFrame:
         # Creates a button to switch between frames
         swap_frame_tmp = elements.Button(master=master.master, x=10, y=750, text="Swap Frame to Launch Frame",
                                          width=30, func=lambda: self.master.frame_swap(old_frame=self.frame,
-                                                                                       new_frame=lambda: frames.LaunchFrame(
+                                                                                       new_frame=lambda:
+                                                                                       frames.LaunchFrame(
                                                                                            master=self.master)))
         # This block imports the pgm file.
         # Sets a variable for the background image
-        img = tk.PhotoImage(file=self.master.files["pgm"])
+        self.master.img = tk.PhotoImage(file=self.master.files["pgm"])
         # Creates a imgcanvas and sets the size of the imgcanvas - NEED TO USE IMAGE VARIABLE WIDTHS
         self.map_canvas = tk.Canvas(self.window, width=850, height=800, scrollregion=(0, 0,
                                                                                       self.master.pgm["width"],
                                                                                       self.master.pgm["height"]))
         self.map_canvas.pack(expand=tk.YES, side=tk.LEFT, fill=tk.BOTH)
         # Adds the image to the imgcanvas
-        self.map_canvas.create_image(0, 0, anchor=tk.NW, image=img)
+        self.map_canvas.create_image(0, 0, anchor=tk.NW, image=self.master.img)
 
         # Creates the Properties Canvas
-        properties_canvas = tk.Canvas(self.window, width=450, height=800)
+        properties_canvas = tk.Canvas(self.window, width=450, height=800, scrollregion=(850, 800, 1250, 800))
         properties_canvas.pack(expand=tk.NO, side=tk.RIGHT, fill=tk.BOTH)
 
         # String variables used to store the values obtained from the dictionary to put in the labels
         name_label_text, set_label_text, map_label_text = tk.StringVar(), tk.StringVar(), tk.StringVar()
         self.master.connection_label_text = tk.StringVar()
         self.master.connection_label_text.set("-Select Node-")
-        self.master.option_list = [""]
-        self.master.selected_connection = ""
-        self.master.connection_data = []
+        self.master.verts_label_text = tk.StringVar()
+        self.master.verts_label_text.set("-Select Vert-")
+        self.master.option_list, self.master.verts_option_list = [""], [""]
+        self.master.verts_options = ["Vert 1", "Vert 2", "Vert 3", "Vert 4", "Vert 5", "Vert 6", "Vert 7", "Vert 8"]
+        self.master.selected_connection, self.master.selected_vert = "", ""
+        self.master.verts_data, self.master.connection_data = [], []
 
         # Populates text Labels
         tk.Label(properties_canvas, text="Node Properties").grid(row=0)
@@ -72,11 +76,9 @@ class MainFrame:
         tk.Label(properties_canvas, text=" ").grid(row=25)
         tk.Label(properties_canvas, text="Verts").grid(row=26)
 
-        grid_spot = 27
-        for loop in range(8):
-            tk.Label(properties_canvas, text="X:").grid(row=grid_spot)
-            tk.Label(properties_canvas, text="Y:").grid(row=grid_spot + 1)
-            grid_spot += 2
+        tk.Label(properties_canvas, text="Vert").grid(row=27)
+        tk.Label(properties_canvas, text="X:").grid(row=28)
+        tk.Label(properties_canvas, text="Y:").grid(row=29)
         tk.Label(properties_canvas, text=" ").grid(row=43)
         tk.Label(properties_canvas, text="XY Goal Tolerance").grid(row=44)
         tk.Label(properties_canvas, text="Yaw Goal Tolerance").grid(row=45)
@@ -116,16 +118,15 @@ class MainFrame:
         recovery_behaviours_config.grid(row=23, column=1)
         top_vel.grid(row=24, column=1)
 
-        grid_spot = 27
-        verts_labels = []
-        for x in range(8):
-            verts_x = tk.Entry(properties_canvas)
-            verts_y = tk.Entry(properties_canvas)
-            verts_x.grid(row=grid_spot, column=1)
-            verts_y.grid(row=grid_spot + 1, column=1)
-            verts_labels.append(verts_x)
-            verts_labels.append(verts_y)
-            grid_spot += 2
+        self.master.verts_box = tk.OptionMenu(properties_canvas, self.master.verts_label_text,
+                                              *self.master.verts_option_list)
+        self.master.verts_box.grid(row=27, column=1)
+        verts_x = tk.Entry(properties_canvas)
+        verts_y = tk.Entry(properties_canvas)
+        verts_x.grid(row=28, column=1)
+        verts_y.grid(row=29, column=1)
+
+        verts_labels = [verts_x, verts_y]
 
         xy_goal_tolerance = tk.Entry(properties_canvas)
         yaw_goal_tolerance = tk.Entry(properties_canvas)
@@ -137,8 +138,13 @@ class MainFrame:
                               inflation_radius, recovery_behaviours_config, top_vel, verts_labels, xy_goal_tolerance,
                               yaw_goal_tolerance]
 
+        for vert in self.master.verts_options:
+            self.master.verts_box['menu'].add_command(label=vert, command=lambda value=vert: [
+                self.master.verts_label_text.set(value), map_function.select_vert(self)])
+
         # Adds an update button at the top
-        tk.Button(properties_canvas, text="Update", command=lambda: self.update_node(1)).grid(row=0, column=1)
+        tk.Button(properties_canvas, text="Update", command=lambda: map_function.update_node(self, 1)).grid(row=0,
+                                                                                                            column=1)
 
         # Creates a horizontal scrollbar
         scroll_x = tk.Scrollbar(self.map_canvas, orient="horizontal", command=self.map_canvas.xview, jump=1)
@@ -155,7 +161,7 @@ class MainFrame:
         # Defines what the scroll bar will do
         scroll_y.config(command=self.map_canvas.yview)
         self.map_canvas.config(yscrollcommand=scroll_y.set)
-        self.plot_canvas()
+        map_function.plot_canvas(self)
 
         # Variables used for the associated click mode and storing the users currently selected item(s)
         self.master.clicked_item = 0
@@ -174,6 +180,7 @@ class MainFrame:
             self.logging.info(
                 "Clicked Object: " + item_type + " X: " + str(self.map_canvas.canvasx(event.x)) + " Y: " + str(
                     self.map_canvas.canvasy(event.y)))
+            self.map_canvas.itemconfig("connection", dash=1, fill='black')
             if self.master.click_mode == 0:
                 if item_type == "oval":
                     tags = self.map_canvas.gettags(item)
@@ -186,7 +193,7 @@ class MainFrame:
                     if self.master.clicked_item == 0 or self.master.clicked_item != node:
                         self.map_canvas.itemconfig(item, fill='red')
                         self.master.clicked_item = node
-                        self.display_node_info(node)
+                        map_function.display_node_info(self, node)
                     elif self.master.clicked_item == node:
                         self.map_canvas.itemconfig(item, fill='blue')
                         self.master.clicked_item = 0
@@ -197,7 +204,8 @@ class MainFrame:
                     self.map_canvas.create_line(x + 3, y + 3, x - 3, y - 3, width=1.5, fill="red", tags="clickspot")
                     self.map_canvas.create_line(x + 3, y - 3, x - 3, y + 3, width=1.5, fill="red", tags="clickspot")
                     self.master.clicked_pos = [self.map_canvas.canvasx(event.x), self.map_canvas.canvasy(event.y)]
-                    self.deselect_node_info()
+                    map_function.deselect_node_info(self)
+                    self.map_canvas.itemconfig("connection", dash=1, fill='black')
                     if self.master.clicked_item != 0:
                         item2 = self.map_canvas.find_withtag(self.master.clicked_item)
                         for x in item2:
@@ -249,7 +257,7 @@ class MainFrame:
 
         def drag_end(event):
             self.logging.info("drag_end active")
-            self.update_node(0)
+            map_function.update_node(self, 0)
             self.master.drag_data["x"] = 0
             self.master.drag_data["y"] = 0
 
@@ -271,40 +279,39 @@ class MainFrame:
 
         master.master.bind('<Enter>', self._bind_to_mousewheel)
 
-        self.master.editmenu.add_command(label="Deselect Node(s)                             CTRL + D",
-                                         command=lambda: self.deselect_node_event(self.master.multi_clicked_item))
+        self.master.editmenu.add_command(label="Deselect Node(s)                        CTRL + D", command=lambda:
+                                                                    self.deselect_node_event(self.master.clicked_item))
 
         self.master.editmenu.add_command(label="Add Node                                         CTRL + Mouse 1",
-                                         command=lambda: self.add_canvas_node(self.master.clicked_pos))
+                                         command=lambda: map_function.add_canvas_node(self, self.master.clicked_pos))
         self.master.editmenu.add_command(label="Add Node Connection                   CTRL + Mouse 2",
-                                         command=lambda: self.add_canvas_connection(self.master.multi_clicked_item))
+                                         command=lambda: map_function.add_canvas_connection(self, self.master.multi_clicked_item))
         self.master.editmenu.add_command(label="Delete Node                                     CTRL + Backspace",
-                                         command=lambda: self.delete_canvas_node(self.master.clicked_item))
+                                         command=lambda: map_function.delete_canvas_node(self, self.master.clicked_item))
         self.master.editmenu.add_command(label="Delete Node Connection               SHIFT + Backspace",
-                                         command=lambda: self.delete_connection(self.master.multi_clicked_item))
-
+                                         command=lambda: map_function.delete_connection(self,
+                                                                                        self.master.multi_clicked_item))
         self.master.filemenu.add_command(label="Close Project",
                                          command=lambda: self._save_and_close())
 
         single_item_button = elements.Button(master=master.master, x=790, y=20, text="Single Mode", width=20,
-                                             func=lambda: self.change_mode(0))
+                                             func=lambda: map_function.change_mode(self, 0))
 
         multi_item_button = elements.Button(master=master.master, x=790, y=70, text="Multi Mode",
                                             width=20,
-                                            func=lambda: self.change_mode(1))
+                                            func=lambda: map_function.change_mode(self, 1))
 
         tk.mainloop()
 
     def _save_and_close(self):
         msg_box = tk.messagebox.askquestion('Exit Application', 'Would you like to save before quitting?',
                                             icon='warning')
+        # if conformation is true, save and quit, else just quit
         if msg_box == 'yes':
             self.master.save_filename()
             os.execl(sys.executable, sys.executable, *sys.argv)
         else:
             os.execl(sys.executable, sys.executable, *sys.argv)
-
-            # if conformation is true, save and quit, else just quit
 
     def _on_mousewheel_y_view(self, event):
         self.map_canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
@@ -317,296 +324,16 @@ class MainFrame:
         self.map_canvas.bind_all("<Control-MouseWheel>", self._on_mousewheel_x_view)
 
     def delete_canvas_node_event(self, event):
-        self.delete_canvas_node(self.master.clicked_item)
+        map_function.delete_canvas_node(self, self.master.clicked_item)
 
     def delete_canvas_node__connection_event(self, event):
-        self.delete_connection(self.master.multi_clicked_item)
+        map_function.delete_connection(self, self.master.multi_clicked_item)
 
     def add_canvas_node__connection_event(self, event):
-        self.add_canvas_connection(self.master.multi_clicked_item)
+        map_function.add_canvas_connection(self, self.master.multi_clicked_item)
 
     def add_canvas_node_event(self, event):
-        self.add_canvas_node(self.master.clicked_pos)
+        map_function.add_canvas_node(self, self.master.clicked_pos)
 
     def deselect_node_event(self, event):
-        self.deselect_all()
-
-    # Function to plot all the points on the canvas, first cycles through all the nodes and plots them then cycles
-    #   through all the links and plots them.
-    def plot_canvas(self):
-        for point in self.master.tmapdata:
-            name = point["node"]["name"]
-            position = point["node"]["pose"]["position"]
-            pos_x, pos_y = tmap.swap_to_px(self, position["x"], position["y"])
-            node = self.map_canvas.create_oval(pos_x - 4, pos_y - 4, pos_x + 4, pos_y + 4, fill="blue",
-                                               tags=("point", name))
-        for point in self.master.tmapdata:
-            links = point["node"]["edges"]
-            position = point["node"]["pose"]["position"]
-            pos_x, pos_y = tmap.swap_to_px(self, position["x"], position["y"])
-            for link in links:
-                if link != "":
-                    self.create_node_link([pos_x, pos_y], link)
-        self.map_canvas.tag_raise("point")
-
-    # Function for plotting a single canvas node connection, used by some other functions
-    def create_node_link(self, pos, link):
-        if self.map_canvas.find_withtag(link["edge_id"]) == ():
-            connection = link["edge_id"]
-            next_node = connection.split("_")[1]
-            next_pos1, next_pos2 = tmap.get_pos(self, next_node)
-            next_pos_x, next_pos_y = tmap.swap_to_px(self, next_pos1, next_pos2)
-            self.map_canvas.create_line(pos[0], pos[1], next_pos_x, next_pos_y, dash=(4, 2), arrow=tk.LAST,
-                                        tags=("connection",
-                                              str("Connect" +
-                                                  connection.split("_")[
-                                                      0]),
-                                              str("Connect" +
-                                                  connection.split("_")[
-                                                      1]),
-                                              str(connection)))
-
-    # Function that changes the users current operating "mode", single mode is for selecting one object either a node
-    #   or a location on the canvas, multimode is for selecting two different nodes. When changing modes the function
-    #   deselects any currently selected items and reverts them to their natural state
-    def change_mode(self, mode):
-        if self.master.click_mode != mode:
-            self.deselect_all()
-            self.map_canvas.delete("clickspot")
-            self.master.click_mode = mode
-            if self.master.clicked_item != 0:
-                item = self.map_canvas.find_withtag(self.master.clicked_item)
-                for x in item:
-                    self.map_canvas.itemconfig(x, fill='blue')
-                self.master.clicked_item = 0
-            elif self.master.multi_clicked_item:
-                for x in self.master.multi_clicked_item:
-                    item = self.map_canvas.find_withtag(x)
-                    for y in item:
-                        self.map_canvas.itemconfig(y, fill='blue')
-                self.master.multi_clicked_item = []
-            self.master.clicked_pos = []
-
-    # Function to create a new node on a selected location on the canvas and add to the dictionary as well as plot it on
-    #   the canvas and make it the currently selected item. Currently only takes in the x and y coordinates the rest of
-    #   the values are hard coded (EXCEPT FOR NAME WHICH IS AUTO GENERATED, MUCH IMPORTANT VERY PRIMARY KEY)
-    def add_canvas_node(self, pos):
-        if pos != [] and self.master.click_mode == 0:
-            self.logging.info(pos)
-            pos_x, pos_y = pos[0], pos[1]
-            metre_pos_x, metre_pos_y = tmap.swap_to_metre(self, pos_x, pos_y)
-            self.logging.info(metre_pos_x)
-            self.logging.info(metre_pos_y)
-            new_node = tmap.add_node(self, "riseholme", "riseholme", [0.5, 0.6, 0.7, 0.8],
-                                     [metre_pos_x, metre_pos_y, 0.0])
-            node = self.map_canvas.create_oval(pos_x - 4, pos_y - 4, pos_x + 4, pos_y + 4, fill="blue",
-                                               tags=("point", new_node))
-            self.map_canvas.itemconfig(node, fill='red')
-            self.master.clicked_item = new_node
-            self.display_node_info(new_node)
-
-    # Function to create a new connection between two selected nodes in the tmap dictionary and to plot the connection
-    #   on the canvas, stores the position in the dictionary as metre value then converts to pixels for plotting
-    def add_canvas_connection(self, nodes):
-        if len(nodes) == 2 and self.master.click_mode == 1:
-            tmap.add_action(self, nodes[0], nodes[1])
-            pos_x1, pos_y1 = tmap.swap_to_px(self, tmap.get_pos(self, nodes[0])[0], tmap.get_pos(self, nodes[0])[1])
-            pos_x2, pos_y2 = tmap.swap_to_px(self, tmap.get_pos(self, nodes[1])[0], tmap.get_pos(self, nodes[1])[1])
-            self.logging.info("posX1:{} posY1:{} posX2:{} posY2:{}".format(pos_x1, pos_y1, pos_x2, pos_y2))
-            self.map_canvas.create_line(pos_x1, pos_y1, pos_x2, pos_y2, dash=(4, 2), arrow=tk.LAST, tags=("connection",
-                                                                                                          str(
-                                                                                                              "Connect" +
-                                                                                                              nodes[0]),
-                                                                                                          str(
-                                                                                                              "Connect" +
-                                                                                                              nodes[1]),
-                                                                                                          str(nodes[
-                                                                                                                  0] + "_" +
-                                                                                                              nodes[
-                                                                                                                  1])))
-            self.map_canvas.tag_raise("point")
-
-    # Function to delete a connection between two selected nodes and remove that connection from the dictionary, checks
-    # both the nodes to see if they have the connection and deletes from both if necessary
-    def delete_connection(self, nodes):
-        if len(nodes) == 2 and self.master.click_mode == 1:
-            action_val1 = nodes[0] + "_" + nodes[1]
-            action_val2 = nodes[1] + "_" + nodes[0]
-            tmap.delete_action(self, nodes[0], nodes[1])
-            tmap.delete_action(self, nodes[1], nodes[0])
-            self.map_canvas.delete(str(action_val1))
-            self.map_canvas.delete(str(action_val2))
-
-    # Function to delete a node from the tmap dictionary and any associated canvas options
-    def delete_canvas_node(self, node):
-        if self.master.click_mode == 0 and self.map_canvas.type(node) == "oval":
-            tmap.delete_node(self, node)
-            self.map_canvas.delete(node)
-            self.map_canvas.delete(str("Connect" + node))
-
-    # Function to update the sidebar labels with the info obtained from the tmap dictionary
-    def display_node_info(self, node):
-        data = tmap.get_display_info(self, node)
-        if self.master.click_mode == 0:
-            self.master.labels[0].set(data[1])
-            self.master.labels[1].set(data[0])
-            x = 2
-            for label in self.master.labels[2:9]:
-                label.delete(0, tk.END)
-                label.insert(0, data[x])
-                x = x + 1
-            if data[9]:
-                names_list = []
-                for item in data[9]:
-                    name = item["node"]
-                    names_list.append(name)
-                x = x + 2
-                for label in self.master.labels[11:15]:
-                    label.delete(0, tk.END)
-                    x = x + 1
-                self.master.option_list = names_list
-                self.master.connection_data = [data[9]]
-                self.master.connection_label_text.set(names_list[0])
-                self.master.node_box['menu'].delete(0, 'end')
-                for name in names_list:
-                    self.master.node_box['menu'].add_command(label=name, command=lambda value=name: [
-                        self.master.connection_label_text.set(value), self.select_connection()])
-                self.master.labels[9].set(data[9][0]["map"])
-        count = 0
-        for loop in range(8):
-            x, y = data[10][int(count / 2)]["x"], data[10][int(count / 2)]["y"]
-            self.master.labels[15][count].delete(0, tk.END)
-            self.master.labels[15][count + 1].delete(0, tk.END)
-            self.master.labels[15][count].insert(0, x)
-            self.master.labels[15][count + 1].insert(0, y)
-            count += 2
-        self.master.labels[16].delete(0, tk.END)
-        self.master.labels[17].delete(0, tk.END)
-        self.master.labels[16].insert(0, data[11])
-        self.master.labels[17].insert(0, data[12])
-
-    def select_connection(self):
-        connect_node = self.master.connection_label_text.get()
-        origin_node = self.master.labels[1].get()
-        self.logging.info("Select connection active with: {}".format(connect_node))
-        data = []
-        if self.master.connection_data:
-            data = self.master.connection_data[0]
-        self.logging.info("Data: {}".format(data))
-        if data:
-            x, list_location = 0, 0
-            for y in data:
-                if y["node"] == connect_node:
-                    list_location = x
-                else:
-                    x = x + 1
-            for label in self.master.labels[11:15]:
-                label.delete(0, tk.END)
-            self.master.labels[11].insert(0, data[list_location]["action"])
-            self.master.labels[12].insert(0, data[list_location]["inflation"])
-            self.master.labels[13].insert(0, data[list_location]["recovery"])
-            self.master.labels[14].insert(0, data[list_location]["vel"])
-            self.master.selected_connection = connect_node
-            connect_name = origin_node + "_" + connect_node
-            self.map_canvas.itemconfig("connection", dash=1, fill='black')
-            self.map_canvas.itemconfig(connect_name, dash=(4, 2), fill='red')
-
-    # Function to update a position of a node through the sidebar options, updates position in tmap dictionary then
-    #   deletes all canvas objects associated to the node and replots the node, connections and searches for any
-    #   connections adjacent nodes have to the updated node to plot
-    def update_node(self, from_labels):
-        labels = self.master.labels
-        new_pos, new_ori, new_action, new_verts, new_tolerance = [], [], [], [], []
-        error = 0
-        if from_labels == 1:
-            # Checks position and orientation input values are numbers and X/Y are positive
-            for x in range(2, 9):
-                if error == 0:
-                    try:
-                        val = float(labels[x].get())
-                        if val < 0 and error == 0 and (x == 2 or x == 3):
-                            messagebox.showerror("Error", "Position must be a positive value")
-                            self.logging.info("Error val: {}".format(val))
-                            error = 1
-                    except ValueError:
-                        error = 1
-                        if x < 5:
-                            messagebox.showerror("Error", "Position must be a number")
-                        else:
-                            messagebox.showerror("Error", "Orientation must be a number")
-            if error == 0:
-                new_pos = [float(labels[2].get()), float(labels[3].get()), float(labels[4].get())]
-                new_ori = [float(labels[5].get()), float(labels[6].get()), float(labels[7].get()),
-                           float(labels[8].get())]
-            self.logging.info("Selected connection: {}".format(self.master.selected_connection))
-            if self.master.selected_connection != "":
-                new_action = [self.master.connection_label_text.get(), labels[11].get(), labels[12].get(),
-                              labels[13].get(), float(labels[14].get())]
-            for entry in labels[15]:
-                new_verts.append(entry.get())
-            new_tolerance = [float(labels[16].get()), float(labels[17].get())]
-            node_name = labels[1].get()
-        else:
-            node_pos = tmap.get_node_pos(self, self.master.drag_data["item"])
-            new_pos = [float(self.master.drag_data["x"]), float(self.master.drag_data["y"]),
-                       float(self.master.tmapdata[node_pos]["node"]["pose"]["position"]["z"])]
-            node_name = self.master.drag_data["item"]
-            tmap.update_pos(self, node_name, new_pos)
-        self.logging.info("Error at update call: {}".format(error))
-        if error == 0:
-            if from_labels == 1:
-                tmap.update_pos(self, node_name, new_pos)
-                tmap.update_ori(self, node_name, new_ori)
-                if self.master.selected_connection != "":
-                    tmap.update_action(self, node_name, new_action)
-                tmap.update_verts(self, node_name, new_verts)
-                tmap.update_tolerance(self, node_name, new_tolerance)
-            if from_labels == 0 and self.master.clicked_item == node_name:
-                self.display_node_info(node_name)
-            node_pos = tmap.get_node_pos(self, node_name)
-            self.map_canvas.delete(node_name)
-            self.map_canvas.delete(str("Connect" + node_name))
-            node = self.map_canvas.create_oval(new_pos[0] - 4, new_pos[1] - 4, new_pos[0] + 4, new_pos[1] + 4,
-                                               fill="blue",
-                                               tags=("point", node_name))
-            if from_labels == 1 or self.master.clicked_item == node_name:
-                self.map_canvas.itemconfig(node, fill='red')
-            for link in self.master.tmapdata[node_pos]["node"]["edges"]:
-                self.create_node_link(new_pos, link)
-            for nodes in self.master.tmapdata:
-                for link in nodes["node"]["edges"]:
-                    node_connection = link["edge_id"]
-                    if node_connection.split("_")[1] == node_name:
-                        new_pos[0], new_pos[1] = tmap.swap_to_px(self,
-                                                                 tmap.get_pos(self, node_connection.split("_")[0])[0],
-                                                                 tmap.get_pos(self, node_connection.split("_")[0])[1])
-                        self.create_node_link(new_pos, link)
-        self.map_canvas.tag_raise("point")
-
-    def deselect_node_info(self):
-        self.master.labels[0].set("")
-        self.master.labels[1].set("")
-        for label in self.master.labels[2:9]:
-            label.delete(0, tk.END)
-        for label in self.master.labels[11:15]:
-            label.delete(0, tk.END)
-        self.master.option_list = []
-        self.master.connection_data = []
-        self.master.connection_label_text.set("")
-        self.master.node_box['menu'].delete(0, 'end')
-        for loop in range(16):
-            self.master.labels[15][loop].delete(0, tk.END)
-        self.master.labels[16].delete(0, tk.END)
-        self.master.labels[17].delete(0, tk.END)
-
-    def deselect_all(self):
-        self.master.clicked_item = 0
-        self.master.multi_clicked_item = []
-        self.master.clicked_pos = []
-        self.master.click_mode = 0
-        self.master.option_list = [""]
-        self.master.selected_connection = ""
-        self.master.connection_data = []
-        self.map_canvas.itemconfig("point", fill='blue')
-        self.map_canvas.itemconfig("connection", dash=1, fill='black')
-        self.deselect_node_info()
+        map_function.deselect_all(self)
