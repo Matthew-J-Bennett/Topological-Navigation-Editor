@@ -41,7 +41,7 @@ class MainFrame:
         self.master.connection_label_text = tk.StringVar()
         self.master.connection_label_text.set("-Select Node-")
         self.master.verts_label_text = tk.StringVar()
-        self.master.verts_label_text.set("-Select Vert-")
+        self.master.verts_label_text.set("-Select Node-")
         self.master.option_list, self.master.verts_option_list = [""], [""]
         self.master.verts_options = ["Vert 1", "Vert 2", "Vert 3", "Vert 4", "Vert 5", "Vert 6", "Vert 7", "Vert 8"]
         self.master.selected_connection, self.master.selected_vert = "", ""
@@ -137,10 +137,6 @@ class MainFrame:
                               y_orientation, z_orientation, map_label_text, self.master.connection_label_text, action,
                               inflation_radius, recovery_behaviours_config, top_vel, verts_labels, xy_goal_tolerance,
                               yaw_goal_tolerance]
-
-        for vert in self.master.verts_options:
-            self.master.verts_box['menu'].add_command(label=vert, command=lambda value=vert: [
-                self.master.verts_label_text.set(value), map_function.select_vert(self)])
 
         # Adds an update button at the top
         tk.Button(properties_canvas, text="Update", command=lambda: map_function.update_node(self, 1)).grid(row=0,

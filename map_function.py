@@ -154,9 +154,17 @@ def display_node_info(self, node):
                 self.master.node_box['menu'].add_command(label=name, command=lambda value=name: [
                     self.master.connection_label_text.set(value), select_connection(self)])
             self.master.labels[9].set(data[9][0]["map"])
+            select_connection(self)
+    self.master.verts_box['menu'].delete(0, 'end')
+    verts_options = ["Vert 1", "Vert 2", "Vert 3", "Vert 4", "Vert 5", "Vert 6", "Vert 7", "Vert 8"]
+    self.master.verts_label_text.set(verts_options[0])
+    for vert in verts_options:
+        self.master.verts_box['menu'].add_command(label=vert, command=lambda value=vert: [
+            self.master.verts_label_text.set(value), select_vert(self)])
     self.master.labels[15][0].delete(0, tk.END)
     self.master.labels[15][1].delete(0, tk.END)
     self.master.verts_data = [data[10]]
+    select_vert(self)
     self.master.labels[16].delete(0, tk.END)
     self.master.labels[17].delete(0, tk.END)
     self.master.labels[16].insert(0, data[11])
@@ -193,7 +201,7 @@ def select_vert(self):
     selected_vert = self.master.verts_label_text.get()
     self.logging.info("Select vert active with: {}".format(selected_vert))
     data = []
-    if self.master.connection_data:
+    if self.master.verts_data:
         data = self.master.verts_data
     self.logging.info("Data: {}".format(data))
     if data:
@@ -203,7 +211,7 @@ def select_vert(self):
         self.master.labels[15][1].delete(0, tk.END)
         self.master.labels[15][0].insert(0, data[0][vert]["x"])
         self.master.labels[15][1].insert(0, data[0][vert]["y"])
-        self.master.selected_vert= selected_vert
+        self.master.selected_vert = selected_vert
 
 
 # Function to update a position of a node through the sidebar options, updates position in tmap dictionary then
