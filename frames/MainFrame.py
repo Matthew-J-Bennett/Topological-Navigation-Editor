@@ -1,4 +1,3 @@
-import datetime
 import os
 import sys
 import tkinter as tk
@@ -6,6 +5,7 @@ from tkinter import messagebox
 import elements
 import frames
 import map_function
+import tmap
 
 
 class MainFrame:
@@ -46,6 +46,7 @@ class MainFrame:
         self.master.verts_options = ["Vert 1", "Vert 2", "Vert 3", "Vert 4", "Vert 5", "Vert 6", "Vert 7", "Vert 8"]
         self.master.selected_connection, self.master.selected_vert = "", ""
         self.master.verts_data, self.master.connection_data = [], []
+        self.master.connect_name = ""
 
         # Populates text Labels
         tk.Label(properties_canvas, text="Node Properties").grid(row=0)
@@ -165,7 +166,6 @@ class MainFrame:
         self.master.clicked_pos = []
         self.master.click_mode = 0
 
-        # Just an absolute shit show
         # The onclick function obtains the position that the user clicked on the canvas and finds the nearest object,
         #   this will either be the canvas (image) or a node (oval). The function also discerns what mode the user is
         #   in either single (0) or multi (1).
@@ -246,14 +246,27 @@ class MainFrame:
             diff_x = self.map_canvas.canvasx(event.x) - self.master.drag_data["x"]
             diff_y = self.map_canvas.canvasy(event.y) - self.master.drag_data["y"]
             item = self.map_canvas.find_withtag(self.master.drag_data["item"])
-            self.logging.info("Object:{},{}".format(self.master.drag_data["item"], item))
             self.map_canvas.move(item, diff_x, diff_y)
+            node_name = self.map_canvas.gettags(item)[1]
+            items = self.map_canvas.find_withtag("Connect"+node_name)
+            for connection in items:
+                values = self.map_canvas.coords(connection)
+                if (self.master.drag_data["x"] + 5 >= values[0] >= self.master.drag_data["x"] - 5) and \
+                        (self.master.drag_data["y"] + 5 >= values[1] >= self.master.drag_data["y"] - 5):
+                    self.map_canvas.coords(connection, (values[0]+diff_x), (values[1]+diff_y), values[2], values[3])
+                elif (self.master.drag_data["x"] + 5 >= values[2] >= self.master.drag_data["x"] - 5) and \
+                        (self.master.drag_data["y"] + 5 >= values[3] >= self.master.drag_data["y"] - 5):
+                    self.map_canvas.coords(connection, values[0], values[1], (values[2]+diff_x), (values[3]+diff_y))
+            if self.master.connect_name:
+                self.map_canvas.itemconfig(self.master.connect_name, fill='red')
             self.master.drag_data["x"] = self.map_canvas.canvasx(event.x)
             self.master.drag_data["y"] = self.map_canvas.canvasy(event.y)
 
         def drag_end(event):
             self.logging.info("drag_end active")
             map_function.update_node(self, 0)
+            if self.master.connect_name:
+                self.map_canvas.itemconfig(self.master.connect_name, fill='red')
             self.master.drag_data["x"] = 0
             self.master.drag_data["y"] = 0
 

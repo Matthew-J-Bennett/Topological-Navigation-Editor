@@ -193,9 +193,9 @@ def select_connection(self):
         self.master.labels[13].insert(0, data[list_location]["recovery"])
         self.master.labels[14].insert(0, data[list_location]["vel"])
         self.master.selected_connection = connect_node
-        connect_name = origin_node + "_" + connect_node
+        self.master.connect_name = origin_node + "_" + connect_node
         self.map_canvas.itemconfig("connection", dash=1, fill='black')
-        self.map_canvas.itemconfig(connect_name, dash=(4, 2), fill='red')
+        self.map_canvas.itemconfig(self.master.connect_name, dash=(4, 2), fill='red')
 
 def select_vert(self):
     selected_vert = self.master.verts_label_text.get()
