@@ -106,6 +106,7 @@ def add_canvas_connection(self, nodes):
                                                                                                               1])))
         self.map_canvas.tag_raise("point")
 
+
 # Function to plot a connected line of nodes between two already existing nodes, requires the user to be in multi-mode
 #   and prompts the user to input a number (must be an integer greater than zero). The connections are plotted from the
 #   first selected node to the selected to the selected (one way only)
@@ -127,13 +128,13 @@ def add_node_string(self, nodes):
             num_nodes = int(num_nodes)
             new_nodes = []
             canvas_nodes = []
-            pos_x1, pos_y1 =  tmap.swap_to_px(self, tmap.get_pos(self, nodes[0])[0], tmap.get_pos(self, nodes[0])[1])
+            pos_x1, pos_y1 = tmap.swap_to_px(self, tmap.get_pos(self, nodes[0])[0], tmap.get_pos(self, nodes[0])[1])
             pos_x2, pos_y2 = tmap.swap_to_px(self, tmap.get_pos(self, nodes[1])[0], tmap.get_pos(self, nodes[1])[1])
             diff_x = (pos_x1 - pos_x2) / (num_nodes + 1)
             diff_y = (pos_y1 - pos_y2) / (num_nodes + 1)
             for count in range(num_nodes):
-                pos_x = pos_x1 - (diff_x * (count+1))
-                pos_y = pos_y1 - (diff_y * (count+1))
+                pos_x = pos_x1 - (diff_x * (count + 1))
+                pos_y = pos_y1 - (diff_y * (count + 1))
                 metre_pos_x, metre_pos_y = tmap.swap_to_metre(self, pos_x, pos_y)
                 new_node = tmap.add_node(self, "riseholme", "riseholme", [0, 0, 0, 0],
                                          [metre_pos_x, metre_pos_y, 0.0])
@@ -143,9 +144,9 @@ def add_node_string(self, nodes):
                 canvas_nodes.append(node)
                 if count != 0:
                     self.logging.info(count)
-                    add_canvas_connection(self, (new_nodes[count-1], new_nodes[count]))
+                    add_canvas_connection(self, (new_nodes[count - 1], new_nodes[count]))
             add_canvas_connection(self, (nodes[0], new_nodes[0]))
-            add_canvas_connection(self, (new_nodes[num_nodes-1], nodes[1]))
+            add_canvas_connection(self, (new_nodes[num_nodes - 1], nodes[1]))
 
 
 # Function to delete a connection between two selected nodes and remove that connection from the dictionary, checks
@@ -212,6 +213,7 @@ def display_node_info(self, node):
     self.master.labels[16].insert(0, data[11])
     self.master.labels[17].insert(0, data[12])
 
+
 # Function bound to each of the options in the node connections drop-down menu, retrieves the value in the selected
 #   option and fills the input boxes with the data from that connection
 def select_connection(self):
@@ -241,6 +243,7 @@ def select_connection(self):
         self.map_canvas.itemconfig(self.master.connect_name, dash=(4, 2), fill='red')
         self.map_canvas.tag_raise(self.master.connect_name)
         self.map_canvas.tag_raise("point")
+
 
 # Similar to select_connection but used for the verts drop-down menu
 def select_vert(self):
@@ -360,6 +363,7 @@ def deselect_all(self):
     self.map_canvas.itemconfig("point", fill='blue')
     self.map_canvas.itemconfig("connection", dash=1, fill='black')
     deselect_node_info(self)
+
 
 # Checks the user is in the correct mode for certain functions
 def check_selected(self, mode_req):
