@@ -288,6 +288,7 @@ class MainFrame:
 
         master.master.bind('<Enter>', self._bind_to_mousewheel)
 
+        # Adds all of the keyboard shortcut commands to the menu bar
         self.master.editmenu.add_command(label="Deselect Node(s)                        CTRL + D", command=lambda:
                                                                     self.deselect_node_event(self.master.clicked_item))
 
@@ -299,6 +300,9 @@ class MainFrame:
                                          command=lambda: map_function.delete_canvas_node(self, self.master.clicked_item))
         self.master.editmenu.add_command(label="Delete Node Connection               SHIFT + Backspace",
                                          command=lambda: map_function.delete_connection(self,
+                                                                                        self.master.multi_clicked_item))
+        self.master.editmenu.add_command(label="Add Connected Node Line               SHIFT + L",
+                                         command=lambda: map_function.add_node_string(self,
                                                                                         self.master.multi_clicked_item))
         self.master.filemenu.add_command(label="Close Project",
                                          command=lambda: self._save_and_close())
