@@ -25,49 +25,69 @@ class LaunchFrame:
 
         # Creates the launch frame
         self.frame = elements.Frame(master=self.window)
+        self.master.from_recent = 0
 
         # Adds Decorative Image
-        label = elements.Photo(master=master.master, x=100, y=150, imgpath="logo.png", height=200, width=200,
-                               relief=tk.RIDGE, bd=3)
+        logo = elements.Photo(master=master.master, x=100, y=150, imgpath="logo.png", height=200, width=200,
+                              relief=tk.RIDGE, bd=3)
         # Adds a title to the top of the screen
-        title_label = elements.Label(master=master.master, text="Topological-Navigation-Editor", x=625, y=50,
-                                     font=("Roboto", 44),
-                                     fg='white', anchor=tk.CENTER)
+        elements.Label(master=master.master, text="Topological-Navigation-Editor", x=625, y=50, font=("Roboto", 44),
+                       fg='white', anchor=tk.CENTER)
         # Import files button
-        import_button = elements.Button(master=master.master, x=800, y=650, text="Import Files", width=20,
-                                        func=lambda: self.get_import_filename())
+        elements.Button(master=master.master, x=800, y=650, text="Import Files", width=20,
+                        func=lambda: self.get_import_filename(0))
         # Open files button - To be considered
-        open_button = elements.Button(master=master.master, x=1000, y=650, text="Open Project", width=20,
-                                      func=lambda: messagebox.showinfo("Title", "a box"))
+        elements.Button(master=master.master, x=1000, y=650, text="Open Project", width=20,
+                        func=lambda: messagebox.showinfo("Title", "a box"))
         # Creates a frame to display recent files
-        recent_files_frame = elements.Frame(master=master.master, x=750, y=150, height=450, width=450,
-                                            bg=const.tertiary_colour,
-                                            relief=tk.RIDGE, bd=3)
+        elements.Frame(master=master.master, x=750, y=150, height=460, width=450, bg=const.tertiary_colour,
+                       relief=tk.RIDGE, bd=3)
 
-        project_button1 = elements.Button(master=master.master, x=759, y=159, text=("Projects to go here"), width=60,
-                                          func=lambda: self.get_import_filename())
+        y_pos = 0
+        max_val = 0
+        jsonfile = "RecentProjects.json"
+        with open('data/' + jsonfile) as data_file:
+            data = json.load(data_file)
+            for item in data:
+                max_val += 1
+                if max_val < 10:
+                    y_pos = y_pos + 50
+                    elements.Button(master=master.master, x=759, y=110 + y_pos,
+                                    text=(data[item]["project_name"]), width=60,
+                                    func=lambda: self.get_import_filename(data[item]))
+            if max_val == 0:
+                elements.Label(master=master.master, text="Recent files go here...", x=975, y=200, font=("Roboto", 24),
+                               fg='white', anchor=tk.CENTER)
 
         if not self.master.launched:
             self.logging.info("Creating Launch Frame")
-        self.window.mainloop()
+            self.window.mainloop()
 
         # Import Files function
 
-    def get_import_filename(self):
-        # Produces a Dialog window to allow the user to select files
-        self.master.filenames = filedialog.askopenfilenames(initialdir="/", title="Select file",
-                                                            filetypes=(
-                                                                ("Map files", ".yaml .pgm .tmap"),
-                                                                ("All files", "*.*")))
+    def get_import_filename(self, file_names):
+
+        if file_names == 0:
+            # Produces a Dialog window to allow the user to select files
+            self.master.filenames = filedialog.askopenfilenames(initialdir="/", title="Select file", filetypes=(
+                ("Map files", ".yaml .pgm .tmap"),
+                ("All files", "*.*")))
+        else:
+            self.master.filenames = [file_names["files"]["pgm"], file_names["files"]["yaml"],
+                                     file_names["files"]["tmap"]]
+            self.master.project_name = file_names["project_name"]
+            self.master.from_recent = 1
 
         # File Validation/Duplication
+        check = 0
         if self.set_filenames() == 1:
-            self.read_tmap()
-            self.read_yaml()
-            self.read_pgm()
-            self.logging.info("pgm x:" + str(self.master.pgm["width"]) + " pgm y:" + str(self.master.pgm["height"]))
+            check = check + self.read_tmap()
+            check = check + self.read_yaml()
+            check = check + self.read_pgm()
+            if check == 3:
+                self.logging.info("pgm x:" + str(self.master.pgm["width"]) + " pgm y:" + str(self.master.pgm["height"]))
 
-        if len(self.master.filenames) == 3:
+        if len(self.master.filenames) == 3 and check == 3:
             self.master.frame_swap(old_frame=self.frame,
                                    new_frame=lambda: frames.MainFrame(
                                        master=self.master))
@@ -90,6 +110,7 @@ class LaunchFrame:
                 self.master.files["pgm"] = x
                 # Logs a file has been imported
                 self.logging.info("PGM file imported: {}".format(x))
+                self.master.map_name = x.replace(".pgm", "")
                 # Adds to the file counter
                 num_files += 1
             elif Path(x).suffix == ".tmap":
@@ -108,40 +129,49 @@ class LaunchFrame:
             return 0
         # If successful - then return TRUE condition
         else:
-            # Creates a window to allow the user to select
-            ROOT = tk.Tk()
-            ROOT.withdraw()
-            project_name = simpledialog.askstring(title="Test",
-                                                  prompt="Please choose a name for your collection of files:")
-            self.logging.info("Please choose a name for your project:")
-            # Opens and reads previous json as a dict
-            with open('data/RecentProjects.json', 'r') as f:
-                file_location_dict = json.loads(f.read())
-            # Creates the new entry as a separate dict
-            new_dict = {
-                random.randint(1245, 99999): {"project_name": str(project_name), "files": self.master.files,
-                                              "last_opened": str(datetime.datetime.now())}
-            }
+            if self.master.from_recent == 0:
+                # Creates a window to allow the user to select
+                ROOT = tk.Tk()
+                ROOT.withdraw()
+                self.master.project_name = simpledialog.askstring(title="Project Name",
+                                                                  prompt="Please choose a name for your collection of "
+                                                                         "files:")
+                self.logging.info("Please choose a name for your project:")
+                # Opens and reads previous json as a dict
+                with open('data/RecentProjects.json', 'r') as f:
+                    file_location_dict = json.loads(f.read())
+                # Creates the new entry as a separate dict
+                new_dict = {
+                    random.randint(1245, 99999): {"project_name": str(self.master.project_name),
+                                                  "files": self.master.files,
+                                                  "last_opened": str(datetime.datetime.now())}
+                }
 
-            # Combines the two dicts to one and then saves it to the files making sure the path is still valid
-            file_location_dict = {**file_location_dict, **new_dict}
-            if not os.path.exists("data/"):
-                os.mkdir("data/")
+                # Combines the two dicts to one and then saves it to the files making sure the path is still valid
+                file_location_dict = {**file_location_dict, **new_dict}
+                if not os.path.exists("data/"):
+                    os.mkdir("data/")
 
-            with open('data/RecentProjects.json', 'w') as fp:
-                json.dump(file_location_dict, fp, indent=2)
+                with open('data/RecentProjects.json', 'w') as fp:
+                    json.dump(file_location_dict, fp, indent=2)
             return 1
 
     # Reads in and stores the data of the YAML file
     def read_yaml(self):
         with open(self.master.files["yaml"]) as file:
             self.master.yaml_data = yaml.load(file, Loader=yaml.FullLoader)
+        if self.master.yaml_data is not None:
+            return 1
+        return 0
 
     # Reads in and stores the data of the TMAP file
     def read_tmap(self):
         with open(self.master.files["tmap"]) as file:
             self.master.tmapdata = yaml.load(file, Loader=yaml.FullLoader)
         self.master.data_loaded = True
+        if self.master.tmapdata is not None:
+            return 1
+        return 0
 
     # Reads in and stores pgm width and height used on canvas
     def read_pgm(self):
@@ -156,3 +186,4 @@ class LaunchFrame:
                 pgm_y = float(size[1])
             x += 1
         self.master.pgm = {"id": value, "width": pgm_x, "height": pgm_y, "maxval": max_val}
+        return 1

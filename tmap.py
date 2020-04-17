@@ -2,12 +2,6 @@ import logging
 
 logger = logging.getLogger("Topological-Navigation-Editor")
 
-
-class Tmap:
-    def __int__(self, master):
-        self.master = master
-
-
 # Function to add an action to an existing node,
 # 3 parameters ([node dataset], [name of current node being manipulated],
 #   [name of the node being connected to from current node])
@@ -79,7 +73,7 @@ def add_node(self, top_map, point_set, orientation, position):
             name += 1
             count = 0
     name = "WayPoint" + str(name)
-    meta_dict = {"map": top_map, "node": name, "pointset": point_set}
+    meta_dict = {"map": self.master.map_name, "node": name, "pointset": self.master.project_name}
     ori_dict = {"w": orientation[0], "x": orientation[1], "y": orientation[2], "z": orientation[3]}
     pos_dict = {"x": position[0], "y": position[1], "z": position[2]}
     verts_dict = [{"x": 0.689999997616, "y": 0.287000000477}, {"x": 0.287000000477, "y": 0.490000009537},
@@ -121,20 +115,24 @@ def update_ori(self, node, new_ori):
     node_data["w"], node_data["x"], node_data["y"], node_data["z"] = new_ori[0], new_ori[1], new_ori[2], new_ori[3]
 
 def update_action(self, node, new_action):
+    self.logging.info("Update action called.")
+    self.logging.info("Action to update: {}".format(new_action[0]))
+    self.logging.info("New action: {}".format(new_action))
     node_pos = get_node_pos(self, node)
     node_data = self.master.tmapdata[node_pos]["node"]["edges"]
     for connection in node_data:
         if connection["node"] == new_action[0]:
+            self.logging.info("Action found: {}".format(connection))
             connection["action"], connection["inflation_radius"], connection["recovery_behaviours_config"], \
                 connection["top_vel"] = new_action[1], new_action[2], new_action[3], new_action[4]
 
 def update_verts(self, node, new_verts):
+    self.logging.info("Update verts called.")
     node_pos = get_node_pos(self, node)
     node_data = self.master.tmapdata[node_pos]["node"]["verts"]
-    count = 0
-    for x in range(8):
-        node_data[int(count/2)]["x"], node_data[int(count/2)]["y"] = new_verts[count], new_verts[count+1]
-        count += 2
+    selected_vert = self.master.verts_label_text.get()
+    vert = int(selected_vert.split(" ")[1]) - 1
+    node_data[vert]["x"], node_data[vert]["y"] = new_verts[0], new_verts[1]
 
 def update_tolerance(self, node, new_tolerance):
     node_pos = get_node_pos(self, node)
@@ -194,7 +192,7 @@ def swap_to_px(self, pos1, pos2):
 def swap_to_metre(self, pos1, pos2):
     pos1 = (float(pos1) * self.master.yaml_data["resolution"]) + self.master.yaml_data["origin"][0]
     pos2 = ((self.master.pgm["height"] - float(pos2)) * self.master.yaml_data["resolution"]) + \
-           self.master.yaml_data["origin"][1]
+        self.master.yaml_data["origin"][1]
     return pos1, pos2
 
 
@@ -211,7 +209,7 @@ def get_display_info(self, node):
                                   "inflation": action["inflation_radius"], "recovery":
                                       action["recovery_behaviours_config"], "vel": action["top_vel"]})
     verts_packet = node["node"]["verts"]
-    info_packet = [node["meta"]["node"], node["meta"]["pointset"], pos_x, pos_y, pose["position"]["z"],
+    info_packet = [node["node"]["name"], node["meta"]["pointset"], pos_x, pos_y, pose["position"]["z"],
                    pose["orientation"]["w"], pose["orientation"]["x"], pose["orientation"]["y"],
                    pose["orientation"]["z"], action_packet, verts_packet, node["node"]["xy_goal_tolerance"],
                    node["node"]["yaw_goal_tolerance"]]
