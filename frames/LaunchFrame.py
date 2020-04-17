@@ -40,7 +40,7 @@ class LaunchFrame:
         elements.Button(master=master.master, x=1000, y=650, text="Open Project", width=20,
                         func=lambda: messagebox.showinfo("Title", "a box"))
         # Creates a frame to display recent files
-        elements.Frame(master=master.master, x=750, y=150, height=450, width=450, bg=const.tertiary_colour,
+        elements.Frame(master=master.master, x=750, y=150, height=460, width=450, bg=const.tertiary_colour,
                        relief=tk.RIDGE, bd=3)
 
         y_pos = 0

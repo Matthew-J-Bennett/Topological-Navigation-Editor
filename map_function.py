@@ -356,7 +356,6 @@ def deselect_all(self):
     self.master.clicked_item = 0
     self.master.multi_clicked_item = []
     self.master.clicked_pos = []
-    self.master.click_mode = 0
     self.master.option_list = [""]
     self.master.selected_connection, self.master.selected_vert = "", ""
     self.master.connection_data, self.master.verts_data = [], []
