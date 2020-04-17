@@ -44,12 +44,25 @@ class LaunchFrame:
                                             bg=const.tertiary_colour,
                                             relief=tk.RIDGE, bd=3)
 
-        project_button1 = elements.Button(master=master.master, x=759, y=159, text=("Projects to go here"), width=60,
-                                          func=lambda: self.get_import_filename())
+        Ypos = 0
+        project_button = [1]
+        jsonfile = "RecentProjects.json"
+        with open('data/' + jsonfile) as data_file:
+            data = json.load(data_file)
+
+            print(data)
+            for l in data:
+                print(data[l]["project_name"])
+                for i in project_button:
+                    Ypos = Ypos + 50
+                    i = elements.Button(master=master.master, x=759, y=110 + Ypos,
+                                                     text=(data[l]["project_name"]),
+                                                     width=60,
+                                                     func=lambda: self.get_import_filename())
 
         if not self.master.launched:
             self.logging.info("Creating Launch Frame")
-        self.window.mainloop()
+            self.window.mainloop()
 
         # Import Files function
 
@@ -115,7 +128,7 @@ class LaunchFrame:
             ROOT = tk.Tk()
             ROOT.withdraw()
             self.master.project_name = simpledialog.askstring(title="Project Name",
-                                                  prompt="Please choose a name for your collection of files:")
+                                                              prompt="Please choose a name for your collection of files:")
             self.logging.info("Please choose a name for your project:")
             # Opens and reads previous json as a dict
             with open('data/RecentProjects.json', 'r') as f:
