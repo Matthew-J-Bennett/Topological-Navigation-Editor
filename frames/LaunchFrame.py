@@ -40,25 +40,26 @@ class LaunchFrame:
         open_button = elements.Button(master=master.master, x=1000, y=650, text="Open Project", width=20,
                                       func=lambda: messagebox.showinfo("Title", "a box"))
         # Creates a frame to display recent files
-        recent_files_frame = elements.Frame(master=master.master, x=750, y=150, height=450, width=450,
+        recent_files_frame = elements.Frame(master=master.master, x=750, y=150, height=460, width=450,
                                             bg=const.tertiary_colour,
                                             relief=tk.RIDGE, bd=3)
 
         Ypos = 0
+        x = 0
         project_button = [1]
         jsonfile = "RecentProjects.json"
         with open('data/' + jsonfile) as data_file:
             data = json.load(data_file)
 
-            print(data)
             for l in data:
-                print(data[l]["project_name"])
+                x = x + 1
                 for i in project_button:
-                    Ypos = Ypos + 50
-                    i = elements.Button(master=master.master, x=759, y=110 + Ypos,
-                                                     text=(data[l]["project_name"]),
-                                                     width=60,
-                                                     func=lambda: self.get_import_filename())
+                    if x < 10:
+                        Ypos = Ypos + 50
+                        i = elements.Button(master=master.master, x=759, y=110 + Ypos,
+                                        text=(data[l]["project_name"]),
+                                        width=60,
+                                        func=lambda: self.get_import_filename())
 
         if not self.master.launched:
             self.logging.info("Creating Launch Frame")
