@@ -311,8 +311,25 @@ def update_node(self, from_labels):
             tmap.update_ori(self, node_name, new_ori)
             if self.master.selected_connection != "":
                 tmap.update_action(self, node_name, new_action)
+                data = self.master.connection_data[0]
+                location, count = 0, 0
+                for connection in data:
+                    if connection["node"] == self.master.selected_connection:
+                        location = count
+                    else:
+                        count = count + 1
+                data[location]["action"] = labels[11].get()
+                data[location]["inflation"] = labels[12].get()
+                data[location]["recovery"] = labels[13].get()
+                data[location]["vel"] = labels[14].get()
+                self.master.connection_data[0] = data
             if self.master.selected_vert != "":
                 tmap.update_verts(self, node_name, new_verts)
+                data = self.master.verts_data
+                vert = int(self.master.verts_label_text.get().split(" ")[1]) - 1
+                data[0][vert]["x"] = new_verts[0]
+                data[0][vert]["y"] = new_verts[1]
+                self.master.verts_data = data
             tmap.update_tolerance(self, node_name, new_tolerance)
         if from_labels == 0 and self.master.clicked_item == node_name:
             display_node_info(self, node_name)
