@@ -38,13 +38,6 @@ def updates_enabled():
     return not os.path.isfile(".disableupdates")
 
 
-def cause_update():
-    dir_name = os.getcwd()
-    addr = dname + '/updater.pyw'
-    subprocess.Popen(['', addr], executable=sys.executable)
-    os._exit(1)
-
-
 def post_request(address, dictionary, headers=None):
     if headers is None:
         headers = {'user-agent': 'python'}
@@ -103,15 +96,13 @@ if internet_connected and updates_enabled and has_internet(
                 print('Your version of Python has errors relating to icons. An icon will not be used.')
             update_text = 'Your version of the Topological Navigation Editor (' + version + \
                           ') is not the latest available version (' + latest_version + \
-                          '). Do you wish to update the software?'
-            result = tk.messagebox.askyesno('Update Available', update_text, master=temp_window)
+                          '). Download the latest version from GitHub'
+            result = tk.messagebox.showinfo('Update Available', update_text, master=temp_window)
             temp_window.destroy()
-            if result:
-                cause_update()
-            else:
-                break
 else:
     print("Updates will not be performed!")
+    print(internet_connected)
+    print(updates_enabled)
 
 
 # exceptions handler
