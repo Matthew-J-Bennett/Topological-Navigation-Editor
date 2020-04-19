@@ -34,7 +34,7 @@ class LaunchFrame:
         elements.Label(master=master.master, text="Topological-Navigation-Editor", x=625, y=50, font=("Roboto", 44),
                        fg='white', anchor=tk.CENTER)
         # Import files button
-        elements.Button(master=master.master, x=800, y=650, text="Import Files", width=20,
+        elements.Button(master=master.master, x=830, y=650, text="Import Files", width=40,
                         func=lambda: self.get_import_filename(0))
         # Adds a title to the recent files display
         elements.Label(master=master.master, text="Recent files", x=850, y=130, font=("Roboto", 24),
@@ -52,7 +52,7 @@ class LaunchFrame:
             if max_val < 10:
                 y_pos = y_pos + 50
                 elements.Button(master=master.master, x=759, y=110 + y_pos,
-                                text=(data[item]["project_name"]+"  -/-  "+data[item]["last_opened"]), width=60,
+                                text=(data[item]["project_name"] + "  -/-  " + data[item]["last_opened"]), width=60,
                                 func=lambda: self.get_import_filename(data[item]))
         if max_val == 0:
             elements.Label(master=master.master, text="Recent files go here...", x=975, y=200, font=("Roboto", 24),
@@ -171,7 +171,8 @@ class LaunchFrame:
             else:
                 data = self.master.json_data
                 for item in data:
-                    if data[item]["project_name"] == self.master.from_recent["project_name"] and data[item]["last_opened"] == \
+                    if data[item]["project_name"] == self.master.from_recent["project_name"] and data[item][
+                        "last_opened"] == \
                             self.master.from_recent["last_opened"]:
                         data[item]["last_opened"] = str(datetime.datetime.now())
                 with open('data/RecentProjects.json', 'w') as fp:

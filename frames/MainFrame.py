@@ -248,15 +248,15 @@ class MainFrame:
             item = self.map_canvas.find_withtag(self.master.drag_data["item"])
             self.map_canvas.move(item, diff_x, diff_y)
             node_name = self.map_canvas.gettags(item)[1]
-            items = self.map_canvas.find_withtag("Connect"+node_name)
+            items = self.map_canvas.find_withtag("Connect" + node_name)
             for connection in items:
                 values = self.map_canvas.coords(connection)
                 if (self.master.drag_data["x"] + 5 >= values[0] >= self.master.drag_data["x"] - 5) and \
                         (self.master.drag_data["y"] + 5 >= values[1] >= self.master.drag_data["y"] - 5):
-                    self.map_canvas.coords(connection, (values[0]+diff_x), (values[1]+diff_y), values[2], values[3])
+                    self.map_canvas.coords(connection, (values[0] + diff_x), (values[1] + diff_y), values[2], values[3])
                 elif (self.master.drag_data["x"] + 5 >= values[2] >= self.master.drag_data["x"] - 5) and \
                         (self.master.drag_data["y"] + 5 >= values[3] >= self.master.drag_data["y"] - 5):
-                    self.map_canvas.coords(connection, values[0], values[1], (values[2]+diff_x), (values[3]+diff_y))
+                    self.map_canvas.coords(connection, values[0], values[1], (values[2] + diff_x), (values[3] + diff_y))
             if self.master.connect_name:
                 self.map_canvas.itemconfig(self.master.connect_name, fill='red')
             self.master.drag_data["x"] = self.map_canvas.canvasx(event.x)
@@ -289,32 +289,46 @@ class MainFrame:
         master.master.bind('<Enter>', self._bind_to_mousewheel)
 
         # Adds all of the keyboard shortcut commands to the menu bar
-        self.master.editmenu.add_command(label="Deselect Node(s)                        CTRL + D", command=lambda:
-                                                                    self.deselect_node_event(self.master.clicked_item))
+        self.master.editmenu.add_command(label="Deselect Node(s)                               CTRL + D",
+                                         command=lambda:
+                                         self.deselect_node_event(self.master.clicked_item))
 
-        self.master.editmenu.add_command(label="Add Node                                         CTRL + Mouse 1",
+        self.master.editmenu.add_command(label="Add Node                                           CTRL + Mouse 1",
                                          command=lambda: map_function.add_canvas_node(self, self.master.clicked_pos))
-        self.master.editmenu.add_command(label="Add Node Connection                   CTRL + Mouse 2",
-                                         command=lambda: map_function.add_canvas_connection(self, self.master.multi_clicked_item))
-        self.master.editmenu.add_command(label="Delete Node                                     CTRL + Backspace",
-                                         command=lambda: map_function.delete_canvas_node(self, self.master.clicked_item))
-        self.master.editmenu.add_command(label="Delete Node Connection               SHIFT + Backspace",
+        self.master.editmenu.add_command(label="Add Node Connection                     CTRL + Mouse 2",
+                                         command=lambda: map_function.add_canvas_connection(self,
+                                                                                            self.master.multi_clicked_item))
+        self.master.editmenu.add_command(label="Delete Node                                       CTRL + Backspace",
+                                         command=lambda: map_function.delete_canvas_node(self,
+                                                                                         self.master.clicked_item))
+        self.master.editmenu.add_command(label="Delete Node Connection                  SHIFT + Backspace",
                                          command=lambda: map_function.delete_connection(self,
                                                                                         self.master.multi_clicked_item))
         self.master.editmenu.add_command(label="Add Connected Node Line               SHIFT + L",
                                          command=lambda: map_function.add_node_string(self,
-                                                                                        self.master.multi_clicked_item))
+                                                                                      self.master.multi_clicked_item))
         self.master.filemenu.add_command(label="Close Project",
                                          command=lambda: self._save_and_close())
 
         single_item_button = elements.Button(master=master.master, x=790, y=20, text="Single Mode", width=20,
-                                             func=lambda: map_function.change_mode(self, 0))
+                                             relief='solid',
+                                             func=lambda: [map_function.change_mode(self, 0),
+                                                           self.button_activate(single_item_button),
+                                                           self.button_deactivate(multi_item_button)])
 
         multi_item_button = elements.Button(master=master.master, x=790, y=70, text="Multi Mode",
                                             width=20,
-                                            func=lambda: map_function.change_mode(self, 1))
+                                            func=lambda: [map_function.change_mode(self, 1),
+                                                          self.button_activate(multi_item_button),
+                                                          self.button_deactivate(single_item_button)])
 
         tk.mainloop()
+
+    def button_activate(self, button):
+        button.element.config(relief='solid')
+
+    def button_deactivate(self, button):
+        button.element.config(relief='flat')
 
     def _save_and_close(self):
         msg_box = tk.messagebox.askquestion('Exit Application', 'Would you like to save before quitting?',
