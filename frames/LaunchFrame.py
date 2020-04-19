@@ -36,35 +36,49 @@ class LaunchFrame:
         # Import files button
         elements.Button(master=master.master, x=800, y=650, text="Import Files", width=20,
                         func=lambda: self.get_import_filename(0))
-        # Open files button - To be considered
-        elements.Button(master=master.master, x=1000, y=650, text="Open Project", width=20,
-                        func=lambda: messagebox.showinfo("Title", "a box"))
+        # Adds a title to the recent files display
+        elements.Label(master=master.master, text="Recent files", x=850, y=130, font=("Roboto", 24),
+                       fg='white', anchor=tk.CENTER)
         # Creates a frame to display recent files
         elements.Frame(master=master.master, x=750, y=150, height=460, width=450, bg=const.tertiary_colour,
                        relief=tk.RIDGE, bd=3)
 
         y_pos = 0
         max_val = 0
-        jsonfile = "RecentProjects.json"
-        with open('data/' + jsonfile) as data_file:
-            data = json.load(data_file)
-            for item in data:
-                max_val += 1
-                if max_val < 10:
-                    y_pos = y_pos + 50
-                    elements.Button(master=master.master, x=759, y=110 + y_pos,
-                                    text=(data[item]["project_name"]), width=60,
-                                    func=lambda: self.get_import_filename(data[item]))
-            if max_val == 0:
-                elements.Label(master=master.master, text="Recent files go here...", x=975, y=200, font=("Roboto", 24),
-                               fg='white', anchor=tk.CENTER)
+        self.sort_by_date()
+        data = self.master.json_data
+        for item in data:
+            max_val += 1
+            if max_val < 10:
+                y_pos = y_pos + 50
+                elements.Button(master=master.master, x=759, y=110 + y_pos,
+                                text=(data[item]["project_name"]+"  -/-  "+data[item]["last_opened"]), width=60,
+                                func=lambda: self.get_import_filename(data[item]))
+        if max_val == 0:
+            elements.Label(master=master.master, text="Recent files go here...", x=975, y=200, font=("Roboto", 24),
+                           fg='white', anchor=tk.CENTER)
 
         if not self.master.launched:
             self.logging.info("Creating Launch Frame")
             self.window.mainloop()
 
-        # Import Files function
+    def sort_by_date(self):
+        with open('data/RecentProjects.json') as data_file:
+            self.master.json_data = json.load(data_file)
+        data = self.master.json_data
+        num_data = len(data)
+        for i in range(num_data):
+            for j in range(0, num_data - i - 1):
+                date_1 = (data[list(data.keys())[j]]["last_opened"]).split(" ")[0]
+                date_2 = (data[list(data.keys())[j + 1]]["last_opened"]).split(" ")[0]
+                time_1 = (data[list(data.keys())[j]]["last_opened"]).split(" ")[1]
+                time_2 = (data[list(data.keys())[j + 1]]["last_opened"]).split(" ")[1]
+                if (date_1 <= date_2 and time_1 < time_2) or (date_1 < date_2):
+                    data[list(data.keys())[j]], data[list(data.keys())[j + 1]] = data[list(data.keys())[j + 1]], \
+                                                                                 data[list(data.keys())[j]]
+        self.master.json_data = data
 
+    # Import Files function
     def get_import_filename(self, file_names):
 
         if file_names == 0:
@@ -76,7 +90,7 @@ class LaunchFrame:
             self.master.filenames = [file_names["files"]["pgm"], file_names["files"]["yaml"],
                                      file_names["files"]["tmap"]]
             self.master.project_name = file_names["project_name"]
-            self.master.from_recent = 1
+            self.master.from_recent = file_names
 
         # File Validation/Duplication
         check = 0
@@ -154,6 +168,14 @@ class LaunchFrame:
 
                 with open('data/RecentProjects.json', 'w') as fp:
                     json.dump(file_location_dict, fp, indent=2)
+            else:
+                data = self.master.json_data
+                for item in data:
+                    if data[item]["project_name"] == self.master.from_recent["project_name"] and data[item]["last_opened"] == \
+                            self.master.from_recent["last_opened"]:
+                        data[item]["last_opened"] = str(datetime.datetime.now())
+                with open('data/RecentProjects.json', 'w') as fp:
+                    json.dump(data, fp, indent=2)
             return 1
 
     # Reads in and stores the data of the YAML file
