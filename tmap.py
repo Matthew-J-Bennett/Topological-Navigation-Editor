@@ -2,6 +2,7 @@ import logging
 
 logger = logging.getLogger("Topological-Navigation-Editor")
 
+
 # Function to add an action to an existing node,
 # 3 parameters ([node dataset], [name of current node being manipulated],
 #   [name of the node being connected to from current node])
@@ -114,6 +115,7 @@ def update_ori(self, node, new_ori):
     node_data = self.master.tmapdata[node_pos]["node"]["pose"]["orientation"]
     node_data["w"], node_data["x"], node_data["y"], node_data["z"] = new_ori[0], new_ori[1], new_ori[2], new_ori[3]
 
+
 def update_action(self, node, new_action):
     self.logging.info("Update action called.")
     self.logging.info("Action to update: {}".format(new_action[0]))
@@ -124,7 +126,8 @@ def update_action(self, node, new_action):
         if connection["node"] == new_action[0]:
             self.logging.info("Action found: {}".format(connection))
             connection["action"], connection["inflation_radius"], connection["recovery_behaviours_config"], \
-                connection["top_vel"] = new_action[1], new_action[2], new_action[3], new_action[4]
+            connection["top_vel"] = new_action[1], new_action[2], new_action[3], new_action[4]
+
 
 def update_verts(self, node, new_verts):
     self.logging.info("Update verts called.")
@@ -133,6 +136,7 @@ def update_verts(self, node, new_verts):
     selected_vert = self.master.verts_label_text.get()
     vert = int(selected_vert.split(" ")[1]) - 1
     node_data[vert]["x"], node_data[vert]["y"] = new_verts[0], new_verts[1]
+
 
 def update_tolerance(self, node, new_tolerance):
     node_pos = get_node_pos(self, node)
@@ -192,7 +196,7 @@ def swap_to_px(self, pos1, pos2):
 def swap_to_metre(self, pos1, pos2):
     pos1 = (float(pos1) * self.master.yaml_data["resolution"]) + self.master.yaml_data["origin"][0]
     pos2 = ((self.master.pgm["height"] - float(pos2)) * self.master.yaml_data["resolution"]) + \
-        self.master.yaml_data["origin"][1]
+           self.master.yaml_data["origin"][1]
     return pos1, pos2
 
 

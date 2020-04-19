@@ -28,12 +28,7 @@ class Master:
         self.menubar.add_cascade(label="Help", menu=self.helpmenu)
         self.menubar.add_cascade(label="Edit", menu=self.editmenu)
         # Extra menu to test functions quickly (ignore this)
-        self.filemenu.add_command(label="Open", command=lambda: messagebox.showinfo("Open", "Open a file"))
         self.filemenu.add_command(label="Save                   Ctrl+S", command=lambda: self.save_filename())
-        self.filemenu.add_command(label="Recent Files/Projects",
-                                  command=lambda: messagebox.showinfo("Recent Files/Projects",
-                                                                      "Open an Recent "
-                                                                      "Files/Projects"))
         self.filemenu.add_command(label="Quit", command=lambda: self.master.quit())
         self.helpmenu.add_command(label="About", command=lambda: messagebox.showinfo("About", "About the program"))
 
