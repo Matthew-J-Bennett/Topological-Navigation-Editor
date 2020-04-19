@@ -198,6 +198,12 @@ def display_node_info(self, node):
                     self.master.connection_label_text.set(value), select_connection(self)])
             self.master.labels[9].set(data[9][0]["map"])
             select_connection(self)
+        else:
+            self.master.connection_label_text.set("")
+            self.master.node_box['menu'].delete(0, 'end')
+            for label in self.master.labels[11:15]:
+                label.delete(0, tk.END)
+                x = x + 1
     self.master.verts_box['menu'].delete(0, 'end')
     verts_options = ["Vert 1", "Vert 2", "Vert 3", "Vert 4", "Vert 5", "Vert 6", "Vert 7", "Vert 8"]
     self.master.verts_label_text.set(verts_options[0])
