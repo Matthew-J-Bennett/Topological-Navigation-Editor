@@ -311,6 +311,7 @@ class MainFrame:
                                          command=lambda: self._save_and_close())
 
         single_item_button = elements.Button(master=master.master, x=790, y=20, text="Single Mode", width=20,
+                                             relief='solid',
                                              func=lambda: [map_function.change_mode(self, 0),
                                                            self.button_activate(single_item_button),
                                                            self.button_deactivate(multi_item_button)])
