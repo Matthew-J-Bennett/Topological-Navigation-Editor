@@ -15,12 +15,6 @@ class MainFrame:
         self.window = master.master
         self.frame = elements.Frame(master=self.window)
 
-        # Creates a button to switch between frames
-        swap_frame_tmp = elements.Button(master=master.master, x=10, y=750, text="Swap Frame to Launch Frame",
-                                         width=30, func=lambda: self.master.frame_swap(old_frame=self.frame,
-                                                                                       new_frame=lambda:
-                                                                                       frames.LaunchFrame(
-                                                                                           master=self.master)))
         # This block imports the pgm file.
         # Sets a variable for the background image
         self.master.img = tk.PhotoImage(file=self.master.files["pgm"])
@@ -35,6 +29,15 @@ class MainFrame:
         # Creates the Properties Canvas
         properties_canvas = tk.Canvas(self.window, width=450, height=800, scrollregion=(850, 800, 1250, 800))
         properties_canvas.pack(expand=tk.NO, side=tk.RIGHT, fill=tk.BOTH)
+
+        elements.Label(master=master.master, text="Y Scrolling: Mousewheel", x=10, y=660, font=("Roboto", 10),
+                       fg='black', bg="white")
+        elements.Label(master=master.master, text="X Scrolling: CTRL-Mousewheel", x=10, y=680, font=("Roboto", 10),
+                       fg='black', bg="white")
+        elements.Label(master=master.master, text="Single Mode: CTRL-Q", x=10, y=700, font=("Roboto", 10),
+                       fg='black', bg="white")
+        elements.Label(master=master.master, text="Multi Mode: CTRL-E", x=10, y=720, font=("Roboto", 10),
+                       fg='black', bg="white")
 
         # String variables used to store the values obtained from the dictionary to put in the labels
         name_label_text, set_label_text, map_label_text = tk.StringVar(), tk.StringVar(), tk.StringVar()

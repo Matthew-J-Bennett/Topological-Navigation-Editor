@@ -30,7 +30,7 @@ class LaunchFrame:
         # Adds Decorative Image
         logo = elements.Photo(master=master.master, x=280, y=500, imgpath="logo.png", height=200, width=200,
                               relief=tk.RIDGE, bd=3)
-        elements.Label(master=master.master, text="Version v0.3.3", x=80, y=770, font=("Roboto", 18),
+        elements.Label(master=master.master, text=self.master.version, x=30, y=770, font=("Roboto", 18),
                        fg='white', anchor=tk.CENTER)
         elements.Label(master=master.master, text="Newest Version Changes", x=230, y=130, font=("Roboto", 24),
                        fg='white', anchor=tk.CENTER)
