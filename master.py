@@ -19,7 +19,8 @@ class Master:
         self.logger.info("Window Created")
         self.master.iconbitmap(contants.ICON_LOC)
         self.data_loaded = False
-
+        with open('.version', 'r') as file:
+            self.version = file.read()
         self.menubar = Menu(self.master)
         self.filemenu = Menu(self.menubar, tearoff=0)
         self.helpmenu = Menu(self.menubar, tearoff=0)
@@ -29,8 +30,9 @@ class Master:
         self.menubar.add_cascade(label="Edit", menu=self.editmenu)
         # Extra menu to test functions quickly (ignore this)
         self.filemenu.add_command(label="Save                   Ctrl+S", command=lambda: self.save_filename())
-        self.filemenu.add_command(label="Quit", command=lambda: self.master.quit())
-        self.helpmenu.add_command(label="About", command=lambda: messagebox.showinfo("About", "About the program"))
+        self.helpmenu.add_command(label="About", command=lambda: messagebox.showinfo("About",
+                                                                                     "Topological-Navigation-Editor " +
+                                                                                     self.version))
 
         self.master.config(menu=self.menubar)
         self.master.bind("<Control-s>", self.save_shortcut_event)
