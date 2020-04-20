@@ -30,7 +30,9 @@ class Master:
         # Extra menu to test functions quickly (ignore this)
         self.filemenu.add_command(label="Save                   Ctrl+S", command=lambda: self.save_filename())
         self.filemenu.add_command(label="Quit", command=lambda: self.master.quit())
-        self.helpmenu.add_command(label="About", command=lambda: messagebox.showinfo("About", "About the program"))
+        self.helpmenu.add_command(label="About", command=lambda: messagebox.showinfo("About",
+                                                                                     "Topological-Navigation-Editor "
+                                                                                     "v0.3.3"))
 
         self.master.config(menu=self.menubar)
         self.master.bind("<Control-s>", self.save_shortcut_event)

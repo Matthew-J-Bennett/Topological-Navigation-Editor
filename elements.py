@@ -38,7 +38,7 @@ class Button(Element):
         # Attempt as toggle display functionality
         self.on = False
         self.toggle = toggle
-        ######################
+
         self.element = tk.Label(master=master, text=text, font=font, bg=bg, bd=bd, relief=relief, width=width,
                                 height=height)
         self.element.bind(sequence=sequence, func=lambda x: self.clicked(execute=func))
@@ -53,7 +53,7 @@ class Button(Element):
                 pass
             else:
                 self.element.config(bd=2, highlightcolor="deep pink")
-        ######################
+
         if self.animation:
             self.element.config(bg=const.active_colour)
             self.element.after(100, lambda: self.element.config(bg=const.secondary_colour))

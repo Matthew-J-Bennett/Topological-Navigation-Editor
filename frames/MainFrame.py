@@ -280,13 +280,14 @@ class MainFrame:
 
         master.master.bind('<Control-BackSpace>', self.delete_canvas_node_event)
         master.master.bind('<Shift-BackSpace>', self.delete_canvas_node__connection_event)
-
         master.master.bind('<Control-1>', self.add_canvas_node_event)
         master.master.bind('<Control-3>', self.add_canvas_node__connection_event)
         master.master.bind('<Control-d>', self.deselect_node_event)
         master.master.bind('<Control-D>', self.deselect_node_event)
-
+        master.master.bind('<Control-f>', self.add_node_string_event)
         master.master.bind('<Enter>', self._bind_to_mousewheel)
+        master.master.bind('<Control-q>', self.change_mode_single_event)
+        master.master.bind('<Control-e>', self.change_mode_multi_event)
 
         # Adds all of the keyboard shortcut commands to the menu bar
         self.master.editmenu.add_command(label="Deselect Node(s)                               CTRL + D",
@@ -304,25 +305,43 @@ class MainFrame:
         self.master.editmenu.add_command(label="Delete Node Connection                  SHIFT + Backspace",
                                          command=lambda: map_function.delete_connection(self,
                                                                                         self.master.multi_clicked_item))
-        self.master.editmenu.add_command(label="Add Connected Node Line               SHIFT + L",
+        self.master.editmenu.add_command(label="Add Connected Node Line               CTRL + F",
                                          command=lambda: map_function.add_node_string(self,
                                                                                       self.master.multi_clicked_item))
         self.master.filemenu.add_command(label="Close Project",
                                          command=lambda: self._save_and_close())
 
-        single_item_button = elements.Button(master=master.master, x=790, y=20, text="Single Mode", width=20,
-                                             relief='solid',
-                                             func=lambda: [map_function.change_mode(self, 0),
-                                                           self.button_activate(single_item_button),
-                                                           self.button_deactivate(multi_item_button)])
+        self.master.single_item_button = elements.Button(master=master.master, x=790, y=20, text="Single Mode",
+                                                         width=20,
+                                                         relief='solid',
+                                                         func=lambda: [map_function.change_mode(self, 0),
+                                                                       self.button_activate(
+                                                                           self.master.single_item_button),
+                                                                       self.button_deactivate(
+                                                                           self.master.multi_item_button)])
 
-        multi_item_button = elements.Button(master=master.master, x=790, y=70, text="Multi Mode",
-                                            width=20,
-                                            func=lambda: [map_function.change_mode(self, 1),
-                                                          self.button_activate(multi_item_button),
-                                                          self.button_deactivate(single_item_button)])
+        self.master.multi_item_button = elements.Button(master=master.master, x=790, y=70, text="Multi Mode",
+                                                        width=20,
+                                                        func=lambda: [map_function.change_mode(self, 1),
+                                                                      self.button_activate(
+                                                                          self.master.multi_item_button),
+                                                                      self.button_deactivate(
+                                                                          self.master.single_item_button)])
 
         tk.mainloop()
+
+    def change_mode_single_event(self, event):
+        map_function.change_mode(self, 0)
+        self.button_activate(self.master.single_item_button)
+        self.button_deactivate(self.master.multi_item_button)
+
+    def change_mode_multi_event(self, event):
+        map_function.change_mode(self, 1)
+        self.button_activate(self.master.multi_item_button)
+        self.button_deactivate(self.master.single_item_button)
+
+    def add_node_string_event(self, event):
+        map_function.add_node_string(self, self.master.multi_clicked_item)
 
     def button_activate(self, button):
         button.element.config(relief='solid')

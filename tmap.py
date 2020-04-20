@@ -1,5 +1,6 @@
 import logging
 import os
+
 logger = logging.getLogger("Topological-Navigation-Editor")
 
 
@@ -74,7 +75,8 @@ def add_node(self, top_map, point_set, orientation, position):
             name += 1
             count = 0
     name = "WayPoint" + str(name)
-    meta_dict = {"map": os.path.basename(os.path.normpath(self.master.map_name)), "node": name, "pointset": self.master.project_name}
+    meta_dict = {"map": os.path.basename(os.path.normpath(self.master.map_name)), "node": name,
+                 "pointset": self.master.project_name}
     ori_dict = {"w": orientation[0], "x": orientation[1], "y": orientation[2], "z": orientation[3]}
     pos_dict = {"x": position[0], "y": position[1], "z": position[2]}
     verts_dict = [{"x": 0.689999997616, "y": 0.287000000477}, {"x": 0.287000000477, "y": 0.490000009537},

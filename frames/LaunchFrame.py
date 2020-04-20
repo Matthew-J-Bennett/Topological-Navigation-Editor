@@ -28,8 +28,31 @@ class LaunchFrame:
         self.master.from_recent = 0
 
         # Adds Decorative Image
-        logo = elements.Photo(master=master.master, x=100, y=150, imgpath="logo.png", height=200, width=200,
+        logo = elements.Photo(master=master.master, x=280, y=500, imgpath="logo.png", height=200, width=200,
                               relief=tk.RIDGE, bd=3)
+        elements.Label(master=master.master, text="Version v0.3.3", x=80, y=770, font=("Roboto", 18),
+                       fg='white', anchor=tk.CENTER)
+        elements.Label(master=master.master, text="Newest Version Changes", x=230, y=130, font=("Roboto", 24),
+                       fg='white', anchor=tk.CENTER)
+        elements.Label(master=master.master, text="Added:", x=50, y=180, font=("Roboto", 22),
+                       fg='white')
+        elements.Label(master=master.master, text="- Visual Depiction of the the current mode", x=50, y=220,
+                       font=("Roboto", 16),
+                       fg='white')
+        elements.Label(master=master.master, text="Fixes: ", x=50, y=260, font=("Roboto", 22),
+                       fg='white')
+        elements.Label(master=master.master, text="- Fix map name - Under specific conditions, the map name would",
+                       x=50, y=300, font=("Roboto", 16),
+                       fg='white')
+        elements.Label(master=master.master, text=" not be correct.", x=50,
+                       y=330, font=("Roboto", 16),
+                       fg='white')
+        elements.Label(master=master.master, text="- Fix connection info not updating nodes with blank data.", x=50,
+                       y=370, font=("Roboto", 16),
+                       fg='white')
+        elements.Label(master=master.master, text="- Code cleanup", x=50, y=410, font=("Roboto", 16),
+                       fg='white')
+
         # Adds a title to the top of the screen
         elements.Label(master=master.master, text="Topological-Navigation-Editor", x=625, y=50, font=("Roboto", 44),
                        fg='white', anchor=tk.CENTER)
