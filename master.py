@@ -1,6 +1,6 @@
 import tkinter as tk
 import frames as frame
-
+import os
 from tkinter import Menu, messagebox, filedialog
 import yaml
 import contants
@@ -23,22 +23,25 @@ class Master:
             self.version = file.read()
         self.menubar = Menu(self.master)
         self.filemenu = Menu(self.menubar, tearoff=0)
-        self.helpmenu = Menu(self.menubar, tearoff=0)
         self.editmenu = Menu(self.menubar, tearoff=0)
+        self.helpmenu = Menu(self.menubar, tearoff=0)
         self.menubar.add_cascade(label="File", menu=self.filemenu)
-        self.menubar.add_cascade(label="Help", menu=self.helpmenu)
         self.menubar.add_cascade(label="Edit", menu=self.editmenu)
+        self.menubar.add_cascade(label="Help", menu=self.helpmenu)
         # Extra menu to test functions quickly (ignore this)
         self.filemenu.add_command(label="Save                   Ctrl+S", command=lambda: self.save_filename())
-        self.helpmenu.add_command(label="About", command=lambda: messagebox.showinfo("About",
-                                                                                     "Topological-Navigation-Editor " +
-                                                                                     self.version))
+        self.helpmenu.add_command(label="About", command=lambda: self.open_help())
 
         self.master.config(menu=self.menubar)
         self.master.bind("<Control-s>", self.save_shortcut_event)
 
     def save_shortcut_event(self, event):
         self.save_filename()
+
+    @staticmethod
+    def open_help():
+        file = "notepad.exe help.txt"
+        os.system(file)
 
     def save_filename(self):
         if self.data_loaded:
