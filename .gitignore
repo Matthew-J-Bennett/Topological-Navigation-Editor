@@ -8,6 +8,7 @@ __pycache__/
 
 tempDir
 data
+files
 
 # Distribution / packaging
 .Python
