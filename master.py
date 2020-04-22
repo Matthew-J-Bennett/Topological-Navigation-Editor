@@ -4,6 +4,7 @@ import os
 from tkinter import Menu, messagebox, filedialog
 import yaml
 import contants
+import json
 
 
 class Master:
@@ -50,6 +51,16 @@ class Master:
                 self.logger.info("Opening File Save Dialog box")
                 files2 = [('TMAP Files', '*.tmap')]
                 file = filedialog.asksaveasfilename(filetypes=files2, defaultextension='.tmap')
+                if self.from_recent:
+                    with open('data/RecentProjects.json', 'r') as f:
+                        data = json.loads(f.read())
+                    for item in data:
+                        if data[item]["project_name"] == self.from_recent["project_name"] and data[item][
+                            "last_opened"] == \
+                                self.from_recent["last_opened"]:
+                            data[item]["files"]["tmap"] = file
+                    with open('data/RecentProjects.json', 'w') as fp:
+                        json.dump(data, fp, indent=2)
 
             else:
                 file = self.files["tmap"]
@@ -62,6 +73,7 @@ class Master:
             with open(file, "w") as outfile:
                 yaml.dump(self.tmapdata, outfile, default_flow_style=False)
             self.logger.info("Save Complete")
+
         else:
             messagebox.showerror("Can't save data", "Can not save because no data is loaded to save")
 
