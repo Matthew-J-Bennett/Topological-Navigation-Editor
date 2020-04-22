@@ -88,9 +88,11 @@ class LaunchFrame:
         # Adds Decorative Image
         logo = elements.Photo(master=master.master, x=80, y=150, imgpath="logo.png", height=200, width=200,
                               relief=tk.RIDGE, bd=3)
-        elements.Label(master=master.master, text="Release Notes:", x=180, y=400, font=("Roboto", 18), fg='white', anchor=tk.CENTER)
+        elements.Label(master=master.master, text="Release Notes:", x=180, y=400, font=("Roboto", 18), fg='white',
+                       anchor=tk.CENTER)
         elements.Label(master=master.master, text=notes2, x=80, y=430, font=("Roboto", 16), fg='white', anchor='nw')
-        elements.Label(master=master.master, text=version, x=40, y=760, font=("Roboto", 18), fg='white', anchor=tk.CENTER)
+        elements.Label(master=master.master, text=version, x=40, y=760, font=("Roboto", 18), fg='white',
+                       anchor=tk.CENTER)
 
         # Adds a title to the top of the screen
         elements.Label(master=master.master, text="Topological-Navigation-Editor", x=625, y=50, font=("Roboto", 44),
@@ -118,7 +120,8 @@ class LaunchFrame:
             if max_val < 10:
                 y_pos = y_pos + 50
                 elements.Button(master=master.master, x=759, y=110 + y_pos,
-                                text=(data[item]["project_name"] + "  -/-  " + data[item]["last_opened"].split(".")[0]), width=60,
+                                text=(data[item]["project_name"] + "  -/-  " + data[item]["last_opened"].split(".")[0]),
+                                width=60,
                                 func=lambda j=item: self.get_import_filename(j))
         if max_val == 0:
             elements.Label(master=master.master, text="Recent files go here...", x=975, y=200, font=("Roboto", 24),
@@ -284,7 +287,7 @@ class LaunchFrame:
             ("Map files", ".pgm"), ("all files", "*.*")))
         if not self.master.file_name == "":
 
-            shutil.copy2(self.master.file_name, os.getcwd()+"\\files")
+            shutil.copy2(self.master.file_name, os.getcwd() + "\\files")
             if self.new_yaml() == 1:
                 self.master.from_new = 1
                 self.get_import_filename(1)
@@ -297,22 +300,25 @@ class LaunchFrame:
         user_yaml = YamlDialog(self.window)
         self.logging.info(user_yaml.result)
         map_split = self.master.file_name.split("/")
-        map_name = map_split[len(map_split)-1].replace(".pgm", "")
+        map_name = map_split[len(map_split) - 1].replace(".pgm", "")
         if user_yaml.result != 0:
-            yaml_data = {'free_thresh': float(user_yaml.result[0]), 'image': str(map_name), 'negate': float(user_yaml.result[1]), 'occupied_thresh': float(user_yaml.result[2]),
-                         'origin': [float(user_yaml.result[3]), float(user_yaml.result[4]), float(user_yaml.result[5])], 'resolution': float(user_yaml.result[6])}
+            yaml_data = {'free_thresh': float(user_yaml.result[0]), 'image': str(map_name),
+                         'negate': float(user_yaml.result[1]), 'occupied_thresh': float(user_yaml.result[2]),
+                         'origin': [float(user_yaml.result[3]), float(user_yaml.result[4]), float(user_yaml.result[5])],
+                         'resolution': float(user_yaml.result[6])}
             self.logging.info(yaml_data)
             if not os.path.exists("files/"):
                 os.mkdir("files/")
-            if not os.path.exists("files/"+self.master.project_name+".yaml"):
-                with open("files/"+self.master.project_name+".yaml", 'w') as outfile:
+            if not os.path.exists("files/" + self.master.project_name + ".yaml"):
+                with open("files/" + self.master.project_name + ".yaml", 'w') as outfile:
                     yaml.dump(yaml_data, outfile, default_flow_style=False)
-            if not os.path.exists("files/"+self.master.project_name+".tmap"):
-                with open("files/"+self.master.project_name+".tmap", 'w') as outfile:
+            if not os.path.exists("files/" + self.master.project_name + ".tmap"):
+                with open("files/" + self.master.project_name + ".tmap", 'w') as outfile:
                     pass
             directory = os.getcwd()
-            self.master.filenames = [directory+"\\files\\"+map_name+".pgm", directory+"\\files\\"+self.master.project_name+".yaml", directory+"\\files\\"+self.master.project_name+".tmap"]
+            self.master.filenames = [directory + "\\files\\" + map_name + ".pgm",
+                                     directory + "\\files\\" + self.master.project_name + ".yaml",
+                                     directory + "\\files\\" + self.master.project_name + ".tmap"]
             return 1
         else:
             return 0
-
