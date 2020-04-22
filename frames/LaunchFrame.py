@@ -311,7 +311,8 @@ class LaunchFrame:
             if user_yaml.result and user_yaml.result != 0:
                 yaml_data = {'free_thresh': float(user_yaml.result[0]), 'image': str(map_name),
                              'negate': float(user_yaml.result[1]), 'occupied_thresh': float(user_yaml.result[2]),
-                             'origin': [float(user_yaml.result[3]), float(user_yaml.result[4]), float(user_yaml.result[5])],
+                             'origin': [float(user_yaml.result[3]), float(user_yaml.result[4]),
+                                        float(user_yaml.result[5])],
                              'resolution': float(user_yaml.result[6])}
                 self.logging.info(yaml_data)
                 if not os.path.exists("files/"):

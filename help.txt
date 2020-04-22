@@ -70,7 +70,7 @@ When interacting with the map you need to be in one of two modes:
         5.2.1 - Creating A Connection
         
         To create an action between two nodes simply have two selected and use the Add Node Connection option 
-	in the edit menu or use the shortcut CTRL + Mouse 2. This will create an action from the first
+	in the edit menu or use the shortcut CTRL + R. This will create an action from the first
         selected node to the second selected node in order to create another action in the opposite direction
         you must deselect the nodes and select them in the reverse order then proceed as normal.
 
