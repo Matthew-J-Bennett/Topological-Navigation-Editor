@@ -38,6 +38,8 @@ class MainFrame:
                        fg='black', bg="white")
         elements.Label(master=master.master, text="Multi Mode: CTRL-E", x=10, y=720, font=("Roboto", 10),
                        fg='black', bg="white")
+        elements.Label(master=master.master, text="Drag Node: Right-Click", x=10, y=740, font=("Roboto", 10),
+                       fg='black', bg="white")
 
         # String variables used to store the values obtained from the dictionary to put in the labels
         name_label_text, set_label_text, map_label_text = tk.StringVar(), tk.StringVar(), tk.StringVar()
