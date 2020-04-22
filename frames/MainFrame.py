@@ -286,7 +286,7 @@ class MainFrame:
         master.master.bind('<Control-BackSpace>', self.delete_canvas_node_event)
         master.master.bind('<Shift-BackSpace>', self.delete_canvas_node__connection_event)
         master.master.bind('<Control-1>', self.add_canvas_node_event)
-        master.master.bind('<Control-3>', self.add_canvas_node__connection_event)
+        master.master.bind('<Control-r>', self.add_canvas_node__connection_event)
         master.master.bind('<Control-d>', self.deselect_node_event)
         master.master.bind('<Control-D>', self.deselect_node_event)
         master.master.bind('<Control-f>', self.add_node_string_event)
@@ -301,7 +301,7 @@ class MainFrame:
 
         self.master.editmenu.add_command(label="Add Node                                           CTRL + Mouse 1",
                                          command=lambda: map_function.add_canvas_node(self, self.master.clicked_pos))
-        self.master.editmenu.add_command(label="Add Node Connection                     CTRL + Mouse 2",
+        self.master.editmenu.add_command(label="Add Node Connection                     CTRL + R",
                                          command=lambda: map_function.add_canvas_connection(self,
                                                                                             self.master.multi_clicked_item))
         self.master.editmenu.add_command(label="Delete Node                                       CTRL + Backspace",
@@ -310,7 +310,7 @@ class MainFrame:
         self.master.editmenu.add_command(label="Delete Node Connection                  SHIFT + Backspace",
                                          command=lambda: map_function.delete_connection(self,
                                                                                         self.master.multi_clicked_item))
-        self.master.editmenu.add_command(label="Add Connected Node Line               CTRL + F",
+        self.master.editmenu.add_command(label="Add Connected Node Line              CTRL + F",
                                          command=lambda: map_function.add_node_string(self,
                                                                                       self.master.multi_clicked_item))
         self.master.filemenu.add_command(label="Close Project",
