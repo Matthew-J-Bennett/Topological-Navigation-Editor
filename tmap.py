@@ -62,19 +62,22 @@ def delete_action(self, node_name, node_connection):
 # 6 parameters ([node dataset], [map name], [name of pointset], [orientation as list of 4 values],
 #   [position as list of 3 values], [vertices of node as list of 8 lists of 2 values each])
 def add_node(self, top_map, point_set, orientation, position):
-    name = 1
-    name_found, count = 0, 0
-    while name_found == 0:
-        for points in self.master.tmapdata:
-            current_name = points["meta"]["node"].replace("WayPoint", "")
-            if int(current_name) != name:
-                count += 1
-        if count != len(self.master.tmapdata) - 1:
-            name_found = 1
-        else:
-            name += 1
-            count = 0
-    name = "WayPoint" + str(name)
+    if self.master.tmapdata:
+        name = 1
+        name_found, count = 0, 0
+        while name_found == 0:
+            for points in self.master.tmapdata:
+                current_name = points["meta"]["node"].replace("WayPoint", "")
+                if int(current_name) != name:
+                    count += 1
+            if count != len(self.master.tmapdata) - 1:
+                name_found = 1
+            else:
+                name += 1
+                count = 0
+        name = "WayPoint" + str(name)
+    else:
+        name = "WayPoint0"
     meta_dict = {"map": os.path.basename(os.path.normpath(self.master.map_name)), "node": name,
                  "pointset": self.master.project_name}
     ori_dict = {"w": orientation[0], "x": orientation[1], "y": orientation[2], "z": orientation[3]}
@@ -91,7 +94,10 @@ def add_node(self, top_map, point_set, orientation, position):
                                                         "pose": {"orientation": ori_dict, "position": pos_dict},
                                                         "verts": verts_dict,
                                                         "xy_goal_tolerance": "0.3", "yaw_goal_tolerance": "0.1"}}
-                self.master.tmapdata.append(new_node)
+                if self.master.tmapdata:
+                    self.master.tmapdata.append(new_node)
+                else:
+                    self.master.tmapdata = [new_node]
                 logger.info("Node created " + str(name))
                 logger.info(new_node)
                 return name
