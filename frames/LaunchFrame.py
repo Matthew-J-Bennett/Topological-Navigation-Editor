@@ -286,7 +286,8 @@ class LaunchFrame:
         self.master.file_name = filedialog.askopenfilename(initialdir="/", title="Select PGM File", filetypes=(
             ("Map files", ".pgm"), ("all files", "*.*")))
         if not self.master.file_name == "":
-
+            if not os.path.exists("files/"):
+                os.mkdir("files/")
             shutil.copy2(self.master.file_name, os.getcwd() + "\\files")
             if self.new_yaml() == 1:
                 self.master.from_new = 1
