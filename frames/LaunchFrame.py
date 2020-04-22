@@ -282,10 +282,12 @@ class LaunchFrame:
     def new_project(self):
         self.master.file_name = filedialog.askopenfilename(initialdir="/", title="Select PGM File", filetypes=(
             ("Map files", ".pgm"), ("all files", "*.*")))
-        shutil.copy2(self.master.file_name, os.getcwd()+"\\files")
-        if self.new_yaml() == 1:
-            self.master.from_new = 1
-            self.get_import_filename(1)
+        if not self.master.file_name == "":
+
+            shutil.copy2(self.master.file_name, os.getcwd()+"\\files")
+            if self.new_yaml() == 1:
+                self.master.from_new = 1
+                self.get_import_filename(1)
 
     def new_yaml(self):
         self.master.project_name = simpledialog.askstring(title="Project Name",
