@@ -251,6 +251,7 @@ class LaunchFrame:
                         "last_opened"] == \
                             self.master.from_recent["last_opened"]:
                         data[item]["last_opened"] = str(datetime.datetime.now())
+                        self.master.from_recent["last_opened"] = data[item]["last_opened"]
                 with open('data/RecentProjects.json', 'w') as fp:
                     json.dump(data, fp, indent=2)
             return 1
