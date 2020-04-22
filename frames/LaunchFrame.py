@@ -43,6 +43,10 @@ class YamlDialog(simpledialog.Dialog):
         for result in self.result:
             try:
                 float(result)
+                if result == "":
+                    error = 1
+                    self.result = 0
+                    messagebox.showerror("Error", "YAML data must not be empty.")
             except ValueError:
                 if error == 0:
                     messagebox.showerror("Error", "YAML data must be float values.")
@@ -297,29 +301,32 @@ class LaunchFrame:
         self.master.project_name = simpledialog.askstring(title="Project Name",
                                                           prompt="Please choose a name for your collection of "
                                                                  "files:")
-        self.logging.info("file name: {}".format(self.master.project_name))
-        user_yaml = YamlDialog(self.window)
-        self.logging.info(user_yaml.result)
-        map_split = self.master.file_name.split("/")
-        map_name = map_split[len(map_split) - 1].replace(".pgm", "")
-        if user_yaml.result != 0:
-            yaml_data = {'free_thresh': float(user_yaml.result[0]), 'image': str(map_name),
-                         'negate': float(user_yaml.result[1]), 'occupied_thresh': float(user_yaml.result[2]),
-                         'origin': [float(user_yaml.result[3]), float(user_yaml.result[4]), float(user_yaml.result[5])],
-                         'resolution': float(user_yaml.result[6])}
-            self.logging.info(yaml_data)
-            if not os.path.exists("files/"):
-                os.mkdir("files/")
-            if not os.path.exists("files/" + self.master.project_name + ".yaml"):
-                with open("files/" + self.master.project_name + ".yaml", 'w') as outfile:
-                    yaml.dump(yaml_data, outfile, default_flow_style=False)
-            if not os.path.exists("files/" + self.master.project_name + ".tmap"):
-                with open("files/" + self.master.project_name + ".tmap", 'w') as outfile:
-                    pass
-            directory = os.getcwd()
-            self.master.filenames = [directory + "\\files\\" + map_name + ".pgm",
-                                     directory + "\\files\\" + self.master.project_name + ".yaml",
-                                     directory + "\\files\\" + self.master.project_name + ".tmap"]
-            return 1
+        if self.master.project_name:
+            self.logging.info("file name: {}".format(self.master.project_name))
+            user_yaml = YamlDialog(self.window)
+            self.logging.info(user_yaml.result)
+            map_split = self.master.file_name.split("/")
+            map_name = map_split[len(map_split) - 1].replace(".pgm", "")
+            if user_yaml.result and user_yaml.result != 0:
+                yaml_data = {'free_thresh': float(user_yaml.result[0]), 'image': str(map_name),
+                             'negate': float(user_yaml.result[1]), 'occupied_thresh': float(user_yaml.result[2]),
+                             'origin': [float(user_yaml.result[3]), float(user_yaml.result[4]), float(user_yaml.result[5])],
+                             'resolution': float(user_yaml.result[6])}
+                self.logging.info(yaml_data)
+                if not os.path.exists("files/"):
+                    os.mkdir("files/")
+                if not os.path.exists("files/" + self.master.project_name + ".yaml"):
+                    with open("files/" + self.master.project_name + ".yaml", 'w') as outfile:
+                        yaml.dump(yaml_data, outfile, default_flow_style=False)
+                if not os.path.exists("files/" + self.master.project_name + ".tmap"):
+                    with open("files/" + self.master.project_name + ".tmap", 'w') as outfile:
+                        pass
+                directory = os.getcwd()
+                self.master.filenames = [directory + "\\files\\" + map_name + ".pgm",
+                                         directory + "\\files\\" + self.master.project_name + ".yaml",
+                                         directory + "\\files\\" + self.master.project_name + ".tmap"]
+                return 1
+            else:
+                return 0
         else:
             return 0
