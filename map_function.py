@@ -9,20 +9,21 @@ logger = logging.getLogger("Topological-Navigation-Editor")
 # Function to plot all the points on the canvas, first cycles through all the nodes and plots them then cycles
 #   through all the links and plots them.
 def plot_canvas(self):
-    for point in self.master.tmapdata:
-        name = point["node"]["name"]
-        position = point["node"]["pose"]["position"]
-        pos_x, pos_y = tmap.swap_to_px(self, position["x"], position["y"])
-        node = self.map_canvas.create_oval(pos_x - 4, pos_y - 4, pos_x + 4, pos_y + 4, fill="blue",
-                                           tags=("point", name))
-    for point in self.master.tmapdata:
-        links = point["node"]["edges"]
-        position = point["node"]["pose"]["position"]
-        pos_x, pos_y = tmap.swap_to_px(self, position["x"], position["y"])
-        for link in links:
-            if link != "":
-                create_node_link(self, [pos_x, pos_y], link)
-    self.map_canvas.tag_raise("point")
+    if self.master.tmapdata:
+        for point in self.master.tmapdata:
+            name = point["node"]["name"]
+            position = point["node"]["pose"]["position"]
+            pos_x, pos_y = tmap.swap_to_px(self, position["x"], position["y"])
+            node = self.map_canvas.create_oval(pos_x - 4, pos_y - 4, pos_x + 4, pos_y + 4, fill="blue",
+                                               tags=("point", name))
+        for point in self.master.tmapdata:
+            links = point["node"]["edges"]
+            position = point["node"]["pose"]["position"]
+            pos_x, pos_y = tmap.swap_to_px(self, position["x"], position["y"])
+            for link in links:
+                if link != "":
+                    create_node_link(self, [pos_x, pos_y], link)
+        self.map_canvas.tag_raise("point")
 
 
 # Function for plotting a single canvas node connection, used by some other functions

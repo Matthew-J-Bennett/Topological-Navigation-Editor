@@ -4,7 +4,9 @@
 
 When starting a new project, the user should select the open files button and select three files,
 1 PGM file containing the map image, 1 TMAP file containing any existing topological map info and 
-1 YAML file containing additional occupancy settings.
+1 YAML file containing additional occupancy settings. If you don't have an any existing topological
+map data or a yaml setup file you can start fresh by selecting just the PGM image, you will then
+be prompted to enter the relevant YAML data.
 
 2 - Recent Files
 
@@ -86,7 +88,12 @@ When interacting with the map you need to be in one of two modes:
         this is the number of nodes that will be added between the two selected nodes, each node will be spaced
         equally apart from each other and will have one action that leads to the next node in the line.
 
-6 - Finishing Up
+6 - Dragging Nodes
+
+Nodes can be easily moved around by dragging them, simply hold down right-click on a node and move your mouse to move
+the node around the map, the position of the node will be automatically updated to its new location on the map.
+
+7 - Finishing Up
 
 To save your work simply select the save option in the File menu or use the shortcut CTRL + S, this relates to the TMAP 
 file only so you can either save it as a new file or overwrite the previous TMAP file if you wish to continue the project 
